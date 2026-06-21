@@ -1,0 +1,142 @@
+<script lang="ts">
+  import "../../app.css";
+
+  let {
+    nextProjectName = "",
+    nextProjectSlug = "",
+    nextProjectClient = "",
+  }: {
+    nextProjectName?: string;
+    nextProjectSlug?: string;
+    nextProjectClient?: string;
+  } = $props();
+</script>
+
+<footer class="footer">
+  {#if nextProjectSlug && nextProjectName}
+    <a href="/work/{nextProjectSlug}" class="next-project-link">
+      <span class="next-label">Next Project</span>
+      <div class="next-project-info">
+        <span class="next-client">{nextProjectClient}</span>
+        <span class="next-title">{nextProjectName}</span>
+      </div>
+    </a>
+  {/if}
+
+  <div class="footer-bottom">
+    <div class="footer-left">
+      <span class="copyright">© {new Date().getFullYear()} Virgil</span>
+    </div>
+    <div class="footer-links">
+      <a
+        href="https://linkedin.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="footer-link">LinkedIn</a
+      >
+      <a
+        href="https://instagram.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="footer-link">Instagram</a
+      >
+      <a href="mailto:hello@virgil.studio" class="footer-link">Email</a>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    width: 100%;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    background: var(--bg-color);
+    margin-top: 96px;
+    background-color: var(--bg-color-secondary);
+  }
+
+  .next-project-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 96px 48px;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.02);
+    transition: background 0.3s ease;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  }
+
+  .next-project-link:hover {
+    background: rgba(0, 0, 0, 0.04);
+  }
+
+  .next-label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-primary);
+    margin-bottom: 32px;
+    padding: 6px 16px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    background: var(--bg-color);
+  }
+
+  .next-project-info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .next-client {
+    font-size: 16px;
+    font-weight: 300;
+    color: var(--text-secondary);
+  }
+
+  .next-title {
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 300;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+    line-height: 1.1;
+  }
+
+  .footer-bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 48px;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: center;
+  }
+
+  @media (min-width: 768px) {
+    .footer-bottom {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  .copyright {
+    font-size: 13px;
+    color: var(--text-secondary);
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 24px;
+  }
+
+  .footer-link {
+    font-size: 13px;
+    color: var(--text-secondary);
+    transition: color 0.2s ease;
+  }
+
+  .footer-link:hover {
+    color: var(--text-primary);
+  }
+</style>

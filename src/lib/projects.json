@@ -1,0 +1,215 @@
+[
+  {
+    "slug": "google-io-machine-learning",
+    "client": "Google I/O",
+    "project": "Machine learning",
+    "description": "A comprehensive overhaul of Meridian Health's visual identity — from typography and color to a full component library used across digital and print touchpoints. The goal was to unify 12 regional sub-brands under a single, accessible design language without erasing local character.",
+    "media": "/projects/google-machine-learning/card.mp4",
+    "mediaType": "video",
+    "heroMedia": "/projects/google-machine-learning/card.mp4",
+    "heroMediaType": "video"
+  },
+  {
+    "slug": "google-trivia-twister",
+    "client": "Google Gemini",
+    "project": "Trivia Twister",
+    "description": "Designed and produced an interactive in-store environment for Forma Studio's flagship New York location. The installation blends physical product displays with reactive digital surfaces, creating a seamless narrative that guides customers through the brand story.",
+    "media": "/projects/google-trivia-twister/card.png",
+    "mediaType": "image",
+    "heroMedia": "/projects/google-trivia-twister/card.png",
+    "heroMediaType": "image"
+  },
+  {
+    "slug": "virgin-galactic",
+    "client": "Virgin Galactic",
+    "project": "Brand Website",
+    "description": "A data-driven annual report that translates complex financial performance into clear, compelling visual narratives. Custom infographics, editorial photography direction, and a print-ready layout system were developed in tandem with the digital web version.",
+    "media": "/projects/virgin-galactic/card.jpg",
+    "mediaType": "image",
+    "heroMedia": "/projects/virgin-galactic/hero.jpg",
+    "heroMediaType": "image"
+  },
+  {
+    "slug": "google-altitude",
+    "client": "Google Jigsaw",
+    "project": "Altitude",
+    "description": "Redefining the annual report through a fully responsive digital experience. We moved beyond static PDF layouts to create a narrative-driven platform that adapts from billboard-scale displays to mobile screens, showcasing the year’s research and impact with dynamic typography and motion-rich data visualizations.",
+    "media": "/projects/google-altitude/card.png",
+    "mediaType": "image",
+    "heroMedia": "/projects/google-altitude/card.png",
+    "heroMediaType": "image"
+  },
+  {
+    "slug": "google-jules",
+    "client": "Google Gemini",
+    "project": "Jules",
+    "description": "Google's internal brand identity for the next generation of large language models.",
+    "media": "/projects/google-jules/card.jpg",
+    "mediaType": "image",
+    "heroMedia": "/projects/google-jules/hero.jpg",
+    "heroMediaType": "image"
+  },
+  {
+    "slug": "roam",
+    "client": "ROAM",
+    "project": "Brand Website",
+    "description": "Redefining the annual report through a fully responsive digital experience. We moved beyond static PDF layouts to create a narrative-driven platform that adapts from billboard-scale displays to mobile screens, showcasing the year’s research and impact with dynamic typography and motion-rich data visualizations.",
+    "media": "/projects/roam/card.mp4",
+    "mediaType": "video",
+    "heroMedia": "/projects/roam/hero.mp4",
+    "heroMediaType": "video"
+  },
+  {
+    "slug": "google-recorder",
+    "client": "Google",
+    "project": "Recorder",
+    "description": "A comprehensive live playground demonstrating all modular layouts built for the Virgil portfolio stack. This page is constructed entirely using the dynamically compiled components folder, including SideBySide blocks, WideMedia displays, and custom-styled recognition lists.",
+    "media": "/projects/google-recorder/card.jpg",
+    "mediaType": "image",
+    "heroMedia": "/projects/google-recorder/hero.jpg",
+    "heroMediaType": "image",
+    "sections": [
+      {
+        "type": "wide-media",
+        "media": "/projects/google-recorder/hero.jpg",
+        "mediaType": "image",
+        "contained": false,
+        "caption": "Full-bleed showcase of interactive video installation"
+      },
+      {
+        "type": "intro",
+        "client": "Google",
+        "project": "Recorder",
+        "description": "This demo project showcases all the visual and interactive layout components built for this portfolio site — from SideBySide panels to WideMedia heroes and recognition lists.",
+        "year": "2026",
+        "techStack": "Angular, Tailwind CSS, TypeScript, SvelteKit",
+        "links": [
+          { "title": "Live Demo", "url": "https://example.com" },
+          { "title": "GitHub Repo", "url": "https://github.com" }
+        ],
+        "awards": [
+          {
+            "year": "2026",
+            "title": "FWA Site of the Year",
+            "category": "Interactive Portfolio"
+          },
+          {
+            "year": "2026",
+            "title": "Awwwards Site of the Day",
+            "category": "Design & Development"
+          }
+        ]
+      },
+
+      {
+        "type": "side-by-side",
+        "direction": "left",
+        "media": "/projects/google-trivia-twister/card.png",
+        "mediaType": "image",
+        "text": "Detailed design layout showcasing responsive typography, vibrant custom art components, and crisp alignment grids.",
+        "caption": "Side-by-side view with text left and image right"
+      },
+      {
+        "type": "wide-media",
+        "media": "/projects/google-altitude/card.png",
+        "mediaType": "image",
+        "contained": true,
+        "caption": "Contained media container displaying key platform dashboard features"
+      },
+      {
+        "type": "side-by-side",
+        "direction": "right",
+        "media": "/projects/roam/card.mp4",
+        "mediaType": "video",
+        "text": "Capturing motion workflows and dynamic scaling behaviors on the client devices.",
+        "caption": "Side-by-side view with text right and video left"
+      },
+      {
+        "type": "side-by-side",
+        "direction": "left",
+        "media": "/projects/google-jules/card.jpg",
+        "mediaType": "image",
+        "caption": "Primary media focus (Left)",
+        "media2": "/projects/virgin-galactic/card.jpg",
+        "mediaType2": "image",
+        "caption2": "Secondary media focus (Right)"
+      }
+    ]
+  },
+  {
+    "slug": "component-showcase",
+    "client": "Virgil Showcase",
+    "project": "Component Playground",
+    "description": "A comprehensive live playground demonstrating all modular layouts built for the Virgil portfolio stack. This page is constructed entirely using the dynamically compiled components folder, including SideBySide blocks, WideMedia displays, and custom-styled recognition lists.",
+    "media": "/projects/google-trivia-twister/card.png",
+    "mediaType": "image",
+    "heroMedia": "/projects/google-trivia-twister/card.png",
+    "heroMediaType": "image",
+    "sections": [
+      {
+        "type": "intro",
+        "client": "Virgil Showcase",
+        "project": "Component Playground",
+        "description": "This demo project showcases all the visual and interactive layout components built for this portfolio site — from SideBySide panels to WideMedia heroes and recognition lists.",
+        "year": "2026",
+        "techStack": "Angular, Tailwind CSS, TypeScript, SvelteKit",
+        "links": [
+          { "title": "Live Demo", "url": "https://example.com" },
+          { "title": "GitHub Repo", "url": "https://github.com" }
+        ],
+        "awards": [
+          {
+            "year": "2026",
+            "title": "FWA Site of the Year",
+            "category": "Interactive Portfolio"
+          },
+          {
+            "year": "2026",
+            "title": "Awwwards Site of the Day",
+            "category": "Design & Development"
+          }
+        ]
+      },
+      {
+        "type": "wide-media",
+        "media": "/projects/google-machine-learning/card.mp4",
+        "mediaType": "video",
+        "contained": false,
+        "caption": "Full-bleed showcase of interactive video installation"
+      },
+      {
+        "type": "side-by-side",
+        "direction": "left",
+        "media": "/projects/google-trivia-twister/card.png",
+        "mediaType": "image",
+        "text": "Detailed design layout showcasing responsive typography, vibrant custom art components, and crisp alignment grids.",
+        "caption": "Side-by-side view with text left and image right"
+      },
+      {
+        "type": "wide-media",
+        "media": "/projects/google-altitude/card.png",
+        "mediaType": "image",
+        "contained": true,
+        "caption": "Contained media container displaying key platform dashboard features"
+      },
+      {
+        "type": "side-by-side",
+        "direction": "right",
+        "media": "/projects/roam/card.mp4",
+        "mediaType": "video",
+        "text": "Capturing motion workflows and dynamic scaling behaviors on the client devices.",
+        "caption": "Side-by-side view with text right and video left"
+      },
+      {
+        "type": "side-by-side",
+        "direction": "left",
+        "media": "/projects/google-jules/card.jpg",
+        "mediaType": "image",
+        "caption": "Primary media focus (Left)",
+        "media2": "/projects/virgin-galactic/card.jpg",
+        "mediaType2": "image",
+        "caption2": "Secondary media focus (Right)"
+      }
+    ]
+  }
+]
