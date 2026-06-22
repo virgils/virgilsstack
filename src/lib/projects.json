@@ -3,145 +3,667 @@
     "slug": "google-io-machine-learning",
     "client": "Google I/O",
     "project": "Machine learning",
-    "description": "A comprehensive overhaul of Meridian Health's visual identity — from typography and color to a full component library used across digital and print touchpoints. The goal was to unify 12 regional sub-brands under a single, accessible design language without erasing local character.",
+    "year": "2023",
+    "description": "I developed an all-in-one Machine Learning hub that brings together top-tier tools, tutorials, and courses. To keep the content organized, I built a smart tag-based filtering system powered by a flexible JSON backend, allowing users to instantly find exactly what they need. ",
     "media": "/projects/google-machine-learning/card.mp4",
     "mediaType": "video",
-    "heroMedia": "/projects/google-machine-learning/card.mp4",
-    "heroMediaType": "video"
+    "heroMedia": "/projects/google-machine-learning/hero.png",
+    "heroMediaType": "image",
+    "sections": [
+      {
+        "type": "intro",
+        "client": "xGoogle I/O",
+        "project": "xMachine learning",
+        "description": "xI developed an all-in-one Machine Learning hub that brings together top-tier tools, tutorials, and courses. To keep the content organized, I built a smart tag-based filtering system powered by a flexible JSON-based tagging system, allowing users to instantly find exactly what they need. ",
+        "techStack": "Angular, SASS, Grow, Webpack",
+        "links": [
+          {
+            "title": "Google Blog",
+            "url": "https://developers.googleblog.com/new-resources-to-build-with-google-ai/"
+          }
+        ]
+      },
+      {
+        "type": "wide-media",
+        "media": "/projects/google-machine-learning/hero.png",
+        "mediaType": "image",
+        "contained": false,
+        "caption": "",
+        "mediaRatio": "1600 / 476"
+      },
+      {
+        "type": "wide-media",
+        "media": "/projects/google-machine-learning/keynote.mp4",
+        "mediaType": "videoplayer",
+        "poster": "/projects/google-machine-learning/keynote.jpg",
+        "contained": true,
+        "caption": "",
+        "text": "Featured at Google I/O 2023",
+        "mediaRatio": "1920 / 1080",
+        "posterRatio": "1920 / 1080"
+      },
+      {
+        "type": "wide-media",
+        "media": "/projects/google-machine-learning/filtering.mp4",
+        "mediaType": "video",
+        "contained": true,
+        "caption": "",
+        "text": "Tag based filtering including main soft-tags that each of their own presets of tags.",
+        "mediaRatio": "800 / 604"
+      },
+      {
+        "type": "wide-media",
+        "media": "/projects/google-machine-learning/cards.png",
+        "mediaType": "image",
+        "contained": true,
+        "caption": "",
+        "text": "These are some of the varieties of the cards that are used.",
+        "mediaRatio": "800 / 838"
+      },
+      {
+        "type": "wide-media",
+        "media": "/projects/google-machine-learning/demo.mp4",
+        "mediaType": "video",
+        "contained": true,
+        "browser": true,
+        "caption": "",
+        "text": "Screen capture of the site.",
+        "mediaRatio": "1200 / 914"
+      },
+      {
+        "type": "wide-media",
+        "media": "/projects/google-machine-learning/detail.mp4",
+        "mediaType": "video",
+        "contained": true,
+        "caption": "",
+        "text": "Detail page of the Toolkits.",
+        "mediaRatio": "800 / 600"
+      },
+      {
+        "type": "wide-media",
+        "media": "/projects/google-machine-learning/mobiles.png",
+        "mediaType": "image",
+        "contained": true,
+        "caption": "",
+        "text": "Screenshots of the mobile version.",
+        "mediaRatio": "1200 / 600"
+      }
+    ],
+    "mediaRatio": "960 / 540",
+    "heroMediaRatio": "1600 / 476"
+  },
+  {
+    "slug": "openai-localization",
+    "client": "OpenAI",
+    "project": "Localization & RTL Support",
+    "year": "2026",
+    "description": "Enhanced OpenAI's global accessibility by building a dynamic language selection interface and implementing comprehensive RTL (Right-to-Left) layout support. Successfully launched localized experiences for Arabic, Urdu, and Farsi by auditing and updating dozens of core components, buttons, and interactive elements to ensure pixel-perfect bidirectional rendering and a seamless user experience.",
+    "media": "/projects/openai-localization/card.jpg",
+    "mediaType": "image",
+    "heroMedia": "/projects/openai-localization/hero.jpg",
+    "heroMediaType": "image",
+    "sections": [
+      {
+        "type": "intro",
+        "client": "xGoogle I/O",
+        "project": "xMachine learning",
+        "description": "xI developed an all-in-one Machine Learning hub that brings together top-tier tools, tutorials, and courses. To keep the content organized, I built a smart tag-based filtering system powered by a flexible JSON-based tagging system, allowing users to instantly find exactly what they need. ",
+        "techStack": "Angular, Tailwind CSS, TypeScript",
+        "links": [
+          {
+            "title": "OpenAI",
+            "url": "https://www.openai.com"
+          }
+        ]
+      },
+      {
+        "type": "wide-media",
+        "media": "/projects/openai-localization/hero.jpg",
+        "mediaType": "image",
+        "contained": false,
+        "caption": "",
+        "mediaRatio": "900 / 295"
+      },
+      {
+        "type": "wide-media",
+        "media": "/projects/openai-localization/screen-1.jpg",
+        "mediaType": "image",
+        "contained": true,
+        "caption": "",
+        "mediaRatio": "1044 / 1272"
+      },
+      {
+        "type": "wide-media",
+        "media": "/projects/openai-localization/screen-2.jpg",
+        "mediaType": "image",
+        "contained": true,
+        "caption": "",
+        "mediaRatio": "1197 / 894"
+      },
+      {
+        "type": "text",
+        "text": "Detailed design layout showcasing responsive typography, vibrant custom art components, and crisp alignment grids."
+      },
+      {
+        "type": "wide-media",
+        "media": "/projects/openai-localization/screen-3.jpg",
+        "mediaType": "image",
+        "contained": true,
+        "caption": "",
+        "mediaRatio": "2400 / 1800"
+      },
+      {
+        "type": "wide-media",
+        "media": "/projects/openai-localization/screen-news.jpg",
+        "mediaType": "image",
+        "contained": true,
+        "caption": "",
+        "mediaRatio": "2400 / 1800"
+      },
+      {
+        "type": "text",
+        "text": "The new language selector needed new functionality. So I implemented a dynamic language switching feature that allows users to seamlessly transition between languages without losing their place."
+      },
+      {
+        "type": "wide-media",
+        "media": "/projects/openai-localization/desktop.png",
+        "mediaType": "image",
+        "contained": true,
+        "caption": "",
+        "text": "The different states for the new Language Selector.",
+        "mediaRatio": "1641 / 600"
+      },
+      {
+        "type": "wide-media",
+        "media": "/projects/openai-localization/mobiles.png",
+        "mediaType": "image",
+        "contained": true,
+        "caption": "",
+        "text": "The different states for the new Language Selector on mobile.",
+        "mediaRatio": "1700 / 950"
+      }
+    ],
+    "mediaRatio": "1200 / 900",
+    "heroMediaRatio": "900 / 295"
   },
   {
     "slug": "google-trivia-twister",
-    "client": "Google Gemini",
+    "client": "Google I/O",
     "project": "Trivia Twister",
+    "year": "2024",
     "description": "Designed and produced an interactive in-store environment for Forma Studio's flagship New York location. The installation blends physical product displays with reactive digital surfaces, creating a seamless narrative that guides customers through the brand story.",
-    "media": "/projects/google-trivia-twister/card.png",
-    "mediaType": "image",
+    "media": "/projects/google-trivia-twister/card.mp4",
+    "mediaType": "video",
     "heroMedia": "/projects/google-trivia-twister/card.png",
-    "heroMediaType": "image"
+    "heroMediaType": "image",
+    "sections": [
+      {
+        "type": "intro",
+        "client": "xGoogle I/O",
+        "project": "xMachine learning",
+        "description": "xI developed an all-in-one Machine Learning hub that brings together top-tier tools, tutorials, and courses. To keep the content organized, I built a smart tag-based filtering system powered by a flexible JSON-based tagging system, allowing users to instantly find exactly what they need. ",
+        "techStack": "Angular, SASS, Grow, Webpack",
+        "links": [
+          {
+            "title": "Google Blog",
+            "url": "https://venturebeat.com/ai/win-the-worlds-fastest-delorean-in-googles-gemini-api-developer-contest"
+          }
+        ]
+      },
+      {
+        "type": "wide-media",
+        "media": "/projects/google-trivia-twister/hero2.png",
+        "mediaType": "image",
+        "contained": false,
+        "caption": "",
+        "mediaRatio": "2400 / 622"
+      },
+      {
+        "type": "wide-media",
+        "media": "/projects/google-trivia-twister/1-cover.mp4",
+        "mediaType": "video",
+        "contained": true,
+        "text": "Detailed design layout showcasing responsive typography, vibrant custom art components, and crisp alignment grids.",
+        "mediaRatio": "1920 / 1080"
+      },
+      {
+        "type": "wide-media",
+        "media": "/projects/google-trivia-twister/2-Trivia_Twister_01.2.mp4",
+        "mediaType": "video",
+        "contained": true,
+        "text": "Detailed design layout showcasing responsive typography, vibrant custom art components, and crisp alignment grids.",
+        "mediaRatio": "1280 / 800"
+      },
+      {
+        "type": "wide-media",
+        "media": "/projects/google-trivia-twister/3-Trivia_Twister_02.mp4",
+        "mediaType": "video",
+        "contained": true,
+        "text": "Detailed design layout showcasing responsive typography, vibrant custom art components, and crisp alignment grids.",
+        "mediaRatio": "1280 / 800"
+      },
+      {
+        "type": "wide-media",
+        "media": "/projects/google-trivia-twister/4-Weird_Trivia_Won.png",
+        "mediaType": "image",
+        "contained": true,
+        "text": "Detailed design layout showcasing responsive typography, vibrant custom art components, and crisp alignment grids.",
+        "mediaRatio": "1470 / 918"
+      },
+      {
+        "type": "side-by-side",
+        "direction": "right",
+        "media": "/projects/google-trivia-twister/demo-2.jpg",
+        "mediaType": "image",
+        "text": "Detailed design layout showcasing responsive typography, vibrant custom art components, and crisp alignment grids.",
+        "caption": "Side-by-side view with text left and image right",
+        "ratio": "50-50",
+        "mediaRatio": "578 / 480"
+      },
+      {
+        "type": "side-by-side",
+        "direction": "left",
+        "media": "/projects/google-trivia-twister/demo-1.jpg",
+        "mediaType": "image",
+        "text": "Detailed design layout showcasing responsive typography, vibrant custom art components, and crisp alignment grids.",
+        "caption": "Side-by-side view with text left and image right",
+        "ratio": "50-50",
+        "mediaRatio": "578 / 480"
+      },
+      {
+        "type": "wide-media",
+        "media": "/projects/google-trivia-twister/delorean.mp4",
+        "mediaType": "video",
+        "contained": true,
+        "caption": "Contained media container displaying key platform dashboard features",
+        "c": "1280 / 720",
+        "playbackRate": 0.4,
+        "mediaRatio": "1280 / 720"
+      }
+    ],
+    "mediaRatio": "600 / 338",
+    "heroMediaRatio": "1280 / 800"
   },
   {
     "slug": "virgin-galactic",
     "client": "Virgin Galactic",
     "project": "Brand Website",
+    "year": "2022",
     "description": "A data-driven annual report that translates complex financial performance into clear, compelling visual narratives. Custom infographics, editorial photography direction, and a print-ready layout system were developed in tandem with the digital web version.",
     "media": "/projects/virgin-galactic/card.jpg",
     "mediaType": "image",
     "heroMedia": "/projects/virgin-galactic/hero.jpg",
-    "heroMediaType": "image"
+    "heroMediaType": "image",
+    "mediaRatio": "640 / 854",
+    "heroMediaRatio": "1500 / 558",
+    "sections": [
+      {
+        "type": "intro",
+        "client": "xGoogle I/O",
+        "project": "xMachine learning",
+        "description": "xI developed an all-in-one Machine Learning hub that brings together top-tier tools, tutorials, and courses. To keep the content organized, I built a smart tag-based filtering system powered by a flexible JSON-based tagging system, allowing users to instantly find exactly what they need. ",
+        "techStack": "Angular, SASS, Grow, Webpack",
+        "awards": [
+          {
+            "year": "2023",
+            "title": "Webby Awards",
+            "category": "Webby Winner, People's Voice Winner - Travel & Lifestyle"
+          }
+        ],
+        "links": [
+          {
+            "title": "Webby Awards",
+            "url": "https://winners.webbyawards.com/2023/websites-and-mobile-sites/general-websites-and-mobile-sites/travel-lifestyle/256926/virgin-galactic"
+          },
+          {
+            "title": "Webby Awards - Crafted with Code",
+            "url": "https://www.webbyawards.com/crafted-with-code/virgin-galactic/"
+          }
+        ]
+      },
+      {
+        "type": "wide-media",
+        "media": "/projects/virgin-galactic/hero.jpg",
+        "mediaType": "image",
+        "contained": false,
+        "caption": "",
+        "mediaRatio": "1500 / 558"
+      },
+      {
+        "type": "wide-media",
+        "media": "/projects/virgin-galactic/virgin-galactic-1-cwc.jpg",
+        "mediaType": "image",
+        "contained": true,
+        "text": "Detailed design layout showcasing responsive typography, vibrant custom art components, and crisp alignment grids.",
+        "mediaRatio": "1488 / 814"
+      },
+      {
+        "type": "wide-media",
+        "media": "/projects/virgin-galactic/virgin-galactic-2-cwc.jpg",
+        "mediaType": "image",
+        "contained": true,
+        "text": "Detailed design layout showcasing responsive typography, vibrant custom art components, and crisp alignment grids.",
+        "mediaRatio": "1498 / 815"
+      },
+      {
+        "type": "wide-media",
+        "media": "/projects/virgin-galactic/virgin-galactic-3-cwc.jpg",
+        "mediaType": "image",
+        "contained": true,
+        "text": "Detailed design layout showcasing responsive typography, vibrant custom art components, and crisp alignment grids.",
+        "mediaRatio": "1496 / 815"
+      },
+      {
+        "type": "wide-media",
+        "media": "/projects/virgin-galactic/virgin-galactic-4-cwc.jpg",
+        "mediaType": "image",
+        "contained": true,
+        "text": "Detailed design layout showcasing responsive typography, vibrant custom art components, and crisp alignment grids.",
+        "mediaRatio": "1497 / 816"
+      },
+      {
+        "type": "wide-media",
+        "media": "/projects/virgin-galactic/video.mp4",
+        "mediaType": "video",
+        "contained": true,
+        "text": "Detailed design layout showcasing responsive typography, vibrant custom art components, and crisp alignment grids.",
+        "mediaRatio": "1200 / 676"
+      }
+    ]
   },
   {
     "slug": "google-altitude",
     "client": "Google Jigsaw",
     "project": "Altitude",
+    "year": "2023",
     "description": "Redefining the annual report through a fully responsive digital experience. We moved beyond static PDF layouts to create a narrative-driven platform that adapts from billboard-scale displays to mobile screens, showcasing the year’s research and impact with dynamic typography and motion-rich data visualizations.",
     "media": "/projects/google-altitude/card.png",
     "mediaType": "image",
     "heroMedia": "/projects/google-altitude/card.png",
-    "heroMediaType": "image"
+    "heroMediaType": "image",
+    "mediaRatio": "1200 / 627",
+    "heroMediaRatio": "1200 / 627",
+    "sections": [
+      {
+        "type": "intro",
+        "client": "xGoogle I/O",
+        "project": "xMachine learning",
+        "description": "xI developed an all-in-one Machine Learning hub that brings together top-tier tools, tutorials, and courses. To keep the content organized, I built a smart tag-based filtering system powered by a flexible JSON-based tagging system, allowing users to instantly find exactly what they need. ",
+        "techStack": "Angular, SASS, Grow, Webpack",
+        "links": [
+          {
+            "title": "TechCrunch",
+            "url": "https://techcrunch.com/2024/07/22/googles-jigsaw-open-sources-altitude-to-help-online-platforms-weed-out-extremist-content/"
+          }
+        ]
+      },
+      {
+        "type": "wide-media",
+        "media": "/projects/google-altitude/hero.jpg",
+        "mediaType": "image",
+        "contained": false,
+        "caption": "",
+        "mediaRatio": "2200 / 593"
+      },
+      {
+        "type": "wide-media",
+        "media": "/projects/google-altitude/demo.png",
+        "mediaType": "image",
+        "contained": true,
+        "text": "Detailed design layout showcasing responsive typography, vibrant custom art components, and crisp alignment grids.",
+        "mediaRatio": "1185 / 3595"
+      },
+      {
+        "type": "wide-media",
+        "media": "/projects/google-altitude/demo.mp4",
+        "mediaType": "video",
+        "contained": true,
+        "text": "Detailed design layout showcasing responsive typography, vibrant custom art components, and crisp alignment grids.",
+        "mediaRatio": "1178 / 894"
+      }
+    ]
   },
   {
     "slug": "google-jules",
     "client": "Google Gemini",
     "project": "Jules",
+    "year": "2025",
     "description": "Google's internal brand identity for the next generation of large language models.",
     "media": "/projects/google-jules/card.jpg",
     "mediaType": "image",
     "heroMedia": "/projects/google-jules/hero.jpg",
-    "heroMediaType": "image"
+    "heroMediaType": "image",
+    "mediaRatio": "1280 / 720",
+    "heroMediaRatio": "2200 / 593",
+    "sections": [
+      {
+        "type": "intro",
+        "client": "xGoogle I/O",
+        "project": "xMachine learning",
+        "description": "xI developed an all-in-one Machine Learning hub that brings together top-tier tools, tutorials, and courses. To keep the content organized, I built a smart tag-based filtering system powered by a flexible JSON-based tagging system, allowing users to instantly find exactly what they need. ",
+        "techStack": "Angular, SASS, Grow, Webpack",
+        "links": [
+          {
+            "title": "TechCrunch",
+            "url": "https://techcrunch.com/2024/07/22/googles-jigsaw-open-sources-altitude-to-help-online-platforms-weed-out-extremist-content/"
+          }
+        ]
+      },
+      {
+        "type": "wide-media",
+        "media": "/projects/google-jules/hero.jpg",
+        "mediaType": "image",
+        "contained": false,
+        "caption": "",
+        "mediaRatio": "2200 / 593"
+      },
+      {
+        "type": "wide-media",
+        "media": "/projects/google-jules/screen-intro.mp4",
+        "mediaType": "video",
+        "contained": true,
+        "text": "Detailed design layout showcasing responsive typography, vibrant custom art components, and crisp alignment grids.",
+        "mediaRatio": "800 / 444"
+      },
+      {
+        "type": "wide-media",
+        "media": "/projects/google-jules/component-1.jpg",
+        "mediaType": "image",
+        "contained": true,
+        "text": "Detailed design layout showcasing responsive typography, vibrant custom art components, and crisp alignment grids.",
+        "mediaRatio": "1600 / 828"
+      },
+      {
+        "type": "wide-media",
+        "media": "/projects/google-jules/component-2.jpg",
+        "mediaType": "image",
+        "contained": true,
+        "text": "Detailed design layout showcasing responsive typography, vibrant custom art components, and crisp alignment grids.",
+        "mediaRatio": "1600 / 900"
+      },
+      {
+        "type": "wide-media",
+        "media": "/projects/google-jules/component-3.jpg",
+        "mediaType": "image",
+        "contained": true,
+        "text": "Detailed design layout showcasing responsive typography, vibrant custom art components, and crisp alignment grids.",
+        "mediaRatio": "1600 / 1037"
+      },
+      {
+        "type": "wide-media",
+        "media": "/projects/google-jules/demo-desktop.mp4",
+        "mediaType": "videoplayer",
+        "contained": true,
+        "caption": "",
+        "mediaRatio": "1200 / 906"
+      }
+    ]
   },
   {
     "slug": "roam",
     "client": "ROAM",
     "project": "Brand Website",
+    "year": "2023",
     "description": "Redefining the annual report through a fully responsive digital experience. We moved beyond static PDF layouts to create a narrative-driven platform that adapts from billboard-scale displays to mobile screens, showcasing the year’s research and impact with dynamic typography and motion-rich data visualizations.",
     "media": "/projects/roam/card.mp4",
     "mediaType": "video",
     "heroMedia": "/projects/roam/hero.mp4",
-    "heroMediaType": "video"
-  },
-  {
-    "slug": "google-recorder",
-    "client": "Google",
-    "project": "Recorder",
-    "description": "A comprehensive live playground demonstrating all modular layouts built for the Virgil portfolio stack. This page is constructed entirely using the dynamically compiled components folder, including SideBySide blocks, WideMedia displays, and custom-styled recognition lists.",
-    "media": "/projects/google-recorder/card.jpg",
-    "mediaType": "image",
-    "heroMedia": "/projects/google-recorder/hero.jpg",
-    "heroMediaType": "image",
+    "heroMediaType": "video",
+    "mediaRatio": "500 / 336",
+    "heroMediaRatio": "1920 / 600",
     "sections": [
       {
-        "type": "wide-media",
-        "media": "/projects/google-recorder/hero.jpg",
-        "mediaType": "image",
-        "contained": false,
-        "caption": "Full-bleed showcase of interactive video installation"
-      },
-      {
         "type": "intro",
-        "client": "Google",
-        "project": "Recorder",
-        "description": "This demo project showcases all the visual and interactive layout components built for this portfolio site — from SideBySide panels to WideMedia heroes and recognition lists.",
-        "year": "2026",
-        "techStack": "Angular, Tailwind CSS, TypeScript, SvelteKit",
+        "client": "xGoogle I/O",
+        "project": "xMachine learning",
+        "description": "xI developed an all-in-one Machine Learning hub that brings together top-tier tools, tutorials, and courses. To keep the content organized, I built a smart tag-based filtering system powered by a flexible JSON-based tagging system, allowing users to instantly find exactly what they need. ",
+        "techStack": "Angular, SASS, Grow, Webpack",
         "links": [
-          { "title": "Live Demo", "url": "https://example.com" },
-          { "title": "GitHub Repo", "url": "https://github.com" }
-        ],
-        "awards": [
           {
-            "year": "2026",
-            "title": "FWA Site of the Year",
-            "category": "Interactive Portfolio"
-          },
-          {
-            "year": "2026",
-            "title": "Awwwards Site of the Day",
-            "category": "Design & Development"
+            "title": "ROAM Interior Design",
+            "url": "https://www.roaminteriordesign.com/"
           }
         ]
       },
-
       {
-        "type": "side-by-side",
-        "direction": "left",
-        "media": "/projects/google-trivia-twister/card.png",
-        "mediaType": "image",
-        "text": "Detailed design layout showcasing responsive typography, vibrant custom art components, and crisp alignment grids.",
-        "caption": "Side-by-side view with text left and image right"
+        "type": "wide-media",
+        "media": "/projects/roam/hero.mp4",
+        "mediaType": "video",
+        "contained": false,
+        "caption": "",
+        "mediaRatio": "1920 / 600"
       },
       {
         "type": "wide-media",
-        "media": "/projects/google-altitude/card.png",
-        "mediaType": "image",
-        "contained": true,
-        "caption": "Contained media container displaying key platform dashboard features"
-      },
-      {
-        "type": "side-by-side",
-        "direction": "right",
-        "media": "/projects/roam/card.mp4",
+        "media": "/projects/roam/demo-home.mp4",
         "mediaType": "video",
-        "text": "Capturing motion workflows and dynamic scaling behaviors on the client devices.",
-        "caption": "Side-by-side view with text right and video left"
+        "contained": true,
+        "text": "Detailed design layout showcasing responsive typography, vibrant custom art components, and crisp alignment grids.",
+        "mediaRatio": "1000 / 626"
       },
       {
-        "type": "side-by-side",
-        "direction": "left",
-        "media": "/projects/google-jules/card.jpg",
-        "mediaType": "image",
-        "caption": "Primary media focus (Left)",
-        "media2": "/projects/virgin-galactic/card.jpg",
-        "mediaType2": "image",
-        "caption2": "Secondary media focus (Right)"
+        "type": "wide-media",
+        "media": "/projects/roam/demo-category.mp4",
+        "mediaType": "video",
+        "contained": true,
+        "text": "Detailed design layout showcasing responsive typography, vibrant custom art components, and crisp alignment grids.",
+        "mediaRatio": "1000 / 626"
+      },
+      {
+        "type": "wide-media",
+        "media": "/projects/roam/demo-nav.mp4",
+        "mediaType": "video",
+        "contained": true,
+        "text": "Detailed design layout showcasing responsive typography, vibrant custom art components, and crisp alignment grids.",
+        "mediaRatio": "954 / 594"
       }
     ]
+  },
+  {
+    "slug": "virgin-hyperloop",
+    "client": "Virgin Hyperloop",
+    "project": "Brand Website",
+    "year": "2020",
+    "description": "Redefining the annual report through a fully responsive digital experience. We moved beyond static PDF layouts to create a narrative-driven platform that adapts from billboard-scale displays to mobile screens, showcasing the year’s research and impact with dynamic typography and motion-rich data visualizations.",
+    "media": "/projects/virgin-hyperloop/card.mp4",
+    "mediaType": "video",
+    "heroMedia": "/projects/virgin-hyperloop/hero2.jpg",
+    "heroMediaType": "image",
+    "mediaRatio": "500 / 282",
+    "heroMediaRatio": "1500 / 938",
+    "sections": [
+      {
+        "type": "intro",
+        "client": "xGoogle I/O",
+        "project": "xMachine learning",
+        "description": "xI developed an all-in-one Machine Learning hub that brings together top-tier tools, tutorials, and courses. To keep the content organized, I built a smart tag-based filtering system powered by a flexible JSON-based tagging system, allowing users to instantly find exactly what they need. ",
+        "techStack": "Angular, SASS, Grow, Webpack",
+        "links": [
+          {
+            "title": "ROAM Interior Design",
+            "url": "https://www.roaminteriordesign.com/"
+          }
+        ]
+      },
+      {
+        "type": "wide-media",
+        "media": "/projects/virgin-hyperloop/hero.jpg",
+        "mediaType": "image",
+        "contained": false,
+        "caption": "",
+        "mediaRatio": "1500 / 585"
+      },
+      {
+        "type": "wide-media",
+        "media": "/projects/virgin-hyperloop/virgin-hyperloop--commarts01a.jpg",
+        "mediaType": "image",
+        "contained": true,
+        "text": "Detailed design layout showcasing responsive typography, vibrant custom art components, and crisp alignment grids.",
+        "mediaRatio": "1586 / 900"
+      },
+      {
+        "type": "wide-media",
+        "media": "/projects/virgin-hyperloop/virgin-hyperloop--commarts02a.jpg",
+        "mediaType": "image",
+        "contained": true,
+        "text": "Detailed design layout showcasing responsive typography, vibrant custom art components, and crisp alignment grids.",
+        "mediaRatio": "1586 / 900"
+      },
+      {
+        "type": "wide-media",
+        "media": "/projects/virgin-hyperloop/virgin-hyperloop--commarts03a.jpg",
+        "mediaType": "image",
+        "contained": true,
+        "text": "Detailed design layout showcasing responsive typography, vibrant custom art components, and crisp alignment grids.",
+        "mediaRatio": "1586 / 900"
+      },
+      {
+        "type": "wide-media",
+        "media": "/projects/virgin-hyperloop/virgin-hyperloop--commarts04a.jpg",
+        "mediaType": "image",
+        "contained": true,
+        "text": "Detailed design layout showcasing responsive typography, vibrant custom art components, and crisp alignment grids.",
+        "mediaRatio": "1586 / 900"
+      },
+      {
+        "type": "wide-media",
+        "media": "/projects/virgin-hyperloop/virgin-hyperloop--commarts05a.jpg",
+        "mediaType": "image",
+        "contained": true,
+        "text": "Detailed design layout showcasing responsive typography, vibrant custom art components, and crisp alignment grids.",
+        "mediaRatio": "1586 / 900"
+      },
+      {
+        "type": "wide-media",
+        "media": "/projects/virgin-hyperloop/route.jpg",
+        "mediaType": "image",
+        "contained": true,
+        "collapsed": true,
+        "text": "Detailed design layout showcasing responsive typography, vibrant custom art components, and crisp alignment grids.",
+        "mediaRatio": "1600 / 7099"
+      }
+    ]
+  },
+  {
+    "slug": "zipline",
+    "client": "Zipline",
+    "project": "Brand Website",
+    "year": "2023",
+    "description": "Redefining the annual report through a fully responsive digital experience. We moved beyond static PDF layouts to create a narrative-driven platform that adapts from billboard-scale displays to mobile screens, showcasing the year’s research and impact with dynamic typography and motion-rich data visualizations.",
+    "media": "/projects/zipline/card.jpg",
+    "mediaType": "image",
+    "heroMedia": "/projects/zipline/hero.jpg",
+    "heroMediaType": "image",
+    "mediaRatio": "2160 / 2700",
+    "heroMediaRatio": "1280 / 720"
   },
   {
     "slug": "component-showcase",
     "client": "Virgil Showcase",
     "project": "Component Playground",
+    "year": "2026",
     "description": "A comprehensive live playground demonstrating all modular layouts built for the Virgil portfolio stack. This page is constructed entirely using the dynamically compiled components folder, including SideBySide blocks, WideMedia displays, and custom-styled recognition lists.",
-    "media": "/projects/google-trivia-twister/card.png",
+    "media": "/projects/card.jpg",
     "mediaType": "image",
     "heroMedia": "/projects/google-trivia-twister/card.png",
     "heroMediaType": "image",
@@ -151,11 +673,16 @@
         "client": "Virgil Showcase",
         "project": "Component Playground",
         "description": "This demo project showcases all the visual and interactive layout components built for this portfolio site — from SideBySide panels to WideMedia heroes and recognition lists.",
-        "year": "2026",
         "techStack": "Angular, Tailwind CSS, TypeScript, SvelteKit",
         "links": [
-          { "title": "Live Demo", "url": "https://example.com" },
-          { "title": "GitHub Repo", "url": "https://github.com" }
+          {
+            "title": "Live Demo",
+            "url": "https://example.com"
+          },
+          {
+            "title": "GitHub Repo",
+            "url": "https://github.com"
+          }
         ],
         "awards": [
           {
@@ -175,7 +702,8 @@
         "media": "/projects/google-machine-learning/card.mp4",
         "mediaType": "video",
         "contained": false,
-        "caption": "Full-bleed showcase of interactive video installation"
+        "caption": "Full-bleed showcase of interactive video installation",
+        "mediaRatio": "960 / 540"
       },
       {
         "type": "side-by-side",
@@ -183,14 +711,20 @@
         "media": "/projects/google-trivia-twister/card.png",
         "mediaType": "image",
         "text": "Detailed design layout showcasing responsive typography, vibrant custom art components, and crisp alignment grids.",
-        "caption": "Side-by-side view with text left and image right"
+        "caption": "Side-by-side view with text left and image right",
+        "mediaRatio": "1280 / 800"
+      },
+      {
+        "type": "text",
+        "text": "Detailed design layout showcasing responsive typography, vibrant custom art components, and crisp alignment grids."
       },
       {
         "type": "wide-media",
         "media": "/projects/google-altitude/card.png",
         "mediaType": "image",
         "contained": true,
-        "caption": "Contained media container displaying key platform dashboard features"
+        "caption": "Contained media container displaying key platform dashboard features",
+        "mediaRatio": "1200 / 627"
       },
       {
         "type": "side-by-side",
@@ -198,7 +732,8 @@
         "media": "/projects/roam/card.mp4",
         "mediaType": "video",
         "text": "Capturing motion workflows and dynamic scaling behaviors on the client devices.",
-        "caption": "Side-by-side view with text right and video left"
+        "caption": "Side-by-side view with text right and video left",
+        "mediaRatio": "500 / 336"
       },
       {
         "type": "side-by-side",
@@ -208,7 +743,151 @@
         "caption": "Primary media focus (Left)",
         "media2": "/projects/virgin-galactic/card.jpg",
         "mediaType2": "image",
-        "caption2": "Secondary media focus (Right)"
+        "caption2": "Secondary media focus (Right)",
+        "mediaRatio": "1280 / 720",
+        "media2Ratio": "640 / 854"
+      }
+    ],
+    "mediaRatio": "900 / 506",
+    "heroMediaRatio": "1280 / 800"
+  },
+  {
+    "slug": "google-recorder",
+    "client": "Google Pixel",
+    "project": "Recorder",
+    "year": "2020",
+    "description": "A comprehensive live playground demonstrating all modular layouts built for the Virgil portfolio stack. This page is constructed entirely using the dynamically compiled components folder, including SideBySide blocks, WideMedia displays, and custom-styled recognition lists.",
+    "media": "/projects/google-recorder/card.jpg",
+    "mediaType": "image",
+    "heroMedia": "/projects/google-recorder/hero.jpg",
+    "heroMediaType": "image",
+    "sections": [
+      {
+        "type": "wide-media",
+        "media": "/projects/google-recorder/hero.jpg",
+        "mediaType": "image",
+        "contained": false,
+        "caption": "Full-bleed showcase of interactive video installation",
+        "mediaRatio": "1800 / 734"
+      },
+      {
+        "type": "intro",
+        "client": "Google",
+        "project": "Recorder",
+        "description": "This demo project showcases all the visual and interactive layout components built for this portfolio site — from SideBySide panels to WideMedia heroes and recognition lists.",
+        "techStack": "Angular, Tailwind CSS, TypeScript, SvelteKit",
+        "links": [
+          {
+            "title": "Live Demo",
+            "url": "https://example.com"
+          },
+          {
+            "title": "GitHub Repo",
+            "url": "https://github.com"
+          }
+        ],
+        "awards": [
+          {
+            "year": "2026",
+            "title": "FWA Site of the Year",
+            "category": "Interactive Portfolio"
+          },
+          {
+            "year": "2026",
+            "title": "Awwwards Site of the Day",
+            "category": "Design & Development"
+          }
+        ]
+      },
+      {
+        "type": "wide-media",
+        "media": "/projects/google-recorder/demo.jpg",
+        "mediaType": "image",
+        "contained": true,
+        "collapsed": true,
+        "text": "Detailed design layout showcasing responsive typography, vibrant custom art components, and crisp alignment grids.",
+        "mediaRatio": "1368 / 6538"
+      },
+      {
+        "type": "wide-media",
+        "media": "/projects/google-recorder/demo.mp4",
+        "mediaType": "video",
+        "contained": true,
+        "text": "Detailed design layout showcasing responsive typography, vibrant custom art components, and crisp alignment grids.",
+        "mediaRatio": "1000 / 562"
+      }
+    ],
+    "mediaRatio": "700 / 1053",
+    "heroMediaRatio": "1800 / 734"
+  },
+  {
+    "slug": "google-pyd",
+    "client": "Google Jigsaw",
+    "project": "Protect Your Democracy",
+    "year": "2023",
+    "description": "Google's internal brand identity for the next generation of large language models.",
+    "media": "/projects/google-pyd/card.mp4",
+    "mediaType": "video",
+    "heroMedia": "/projects/google-pyd/hero.png",
+    "heroMediaType": "image",
+    "mediaRatio": "500 / 322",
+    "heroMediaRatio": "2200 / 593",
+    "sections": [
+      {
+        "type": "intro",
+        "client": "xGoogle I/O",
+        "project": "xMachine learning",
+        "description": "xI developed an all-in-one Machine Learning hub that brings together top-tier tools, tutorials, and courses. To keep the content organized, I built a smart tag-based filtering system powered by a flexible JSON-based tagging system, allowing users to instantly find exactly what they need. ",
+        "techStack": "Angular, SASS, Grow, Webpack",
+        "links": [
+          {
+            "title": "ROAM Interior Design",
+            "url": "https://www.roaminteriordesign.com/"
+          }
+        ]
+      },
+      {
+        "type": "wide-media",
+        "media": "/projects/google-pyd/hero.png",
+        "mediaType": "image",
+        "contained": false,
+        "caption": "",
+        "mediaRatio": "2200 / 593"
+      },
+      {
+        "type": "wide-media",
+        "media": "/projects/google-pyd/demo.png",
+        "mediaType": "image",
+        "contained": true,
+        "collapsed": true,
+        "text": "Detailed design layout showcasing responsive typography, vibrant custom art components, and crisp alignment grids.",
+        "mediaRatio": "802 / 1600"
+      },
+      {
+        "type": "wide-media",
+        "media": "/projects/google-pyd/home.png",
+        "mediaType": "image",
+        "contained": true,
+        "collapsed": false,
+        "text": "Detailed design layout showcasing responsive typography, vibrant custom art components, and crisp alignment grids.",
+        "mediaRatio": "1600 / 1600"
+      },
+      {
+        "type": "wide-media",
+        "media": "/projects/google-pyd/demo.mp4",
+        "mediaType": "video",
+        "contained": true,
+        "text": "Detailed design layout showcasing responsive typography, vibrant custom art components, and crisp alignment grids.",
+        "mediaRatio": "1000 / 758"
+      },
+      {
+        "type": "wide-media",
+        "media": "/projects/google-pyd/mobile.png",
+        "mediaType": "image",
+        "contained": true,
+        "collapsed": true,
+        "text": "Detailed design layout showcasing responsive typography, vibrant custom art components, and crisp alignment grids.",
+        "mediaRatio": "1428 / 1748"
       }
     ]
   }

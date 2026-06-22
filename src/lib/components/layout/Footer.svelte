@@ -1,5 +1,5 @@
 <script lang="ts">
-  import "../../app.css";
+  import "../../../app.css";
 
   let {
     nextProjectName = "",
@@ -59,7 +59,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 96px 48px;
+    padding: 96px var(--page-padding-x);
     text-align: center;
     background: rgba(0, 0, 0, 0.02);
     transition: background 0.3s ease;
@@ -107,13 +107,13 @@
     display: flex;
     flex-direction: column;
     gap: 24px;
-    padding: 48px;
+    padding: 48px var(--page-padding-x);
     max-width: 1200px;
     margin: 0 auto;
     align-items: center;
   }
 
-  @media (min-width: 768px) {
+  @media (--bp-md) {
     .footer-bottom {
       flex-direction: row;
       justify-content: space-between;

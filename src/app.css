@@ -1,10 +1,36 @@
+/* ──────────────────────────────────────────────────────────
+   Breakpoints — single source of truth (mobile-first, min-width)
+   Reference anywhere as:  @media (--bp-md) { … }
+   Powered by postcss-custom-media (see postcss.config.js)
+   ────────────────────────────────────────────────────────── */
+@custom-media --bp-sm (min-width: 560px); /* large phone / tablet */
+@custom-media --bp-md (min-width: 768px); /* tablet */
+@custom-media --bp-lg (min-width: 1024px); /* desktop */
+@custom-media --bp-xl (min-width: 1600px); /* wide desktop */
+
 /* Global variables and resets */
 :root {
-  --bg-color: #fafafa;
+  --bg-color: #ffffff;
   --text-primary: #111111;
   --text-secondary: #666666;
   --text-tertiary: #999999;
   --bg-color-secondary: #f3f0f0;
+
+  /* Brand Colors */
+  --color-blue: #0066ff;
+  --color-orange: #ff6b35;
+
+  /* Page side padding (left/right) — single source of truth */
+  --page-padding-x: 24px;
+
+  /* Max width of contained content — single source of truth */
+  --content-max-width: 1200px;
+}
+
+@media (--bp-md) {
+  :root {
+    --page-padding-x: 32px;
+  }
 }
 
 html,
@@ -19,4 +45,37 @@ body {
 
 * {
   box-sizing: border-box;
+}
+
+.layout-contained {
+  width: 100%;
+  max-width: var(--content-max-width);
+  margin: 48px auto;
+  padding: 0 var(--page-padding-x);
+}
+
+.caption {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+}
+
+.content-text {
+  font-size: 18px;
+  line-height: 1.6;
+  font-weight: 300;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.component {
+  margin-bottom: 50px;
+}
+
+@media (--bp-sm) {
+  .component {
+    margin-bottom: 100px;
+  }
 }

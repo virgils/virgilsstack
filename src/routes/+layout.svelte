@@ -24,15 +24,16 @@
 
 <nav>
   <a href="/" class="nav-brand">
-    <LogoAnimation />
-    <span class="nav-title">Virgil's Stack</span>
+    <!-- <img src="/images/stack.png" alt="Virgil's Stack Logo" class="nav-logo" /> -->
+    <span class="nav-title">Virgil's Stack.</span>
   </a>
   <a href="/about" class="nav-link">About</a>
 </nav>
 
-<main>
+<!-- Add the fade-in-on-load class to main -->
+<main class="fade-in-on-load">
   {#key page.url.pathname}
-    <div in:fade={{ duration: 300, delay: 50 }}>
+    <div in:fade={{ duration: 200, delay: 50 }}>
       {@render children()}
     </div>
   {/key}
@@ -46,7 +47,8 @@
   }
 
   :global(html) {
-    font-family: "Inter", system-ui, sans-serif;
+    /* font-family: "Inter", system-ui, sans-serif; */
+    font-family: "DM Sans", sans-serif;
   }
 
   :global(body) {
@@ -67,11 +69,16 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 24px 32px;
-    background: rgba(250, 250, 250, 0.85);
+    padding: 24px var(--page-padding-x);
+    background: rgba(255, 255, 255, 0.55);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  }
+
+  .nav-logo {
+    width: 32px;
+    height: 20px;
   }
 
   .nav-brand {
@@ -79,26 +86,35 @@
     align-items: center;
     gap: 10px;
     color: var(--text-primary);
-    font-family: "Iosevka Charon", monospace;
+    transition: color 0.3s ease;
+  }
+
+  /* Home hovers Orange */
+  .nav-brand:hover {
+    color: var(--color-orange);
   }
 
   .nav-title {
     font-size: 14px;
-    font-weight: 500;
+    font-weight: 400;
     letter-spacing: 0.04em;
-    text-transform: uppercase;
   }
 
   .nav-link {
     font-size: 13px;
     font-weight: 400;
     letter-spacing: 0.06em;
-    text-transform: uppercase;
     color: var(--text-primary);
     position: relative;
+    transition: color 0.3s ease;
   }
 
-  .nav-link::after {
+  /* About hovers Blue */
+  .nav-link:hover {
+    color: var(--color-blue);
+  }
+
+  /* .nav-link::after {
     content: "";
     position: absolute;
     bottom: -2px;
@@ -106,18 +122,33 @@
     width: 0;
     height: 1px;
     background: var(--text-primary);
-    transition: width 0.3s ease;
-  }
+    transition:
+      width 0.3s ease,
+      background-color 0.3s ease;
+  } */
 
   .nav-link:hover::after {
     width: 100%;
+    background-color: var(--color-blue);
   }
 
   main {
     padding-top: 80px;
   }
 
-  /* Optional: ensures the wrapper doesn't break layout */
+  @keyframes initialFade {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  .fade-in-on-load {
+    animation: initialFade 0.4s ease-in backwards;
+  }
+
   div {
     width: 100%;
   }

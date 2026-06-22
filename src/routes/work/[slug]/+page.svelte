@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { PageData } from "./$types";
-  import { Intro, SideBySide, WideMedia, Footer } from "$lib";
+  import { Intro, SideBySide, WideMedia, Footer, Text } from "$lib";
 
   let { data }: { data: PageData } = $props();
   let project = $derived(data.project);
@@ -16,23 +16,31 @@
     {#each project.sections as section}
       {#if section.type === "intro"}
         <Intro
-          client={section.client}
-          project={section.project}
-          description={section.description}
+          client={project.client}
+          project={project.project}
+          description={project.description}
+          year={project.year}
           awards={section.awards}
-          year={section.year}
           techStack={section.techStack}
           links={section.links}
         />
+      {:else if section.type === "text"}
+        <Text {...section} />
       {:else if section.type === "side-by-side"}
         <SideBySide {...section} />
       {:else if section.type === "wide-media"}
         <WideMedia
           media={section.media}
+          mediaRatio={section.mediaRatio}
           mediaType={section.mediaType}
+          poster={section.poster}
           alt={section.alt || ""}
-          caption={section.caption}
+          caption={section.caption || ""}
+          text={section.text || ""}
           contained={section.contained}
+          browser={section.browser}
+          playbackRate={section.playbackRate || 1}
+          collapsed={section.collapsed || false}
         />
       {/if}
     {/each}
@@ -59,7 +67,12 @@
         {/if}
         <div class="project-hero-overlay"></div>
         <div class="project-hero-titles">
-          <p class="project-label">{project.client}</p>
+          <p class="project-label">
+            {project.client}
+            {#if project.year}
+              <span class="project-year-label"> — {project.year}</span>
+            {/if}
+          </p>
           <h1 class="project-title">{project.project}</h1>
         </div>
       </div>
@@ -129,9 +142,9 @@
 
   .project-hero-titles {
     position: absolute;
-    bottom: 48px;
-    left: 48px;
-    right: 48px;
+    bottom: 32px;
+    left: var(--page-padding-x);
+    right: var(--page-padding-x);
   }
 
   .project-label {
@@ -152,7 +165,7 @@
   }
 
   .project-body {
-    padding: 72px 48px;
+    padding: 48px var(--page-padding-x);
     max-width: 720px;
   }
 
@@ -167,7 +180,7 @@
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    margin: 0 48px 72px;
+    margin: 0 var(--page-padding-x) 48px;
     font-size: 12px;
     font-weight: 500;
     letter-spacing: 0.08em;
@@ -180,19 +193,19 @@
     color: var(--text-primary);
   }
 
-  @media (max-width: 600px) {
+  @media (--bp-sm) {
     .project-hero-titles {
-      left: 24px;
-      right: 24px;
-      bottom: 32px;
+      bottom: 48px;
+      left: var(--page-padding-x);
+      right: var(--page-padding-x);
     }
 
     .project-body {
-      padding: 48px 24px;
+      padding: 72px var(--page-padding-x);
     }
 
     .back-link {
-      margin: 0 24px 48px;
+      margin: 0 var(--page-padding-x) 72px;
     }
   }
 </style>

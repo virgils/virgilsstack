@@ -100,13 +100,13 @@
     display: grid;
     grid-template-columns: 1fr;
     gap: 48px;
-    padding: 80px 48px 48px;
-    max-width: 1200px;
+    padding: 80px var(--page-padding-x) 48px;
+    max-width: var(--content-max-width);
     margin: 0 auto;
     align-items: start;
   }
 
-  @media (min-width: 768px) {
+  @media (--bp-md) {
     .intro-section {
       grid-template-columns: 2fr 1fr;
       gap: 80px;
