@@ -1,5 +1,6 @@
 <script lang="ts">
   import { Footer, ParticleMap } from "$lib";
+  import { fade } from "svelte/transition";
 
   let activeCity = $state("nyc");
   let hoveredCity = $state<string | null>(null);
@@ -12,6 +13,78 @@
   function onCityLeave() {
     hoveredCity = null;
   }
+
+  type Job = {
+    role: string;
+    company: string;
+    period: string;
+    url?: string; // optional — renders the company as a link when present
+  };
+
+  const experience: Job[] = [
+    {
+      role: "Senior Developer",
+      company: "Hello Monday",
+      period: "2018–2026",
+      url: "https://hellomonday.com",
+    },
+    {
+      role: "Jury Member",
+      company: "Awwwards",
+      period: "2025–Present",
+      url: "https://www.awwwards.com",
+    },
+    {
+      role: "Jury Member",
+      company: "TheFWA",
+      period: "2017–Present",
+      url: "https://thefwa.com",
+    },
+    {
+      role: "Freelance Creative Developer",
+      company: "Klash",
+      period: "2016–2018",
+    },
+    {
+      role: "Senior Developer",
+      company: "Cartelle",
+      period: "2011–2014",
+      url: "https://www.cartelle.nl",
+    },
+    {
+      role: "Web Developer",
+      company: "TAXI",
+      period: "2009–2011",
+      url: "https://www.taxi.ca",
+    },
+    {
+      role: "Front-end Developer",
+      company: "The Valley",
+      period: "2008–2009",
+      url: "https://www.thevalley.nl",
+    },
+    { role: "ColdFusion Developer", company: "Concrete3", period: "2002–2008" },
+    {
+      role: "Visual Basic Programmer",
+      company: "Gigaprint",
+      period: "2000–2002",
+      url: "https://www.gigaprint.nl",
+    },
+    { role: "Web Designer", company: "Better Image", period: "2000" },
+    {
+      role: "HTML Developer",
+      company: "University of Amsterdam",
+      period: "1998–1999",
+      url: "https://www.uva.nl",
+    },
+  ];
+
+  // Show the first 6 roles; the remaining 5 are revealed via "Load more".
+  const INITIAL_COUNT = 6;
+  let showAll = $state(false);
+  let visibleExperience = $derived(
+    showAll ? experience : experience.slice(0, INITIAL_COUNT),
+  );
 </script>
 
 <svelte:head>
@@ -98,7 +171,47 @@
   </div>
 
   <div class="canvas-wrapper">
-    <ParticleMap city={activeCity} />
+    <ParticleMap city={activeCity} scrollFade />
+  </div>
+</section>
+
+<section class="experience">
+  <div class="experience-inner">
+    <h2 class="experience-heading">Experience</h2>
+    <ul class="experience-list">
+      {#each visibleExperience as job, i}
+        <li
+          class="experience-item"
+          in:fade={{
+            delay: Math.max(0, i - INITIAL_COUNT) * 90,
+            duration: 400,
+          }}
+        >
+          <span class="job-role">{job.role}</span>
+          {#if job.url}
+            <a
+              class="job-company"
+              href={job.url}
+              target="_blank"
+              rel="noopener noreferrer">{job.company}</a
+            >
+          {:else}
+            <span class="job-company">{job.company}</span>
+          {/if}
+          <span class="job-period">{job.period}</span>
+        </li>
+      {/each}
+    </ul>
+
+    {#if !showAll && experience.length > INITIAL_COUNT}
+      <button
+        type="button"
+        class="experience-toggle"
+        onclick={() => (showAll = true)}
+      >
+        Load more
+      </button>
+    {/if}
   </div>
 </section>
 
@@ -187,7 +300,7 @@
   }
 
   .about-content {
-    max-width: 560px;
+    max-width: 510px;
     position: relative;
     z-index: 1;
   }
@@ -315,5 +428,112 @@
   h2 {
     margin-bottom: 32px;
     display: inline-block;
+  }
+
+  /* Work history — sits below the hero, opaque so it covers the fixed map */
+  .experience {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    padding-top: 0; /* override the blanket `section` padding-top */
+    background: var(--bg-color);
+  }
+
+  .experience-inner {
+    max-width: 1400px; /* aligns with the .about content width */
+    margin: 0 auto;
+    padding: 64px var(--page-padding-x) 96px;
+    width: 100%;
+  }
+
+  .experience-heading {
+    display: block; /* override component-wide inline h2 */
+    margin-bottom: 32px;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-tertiary);
+    background: none;
+  }
+
+  .experience-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+  }
+
+  .experience-item {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2px;
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  }
+
+  .job-role {
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--text-primary);
+  }
+
+  .job-company {
+    font-size: 15px;
+    font-weight: 300;
+    color: var(--text-secondary);
+  }
+
+  a.job-company {
+    transition: color 0.2s ease;
+    text-decoration: underline;
+  }
+
+  a.job-company:hover {
+    color: var(--text-primary);
+  }
+
+  .job-period {
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    color: var(--text-tertiary);
+  }
+
+  .experience-toggle {
+    margin-top: 24px;
+    padding: 0;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font: inherit;
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.06em;
+    color: var(--text-secondary);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+    padding-bottom: 2px;
+    transition:
+      color 0.2s ease,
+      border-color 0.2s ease;
+  }
+
+  .experience-toggle:hover {
+    color: var(--text-primary);
+    border-color: var(--text-primary);
+  }
+
+  @media (--bp-md) {
+    .experience-item {
+      /* fixed period column so the company column aligns across every row
+         (an `auto` column varies in width: "2025–Present" ≠ "2018–2026") */
+      grid-template-columns: 1.5fr 1fr 7.5rem;
+      gap: 24px;
+      align-items: baseline;
+    }
+
+    .job-period {
+      text-align: right;
+    }
   }
 </style>

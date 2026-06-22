@@ -19,6 +19,9 @@
     amsLocationY = 0.06,
     hasStroke = false,
     markerSize = 180.0,
+    scrollFade = false, // NEW: spread + fade particles on window scroll
+    scrollFadeDistance = 0.9, // portion of a viewport to fully fade over — lower = fades faster
+    scrollSpread = 300.0, // how far particles fly apart on scroll — higher = particles fly farther apart
   } = $props();
 
   let THREE;
@@ -60,6 +63,10 @@
   let currentIntro = 0.0;
   let targetIntro = 0.0;
 
+  // NEW: scroll-driven spread/fade (0 = top of page, 1 = scrolled away)
+  let currentScroll = 0.0;
+  let targetScroll = 0.0;
+
   let maxAspect = 1.0;
 
   const vertexShader = `
@@ -72,7 +79,9 @@
     uniform float uMapHeight;
     uniform float uTransition;
     uniform float uIntroProgress; // NEW
-    
+    uniform float uScroll;        // NEW: 0 = at top, 1 = scrolled away
+    uniform float uScrollSpread;  // NEW: max outward distance on scroll
+
     attribute vec2 aRandomOffset;
     attribute vec3 aPosition2;
     
@@ -121,7 +130,18 @@
         // It stays 0.0 (transparent) until 80% of its timeline, then fades in quickly.
         vIntroAlpha = smoothstep(0.8, 1.0, pIntro);
         // -------------------------------------
-        
+
+        // --- NEW: Scroll Spread + Fade ---
+        // Push each particle outward radially (reusing the intro angle) and
+        // fade it out as the page scrolls down.
+        float scrollT = smoothstep(0.0, 1.0, uScroll);
+        // per-particle distance, scaled by uScrollSpread (range ~0.4x – 1.0x)
+        float scrollDist = scrollT * uScrollSpread * (0.4 + 0.6 * fract(aRandomOffset.y * 56.78));
+        pos.x += cos(angle) * scrollDist;
+        pos.y += sin(angle) * scrollDist;
+        vIntroAlpha *= (1.0 - scrollT);
+        // ---------------------------------
+
         // Calculate linear gradient from top to bottom
         vGradientT = (pos.y / uMapHeight) + 0.5;
         vGradientT = smoothstep(0.0, 1.0, vGradientT); 
@@ -301,6 +321,8 @@
         uMapHeight: { value: mapHeightWorld },
         uTransition: { value: 0.0 },
         uIntroProgress: { value: 0.0 }, // NEW
+        uScroll: { value: 0.0 }, // NEW
+        uScrollSpread: { value: scrollSpread }, // NEW
       },
       transparent: true,
       blending: THREE.NormalBlending,
@@ -334,11 +356,12 @@
       vertexShader: `
         uniform vec3 uPosNyc;
         uniform vec3 uPosAms;
-        uniform float uMarkerTransition; 
+        uniform float uMarkerTransition;
         uniform float uIntroProgress;
         uniform float uMarkerSize;       // NEW: Import uniform
+        uniform float uScroll;           // NEW
         varying float vIntroAlpha;
-        
+
         void main() {
           float t = smoothstep(0.0, 1.0, uMarkerTransition);
           vec3 basePos = mix(uPosNyc, uPosAms, t);
@@ -349,7 +372,8 @@
           float arcT = sin(t * 3.14159265);
           basePos.xy += normal * arcT * 3.0; 
           
-          vIntroAlpha = smoothstep(0.8, 1.0, uIntroProgress);
+          // Fade the marker out faster than the particles (gone by ~55% scroll)
+          vIntroAlpha = smoothstep(0.8, 1.0, uIntroProgress) * (1.0 - smoothstep(0.0, 0.55, uScroll));
           vec4 mvPosition = modelViewMatrix * vec4(basePos, 1.0);
           gl_Position = projectionMatrix * mvPosition;
           
@@ -406,6 +430,7 @@
         uPosAms: { value: locAmsPos },
         uMarkerTransition: { value: 0 },
         uIntroProgress: { value: 0 },
+        uScroll: { value: 0 }, // NEW
         uMarkerSize: { value: markerSize }, // NEW: Register uniform
         uColorNycMarker: { value: new THREE.Color(amsColorBottom) },
         uColorAmsMarker: { value: new THREE.Color(nycColorBottom) },
@@ -432,6 +457,8 @@
     window.addEventListener("mousemove", onMouseMove);
     window.addEventListener("mouseleave", onMouseLeave);
     window.addEventListener("keydown", onKeyDown);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll(); // initialise in case the page loads already scrolled
 
     animate();
 
@@ -447,6 +474,7 @@
       window.removeEventListener("mousemove", onMouseMove);
       window.removeEventListener("mouseleave", onMouseLeave);
       window.removeEventListener("keydown", onKeyDown);
+      window.removeEventListener("scroll", onScroll);
     }
     if (animationFrameId) cancelAnimationFrame(animationFrameId);
     if (renderer) renderer.dispose();
@@ -505,6 +533,11 @@
   });
 
   $effect(() => {
+    if (particlesMaterial)
+      particlesMaterial.uniforms.uScrollSpread.value = scrollSpread;
+  });
+
+  $effect(() => {
     targetTransition = city === "ams" ? 1.0 : 0.0;
   });
 
@@ -550,6 +583,13 @@
     targetMouseWorld.set(9999, 9999);
   }
 
+  function onScroll() {
+    if (!scrollFade) return;
+    // Fully spread/faded after `scrollFadeDistance` viewports of scrolling.
+    const denom = window.innerHeight * scrollFadeDistance || 1;
+    targetScroll = Math.min(Math.max(window.scrollY / denom, 0), 1);
+  }
+
   function animate() {
     animationFrameId = requestAnimationFrame(animate);
 
@@ -571,12 +611,16 @@
 
     currentIntro += (targetIntro - currentIntro) * 0.04;
 
+    // Smoothly ease the scroll spread/fade toward its target
+    currentScroll += (targetScroll - currentScroll) * 0.1;
+
     if (particlesMaterial) {
       particlesMaterial.uniforms.uTime.value += 0.01;
       particlesMaterial.uniforms.uMouse.value.copy(mouseWorld);
       particlesMaterial.uniforms.uMouseVelocity.value.copy(mouseVelocity);
       particlesMaterial.uniforms.uTransition.value = currentTransition;
       particlesMaterial.uniforms.uIntroProgress.value = currentIntro;
+      particlesMaterial.uniforms.uScroll.value = currentScroll;
     }
 
     if (locationMaterial) {
@@ -584,6 +628,7 @@
       locationMaterial.uniforms.uMarkerTransition.value =
         currentMarkerTransition; // Pass the separate slower value
       locationMaterial.uniforms.uIntroProgress.value = currentIntro;
+      locationMaterial.uniforms.uScroll.value = currentScroll;
     }
 
     renderer.render(scene, camera);

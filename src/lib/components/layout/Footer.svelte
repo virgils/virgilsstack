@@ -52,6 +52,8 @@
     background: var(--bg-color);
     margin-top: 96px;
     background-color: var(--bg-color-secondary);
+    z-index: 1;
+    position: relative;
   }
 
   .next-project-link {
