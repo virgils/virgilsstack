@@ -381,7 +381,7 @@
     "project": "A/B Testing",
     "year": "2026",
     "description": "A data-driven annual report that translates complex financial performance into clear, compelling visual narratives. Custom infographics, editorial photography direction, and a print-ready layout system were developed in tandem with the digital web version.",
-    "nda": true,
+    "blocked": "NDA",
     "media": "/projects/openai-ab-testing/card.jpg",
     "mediaType": "image",
     "mediaRatio": "800 / 500",
