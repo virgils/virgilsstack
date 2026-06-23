@@ -91,7 +91,7 @@
   <title>About — Virgil</title>
   <meta
     name="description"
-    content="Creative director, designer, and visual storyteller based in New York."
+    content="Senior developer and creative technologist bringing digital concepts to life through code, based in New York."
   />
 </svelte:head>
 

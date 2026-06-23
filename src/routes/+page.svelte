@@ -3,7 +3,7 @@
 </script>
 
 <svelte:head>
-  <title>Virgil — Creative Direction & Design</title>
+  <title>Virgil — Creative Development</title>
 </svelte:head>
 
 <Hero />
