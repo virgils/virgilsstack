@@ -1043,5 +1043,21 @@
         "mediaRatio": "1901 / 1372"
       }
     ]
+  },
+  {
+    "slug": "bartlett",
+    "client": "The Bartlett School of Architecture",
+    "project": "Virtual Exhibit Space",
+    "year": "2020 - 2026",
+    "blocked": "Coming soon",
+    "media": "/projects/bartlett/card.jpg",
+    "mediaType": "image",
+    "mediaRatio": "672 / 450",
+    "sections": [
+      {
+        "type": "intro",
+        "techStack": "Lit, Typescript"
+      }
+    ]
   }
 ]
