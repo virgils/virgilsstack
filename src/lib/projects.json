@@ -136,7 +136,7 @@
       },
       {
         "type": "text",
-        "text": "Detailed design layout showcasing responsive typography, vibrant custom art components, and crisp alignment grids."
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer efficitur bibendum erat, quis aliquet diam tincidunt a. Vivamus non iaculis."
       },
       {
         "type": "wide-media",
@@ -214,7 +214,7 @@
         "media": "/projects/google-trivia-twister/1-cover.mp4",
         "mediaType": "video",
         "contained": true,
-        "text": "Detailed design layout showcasing responsive typography, vibrant custom art components, and crisp alignment grids.",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer efficitur bibendum erat, quis aliquet diam tincidunt a. Vivamus non iaculis.",
         "mediaRatio": "1920 / 1080"
       },
       {
@@ -222,7 +222,7 @@
         "media": "/projects/google-trivia-twister/2-Trivia_Twister_01.2.mp4",
         "mediaType": "video",
         "contained": true,
-        "text": "Detailed design layout showcasing responsive typography, vibrant custom art components, and crisp alignment grids.",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer efficitur bibendum erat, quis aliquet diam tincidunt a. Vivamus non iaculis.",
         "mediaRatio": "1280 / 800"
       },
       {
@@ -230,7 +230,7 @@
         "media": "/projects/google-trivia-twister/3-Trivia_Twister_02.mp4",
         "mediaType": "video",
         "contained": true,
-        "text": "Detailed design layout showcasing responsive typography, vibrant custom art components, and crisp alignment grids.",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer efficitur bibendum erat, quis aliquet diam tincidunt a. Vivamus non iaculis.",
         "mediaRatio": "1280 / 800"
       },
       {
@@ -238,7 +238,7 @@
         "media": "/projects/google-trivia-twister/4-Weird_Trivia_Won.png",
         "mediaType": "image",
         "contained": true,
-        "text": "Detailed design layout showcasing responsive typography, vibrant custom art components, and crisp alignment grids.",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer efficitur bibendum erat, quis aliquet diam tincidunt a. Vivamus non iaculis.",
         "mediaRatio": "1470 / 918"
       },
       {
@@ -246,7 +246,7 @@
         "direction": "right",
         "media": "/projects/google-trivia-twister/demo-2.jpg",
         "mediaType": "image",
-        "text": "Detailed design layout showcasing responsive typography, vibrant custom art components, and crisp alignment grids.",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer efficitur bibendum erat, quis aliquet diam tincidunt a. Vivamus non iaculis.",
         "caption": "Side-by-side view with text left and image right",
         "ratio": "50-50",
         "mediaRatio": "578 / 480"
@@ -256,7 +256,7 @@
         "direction": "left",
         "media": "/projects/google-trivia-twister/demo-1.jpg",
         "mediaType": "image",
-        "text": "Detailed design layout showcasing responsive typography, vibrant custom art components, and crisp alignment grids.",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer efficitur bibendum erat, quis aliquet diam tincidunt a. Vivamus non iaculis.",
         "caption": "Side-by-side view with text left and image right",
         "ratio": "50-50",
         "mediaRatio": "578 / 480"
@@ -276,14 +276,14 @@
     "heroMediaRatio": "1280 / 800"
   },
   {
-    "slug": "google-md3-components",
+    "slug": "google-components",
     "client": "Google",
     "project": "MD3 Components",
     "year": "2026",
-    "nda": true,
-    "media": "/projects/google-md3-components/card.webp",
+    "blocked": "NDA",
+    "media": "/projects/google-components/card.png",
     "mediaType": "image",
-    "mediaRatio": "2400 / 1350",
+    "mediaRatio": "757 / 958",
     "sections": [
       {
         "type": "intro",
@@ -338,7 +338,7 @@
         "media": "/projects/virgin-galactic/virgin-galactic-1-cwc.jpg",
         "mediaType": "image",
         "contained": true,
-        "text": "Detailed design layout showcasing responsive typography, vibrant custom art components, and crisp alignment grids.",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer efficitur bibendum erat, quis aliquet diam tincidunt a. Vivamus non iaculis.",
         "mediaRatio": "1488 / 814"
       },
       {
@@ -346,7 +346,7 @@
         "media": "/projects/virgin-galactic/virgin-galactic-2-cwc.jpg",
         "mediaType": "image",
         "contained": true,
-        "text": "Detailed design layout showcasing responsive typography, vibrant custom art components, and crisp alignment grids.",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer efficitur bibendum erat, quis aliquet diam tincidunt a. Vivamus non iaculis.",
         "mediaRatio": "1498 / 815"
       },
       {
@@ -354,7 +354,7 @@
         "media": "/projects/virgin-galactic/virgin-galactic-3-cwc.jpg",
         "mediaType": "image",
         "contained": true,
-        "text": "Detailed design layout showcasing responsive typography, vibrant custom art components, and crisp alignment grids.",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer efficitur bibendum erat, quis aliquet diam tincidunt a. Vivamus non iaculis.",
         "mediaRatio": "1496 / 815"
       },
       {
@@ -362,7 +362,7 @@
         "media": "/projects/virgin-galactic/virgin-galactic-4-cwc.jpg",
         "mediaType": "image",
         "contained": true,
-        "text": "Detailed design layout showcasing responsive typography, vibrant custom art components, and crisp alignment grids.",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer efficitur bibendum erat, quis aliquet diam tincidunt a. Vivamus non iaculis.",
         "mediaRatio": "1497 / 816"
       },
       {
@@ -370,7 +370,7 @@
         "media": "/projects/virgin-galactic/video.mp4",
         "mediaType": "video",
         "contained": true,
-        "text": "Detailed design layout showcasing responsive typography, vibrant custom art components, and crisp alignment grids.",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer efficitur bibendum erat, quis aliquet diam tincidunt a. Vivamus non iaculis.",
         "mediaRatio": "1200 / 676"
       }
     ]
@@ -428,7 +428,7 @@
         "media": "/projects/google-altitude/demo.png",
         "mediaType": "image",
         "contained": true,
-        "text": "Detailed design layout showcasing responsive typography, vibrant custom art components, and crisp alignment grids.",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer efficitur bibendum erat, quis aliquet diam tincidunt a. Vivamus non iaculis.",
         "mediaRatio": "1185 / 3595"
       },
       {
@@ -436,8 +436,24 @@
         "media": "/projects/google-altitude/demo.mp4",
         "mediaType": "video",
         "contained": true,
-        "text": "Detailed design layout showcasing responsive typography, vibrant custom art components, and crisp alignment grids.",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer efficitur bibendum erat, quis aliquet diam tincidunt a. Vivamus non iaculis.",
         "mediaRatio": "1178 / 894"
+      }
+    ]
+  },
+  {
+    "slug": "openai-superbowl",
+    "client": "OpenAI",
+    "project": "Superbowl Takeover",
+    "year": "2026",
+    "blocked": "Coming soon",
+    "media": "/projects/openai-superbowl/card.mp4",
+    "mediaType": "video",
+    "mediaRatio": "500 / 282",
+    "sections": [
+      {
+        "type": "intro",
+        "techStack": "Lit, Typescript"
       }
     ]
   },
@@ -446,7 +462,7 @@
     "client": "Google Gemini",
     "project": "Jules",
     "year": "2025",
-    "description": "Google's internal brand identity for the next generation of large language models.",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer efficitur bibendum erat, quis aliquet diam tincidunt a. Vivamus non iaculis.",
     "media": "/projects/google-jules/card.jpg",
     "mediaType": "image",
     "heroMedia": "/projects/google-jules/hero.jpg",
@@ -477,7 +493,7 @@
         "media": "/projects/google-jules/screen-intro.mp4",
         "mediaType": "video",
         "contained": true,
-        "text": "Detailed design layout showcasing responsive typography, vibrant custom art components, and crisp alignment grids.",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer efficitur bibendum erat, quis aliquet diam tincidunt a. Vivamus non iaculis.",
         "mediaRatio": "800 / 444"
       },
       {
@@ -485,7 +501,7 @@
         "media": "/projects/google-jules/component-1.jpg",
         "mediaType": "image",
         "contained": true,
-        "text": "Detailed design layout showcasing responsive typography, vibrant custom art components, and crisp alignment grids.",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer efficitur bibendum erat, quis aliquet diam tincidunt a. Vivamus non iaculis.",
         "mediaRatio": "1600 / 828"
       },
       {
@@ -493,7 +509,7 @@
         "media": "/projects/google-jules/component-2.jpg",
         "mediaType": "image",
         "contained": true,
-        "text": "Detailed design layout showcasing responsive typography, vibrant custom art components, and crisp alignment grids.",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer efficitur bibendum erat, quis aliquet diam tincidunt a. Vivamus non iaculis.",
         "mediaRatio": "1600 / 900"
       },
       {
@@ -501,7 +517,7 @@
         "media": "/projects/google-jules/component-3.jpg",
         "mediaType": "image",
         "contained": true,
-        "text": "Detailed design layout showcasing responsive typography, vibrant custom art components, and crisp alignment grids.",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer efficitur bibendum erat, quis aliquet diam tincidunt a. Vivamus non iaculis.",
         "mediaRatio": "1600 / 1037"
       },
       {
@@ -550,7 +566,7 @@
         "media": "/projects/roam/demo-home.mp4",
         "mediaType": "video",
         "contained": true,
-        "text": "Detailed design layout showcasing responsive typography, vibrant custom art components, and crisp alignment grids.",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer efficitur bibendum erat, quis aliquet diam tincidunt a. Vivamus non iaculis.",
         "mediaRatio": "1000 / 626"
       },
       {
@@ -558,7 +574,7 @@
         "media": "/projects/roam/demo-category.mp4",
         "mediaType": "video",
         "contained": true,
-        "text": "Detailed design layout showcasing responsive typography, vibrant custom art components, and crisp alignment grids.",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer efficitur bibendum erat, quis aliquet diam tincidunt a. Vivamus non iaculis.",
         "mediaRatio": "1000 / 626"
       },
       {
@@ -566,7 +582,7 @@
         "media": "/projects/roam/demo-nav.mp4",
         "mediaType": "video",
         "contained": true,
-        "text": "Detailed design layout showcasing responsive typography, vibrant custom art components, and crisp alignment grids.",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer efficitur bibendum erat, quis aliquet diam tincidunt a. Vivamus non iaculis.",
         "mediaRatio": "954 / 594"
       }
     ]
@@ -607,7 +623,7 @@
         "media": "/projects/virgin-hyperloop/virgin-hyperloop--commarts01a.jpg",
         "mediaType": "image",
         "contained": true,
-        "text": "Detailed design layout showcasing responsive typography, vibrant custom art components, and crisp alignment grids.",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer efficitur bibendum erat, quis aliquet diam tincidunt a. Vivamus non iaculis.",
         "mediaRatio": "1586 / 900"
       },
       {
@@ -615,7 +631,7 @@
         "media": "/projects/virgin-hyperloop/virgin-hyperloop--commarts02a.jpg",
         "mediaType": "image",
         "contained": true,
-        "text": "Detailed design layout showcasing responsive typography, vibrant custom art components, and crisp alignment grids.",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer efficitur bibendum erat, quis aliquet diam tincidunt a. Vivamus non iaculis.",
         "mediaRatio": "1586 / 900"
       },
       {
@@ -623,7 +639,7 @@
         "media": "/projects/virgin-hyperloop/virgin-hyperloop--commarts03a.jpg",
         "mediaType": "image",
         "contained": true,
-        "text": "Detailed design layout showcasing responsive typography, vibrant custom art components, and crisp alignment grids.",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer efficitur bibendum erat, quis aliquet diam tincidunt a. Vivamus non iaculis.",
         "mediaRatio": "1586 / 900"
       },
       {
@@ -631,7 +647,7 @@
         "media": "/projects/virgin-hyperloop/virgin-hyperloop--commarts04a.jpg",
         "mediaType": "image",
         "contained": true,
-        "text": "Detailed design layout showcasing responsive typography, vibrant custom art components, and crisp alignment grids.",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer efficitur bibendum erat, quis aliquet diam tincidunt a. Vivamus non iaculis.",
         "mediaRatio": "1586 / 900"
       },
       {
@@ -639,7 +655,7 @@
         "media": "/projects/virgin-hyperloop/virgin-hyperloop--commarts05a.jpg",
         "mediaType": "image",
         "contained": true,
-        "text": "Detailed design layout showcasing responsive typography, vibrant custom art components, and crisp alignment grids.",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer efficitur bibendum erat, quis aliquet diam tincidunt a. Vivamus non iaculis.",
         "mediaRatio": "1586 / 900"
       },
       {
@@ -648,7 +664,7 @@
         "mediaType": "image",
         "contained": true,
         "collapsed": true,
-        "text": "Detailed design layout showcasing responsive typography, vibrant custom art components, and crisp alignment grids.",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer efficitur bibendum erat, quis aliquet diam tincidunt a. Vivamus non iaculis.",
         "mediaRatio": "1600 / 7099"
       }
     ]
@@ -668,142 +684,11 @@
     "heroMediaRatio": "1280 / 720"
   },
   {
-    "slug": "component-showcase",
-    "client": "Virgil Showcase",
-    "project": "Component Playground",
-    "year": "2026",
-    "description": "A comprehensive live playground demonstrating all modular layouts built for the Virgil portfolio stack. This page is constructed entirely using the dynamically compiled components folder, including SideBySide blocks, WideMedia displays, and custom-styled recognition lists.",
-    "media": "/projects/card.jpg",
-    "mediaType": "image",
-    "heroMedia": "/projects/google-trivia-twister/card.png",
-    "heroMediaType": "image",
-    "sections": [
-      {
-        "type": "intro",
-        "techStack": "Angular, Tailwind CSS, TypeScript, SvelteKit",
-        "links": [
-          {
-            "title": "Live Demo",
-            "url": "https://example.com"
-          },
-          {
-            "title": "GitHub Repo",
-            "url": "https://github.com"
-          }
-        ],
-        "awards": [
-          {
-            "year": "2026",
-            "title": "FWA Site of the Year",
-            "category": "Interactive Portfolio"
-          },
-          {
-            "year": "2026",
-            "title": "Awwwards Site of the Day",
-            "category": "Design & Development"
-          }
-        ]
-      },
-      {
-        "type": "wide-media",
-        "media": "/projects/google-machine-learning/card.mp4",
-        "mediaType": "video",
-        "contained": false,
-        "caption": "Full-bleed showcase of interactive video installation",
-        "mediaRatio": "960 / 540"
-      },
-      {
-        "type": "side-by-side",
-        "direction": "left",
-        "media": "/projects/google-trivia-twister/card.png",
-        "mediaType": "image",
-        "text": "Detailed design layout showcasing responsive typography, vibrant custom art components, and crisp alignment grids.",
-        "caption": "Side-by-side view with text left and image right",
-        "mediaRatio": "1280 / 800"
-      },
-      {
-        "type": "text",
-        "text": "Detailed design layout showcasing responsive typography, vibrant custom art components, and crisp alignment grids."
-      },
-      {
-        "type": "wide-media",
-        "media": "/projects/google-altitude/card.png",
-        "mediaType": "image",
-        "contained": true,
-        "caption": "Contained media container displaying key platform dashboard features",
-        "mediaRatio": "1200 / 627"
-      },
-      {
-        "type": "side-by-side",
-        "direction": "right",
-        "media": "/projects/roam/card.mp4",
-        "mediaType": "video",
-        "text": "Capturing motion workflows and dynamic scaling behaviors on the client devices.",
-        "caption": "Side-by-side view with text right and video left",
-        "mediaRatio": "500 / 336"
-      },
-      {
-        "type": "side-by-side",
-        "direction": "left",
-        "media": "/projects/google-jules/card.jpg",
-        "mediaType": "image",
-        "caption": "Primary media focus (Left)",
-        "media2": "/projects/virgin-galactic/card.jpg",
-        "mediaType2": "image",
-        "caption2": "Secondary media focus (Right)",
-        "mediaRatio": "1280 / 720",
-        "media2Ratio": "640 / 854"
-      },
-      {
-        "type": "heading",
-        "index": "01",
-        "title": "Section Heading & Chapter Divider",
-        "text": "Heading blocks break a long case study into scannable chapters, with an optional index and supporting paragraph."
-      },
-      {
-        "type": "gallery",
-        "columns": 3,
-        "caption": "Gallery — responsive 2 / 3 / 4-up image grid with optional per-item captions",
-        "items": [
-          {
-            "media": "/projects/google-jules/card.jpg",
-            "mediaType": "image",
-            "alt": "Jules interface detail",
-            "caption": "Primary detail",
-            "mediaRatio": "1280 / 720"
-          },
-          {
-            "media": "/projects/virgin-galactic/card.jpg",
-            "mediaType": "image",
-            "alt": "Virgin Galactic brand visual",
-            "caption": "Secondary detail",
-            "mediaRatio": "640 / 854"
-          },
-          {
-            "media": "/projects/google-altitude/card.png",
-            "mediaType": "image",
-            "alt": "Altitude dashboard",
-            "caption": "Tertiary detail",
-            "mediaRatio": "1200 / 627"
-          }
-        ]
-      },
-      {
-        "type": "quote",
-        "quote": "Virgil turned a complex brief into the most polished launch we've shipped — every interaction felt considered.",
-        "author": "Jane Doe",
-        "role": "VP Design, Google"
-      }
-    ],
-    "mediaRatio": "900 / 506",
-    "heroMediaRatio": "1280 / 800"
-  },
-  {
     "slug": "google-recorder",
     "client": "Google Pixel",
     "project": "Recorder",
     "year": "2020",
-    "description": "A comprehensive live playground demonstrating all modular layouts built for the Virgil portfolio stack. This page is constructed entirely using the dynamically compiled components folder, including SideBySide blocks, WideMedia displays, and custom-styled recognition lists.",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer efficitur bibendum erat, quis aliquet diam tincidunt a. Vivamus non iaculis.",
     "media": "/projects/google-recorder/card.jpg",
     "mediaType": "image",
     "heroMedia": "/projects/google-recorder/hero.jpg",
@@ -849,7 +734,7 @@
         "mediaType": "image",
         "contained": true,
         "collapsed": true,
-        "text": "Detailed design layout showcasing responsive typography, vibrant custom art components, and crisp alignment grids.",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer efficitur bibendum erat, quis aliquet diam tincidunt a. Vivamus non iaculis.",
         "mediaRatio": "1368 / 6538"
       },
       {
@@ -857,7 +742,7 @@
         "media": "/projects/google-recorder/demo.mp4",
         "mediaType": "video",
         "contained": true,
-        "text": "Detailed design layout showcasing responsive typography, vibrant custom art components, and crisp alignment grids.",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer efficitur bibendum erat, quis aliquet diam tincidunt a. Vivamus non iaculis.",
         "mediaRatio": "1000 / 562"
       }
     ],
@@ -869,7 +754,7 @@
     "client": "Google Jigsaw",
     "project": "Protect Your Democracy",
     "year": "2023",
-    "description": "Google's internal brand identity for the next generation of large language models.",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer efficitur bibendum erat, quis aliquet diam tincidunt a. Vivamus non iaculis.",
     "media": "/projects/google-pyd/card.mp4",
     "mediaType": "video",
     "heroMedia": "/projects/google-pyd/hero.png",
@@ -901,7 +786,7 @@
         "mediaType": "image",
         "contained": true,
         "collapsed": true,
-        "text": "Detailed design layout showcasing responsive typography, vibrant custom art components, and crisp alignment grids.",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer efficitur bibendum erat, quis aliquet diam tincidunt a. Vivamus non iaculis.",
         "mediaRatio": "802 / 1600"
       },
       {
@@ -910,7 +795,7 @@
         "mediaType": "image",
         "contained": true,
         "collapsed": false,
-        "text": "Detailed design layout showcasing responsive typography, vibrant custom art components, and crisp alignment grids.",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer efficitur bibendum erat, quis aliquet diam tincidunt a. Vivamus non iaculis.",
         "mediaRatio": "1600 / 1600"
       },
       {
@@ -918,7 +803,7 @@
         "media": "/projects/google-pyd/demo.mp4",
         "mediaType": "video",
         "contained": true,
-        "text": "Detailed design layout showcasing responsive typography, vibrant custom art components, and crisp alignment grids.",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer efficitur bibendum erat, quis aliquet diam tincidunt a. Vivamus non iaculis.",
         "mediaRatio": "1000 / 758"
       },
       {
@@ -927,7 +812,7 @@
         "mediaType": "image",
         "contained": true,
         "collapsed": true,
-        "text": "Detailed design layout showcasing responsive typography, vibrant custom art components, and crisp alignment grids.",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer efficitur bibendum erat, quis aliquet diam tincidunt a. Vivamus non iaculis.",
         "mediaRatio": "1428 / 1748"
       }
     ]
@@ -937,7 +822,7 @@
     "client": "Scotch & Soda",
     "project": "E-Commerce and Campaigns",
     "year": "2012-2018",
-    "description": "Google's internal brand identity for the next generation of large language models.",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer efficitur bibendum erat, quis aliquet diam tincidunt a. Vivamus non iaculis.",
     "media": "/projects/scotch-soda/card2.jpg",
     "mediaType": "image",
     "heroMedia": "/projects/scotch-soda/hero.jpg",
@@ -947,11 +832,11 @@
     "sections": [
       {
         "type": "intro",
-        "techStack": "Angular, SASS, Grow, Webpack",
+        "techStack": "PHP, Javascript, GSAP",
         "links": [
           {
-            "title": "ROAM Interior Design",
-            "url": "https://www.roaminteriordesign.com/"
+            "title": "Misguiding Guide Campaign",
+            "url": "https://vineshgayadin.com/project/misguiding-guide"
           }
         ],
         "awards": [
@@ -978,7 +863,7 @@
         "mediaType": "image",
         "contained": false,
         "caption": "",
-        "mediaRatio": "1800 / 500"
+        "mediaRatio": "1800 / 812"
       },
       {
         "type": "wide-media",
@@ -1021,98 +906,141 @@
         "mediaType": "image",
         "contained": true,
         "mediaRatio": "1600 / 914"
+      },
+      {
+        "type": "heading",
+        "index": "01",
+        "title": "Misguiding Guide",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer efficitur bibendum erat, quis aliquet diam tincidunt a. Vivamus non iaculis."
+      },
+      {
+        "type": "wide-media",
+        "media": "/projects/scotch-soda/misguiding-guide.jpg",
+        "mediaType": "image",
+        "contained": true,
+        "mediaRatio": "1400 / 733"
+      },
+      {
+        "type": "heading",
+        "index": "02",
+        "title": "All Together Now",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer efficitur bibendum erat, quis aliquet diam tincidunt a. Vivamus non iaculis."
+      },
+      {
+        "type": "wide-media",
+        "media": "/projects/scotch-soda/alltogethernow.jpg",
+        "mediaType": "image",
+        "contained": true,
+        "mediaRatio": "1196 / 896"
+      },
+      {
+        "type": "heading",
+        "index": "03",
+        "title": "Holiday Campaign",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer efficitur bibendum erat, quis aliquet diam tincidunt a. Vivamus non iaculis."
+      },
+      {
+        "type": "wide-media",
+        "media": "/projects/scotch-soda/holiday.jpg",
+        "mediaType": "image",
+        "contained": true,
+        "mediaRatio": "1193 / 892"
+      },
+      {
+        "type": "heading",
+        "index": "04",
+        "title": "Sir Safari Pop",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer efficitur bibendum erat, quis aliquet diam tincidunt a. Vivamus non iaculis."
+      },
+      {
+        "type": "wide-media",
+        "media": "/projects/scotch-soda/sirsafaripop-1.jpg",
+        "mediaType": "image",
+        "contained": true,
+        "mediaRatio": "1196 / 897"
+      },
+      {
+        "type": "wide-media",
+        "media": "/projects/scotch-soda/sirsafaripop-2.jpg",
+        "mediaType": "image",
+        "contained": true,
+        "mediaRatio": "1195 / 895"
+      },
+      {
+        "type": "wide-media",
+        "media": "/projects/scotch-soda/sirsafaripop-3.jpg",
+        "mediaType": "image",
+        "contained": true,
+        "mediaRatio": "1194 / 897"
       }
     ]
   },
   {
     "slug": "google-most-searched",
-    "client": "Google",
+    "client": "Google Brand Studio",
     "project": "Most Searched",
     "year": "2020",
-    "description": "Google's internal brand identity for the next generation of large language models.",
-    "media": "/projects/google-most-searched/card2.jpg",
-    "mediaType": "image",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer efficitur bibendum erat, quis aliquet diam tincidunt a. Vivamus non iaculis.",
+    "media": "/projects/google-most-searched/card.mp4",
+    "mediaType": "video",
     "heroMedia": "/projects/google-most-searched/hero.jpg",
     "heroMediaType": "image",
-    "mediaRatio": "480 / 640",
+    "mediaRatio": "500 / 282",
     "heroMediaRatio": "1800 / 812",
     "sections": [
       {
         "type": "intro",
-        "techStack": "Angular, SASS, Grow, Webpack",
-        "links": [
-          {
-            "title": "ROAM Interior Design",
-            "url": "https://www.roaminteriordesign.com/"
-          }
-        ],
+        "techStack": "Angular, SASS",
         "awards": [
           {
-            "year": "2013",
-            "title": "Awwwards",
-            "category": "Site of the Day"
-          },
-          {
-            "year": "2011",
-            "title": "Awwwards",
-            "category": "Site of the Day"
-          },
-          {
-            "year": "2011",
-            "title": "TheFWA",
-            "category": "Site of the Day"
+            "year": "2020",
+            "title": "ADC Awards - Silver",
+            "category": "Online / Mobile Websites / Campaign Site"
           }
         ]
       },
       {
         "type": "wide-media",
-        "media": "/projects/scotch-soda/hero.jpg",
+        "media": "/projects/google-most-searched/hero3.jpg",
         "mediaType": "image",
         "contained": false,
         "caption": "",
-        "mediaRatio": "1800 / 500"
+        "mediaRatio": "2200 / 536"
       },
       {
         "type": "wide-media",
-        "media": "/projects/scotch-soda/_0000_scotchsoda.jpg",
-        "mediaType": "image",
+        "media": "/projects/google-most-searched/home.mp4",
+        "mediaType": "video",
         "contained": true,
-        "mediaRatio": "1600 / 914"
+        "mediaRatio": "1200 / 676"
       },
       {
         "type": "wide-media",
-        "media": "/projects/scotch-soda/_0001_scotchsoda.jpg",
-        "mediaType": "image",
+        "media": "/projects/google-most-searched/scroll.mp4",
+        "mediaType": "video",
         "contained": true,
-        "mediaRatio": "1600 / 914"
+        "mediaRatio": "1200 / 676"
       },
       {
         "type": "wide-media",
-        "media": "/projects/scotch-soda/_0002_scotchsoda.jpg",
+        "media": "/projects/google-most-searched/screen-1.jpg",
         "mediaType": "image",
         "contained": true,
-        "mediaRatio": "1600 / 914"
+        "mediaRatio": "1901 / 1372"
       },
       {
         "type": "wide-media",
-        "media": "/projects/scotch-soda/_0003_scotchsoda.jpg",
+        "media": "/projects/google-most-searched/screen-2.jpg",
         "mediaType": "image",
         "contained": true,
-        "mediaRatio": "1600 / 914"
+        "mediaRatio": "1901 / 1372"
       },
       {
         "type": "wide-media",
-        "media": "/projects/scotch-soda/_0004_scotchsoda.jpg",
+        "media": "/projects/google-most-searched/screen-3.jpg",
         "mediaType": "image",
         "contained": true,
-        "mediaRatio": "1600 / 914"
-      },
-      {
-        "type": "wide-media",
-        "media": "/projects/scotch-soda/_0005_scotchsoda.jpg",
-        "mediaType": "image",
-        "contained": true,
-        "mediaRatio": "1600 / 914"
+        "mediaRatio": "1901 / 1372"
       }
     ]
   }

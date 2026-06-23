@@ -1,5 +1,6 @@
 <script lang="ts">
-  import favicon from "$lib/assets/favicon.svg";
+  import favicon from "$lib/assets/favicon.png";
+  import faviconWhite from "$lib/assets/favicon.white.png";
   import { LogoAnimation } from "$lib";
   import { fade } from "svelte/transition";
   import { page } from "$app/state";
@@ -9,7 +10,8 @@
 </script>
 
 <svelte:head>
-  <link rel="icon" href={favicon} />
+  <link rel="icon" href={favicon} media="(prefers-color-scheme: light)" />
+  <link rel="icon" href={faviconWhite} media="(prefers-color-scheme: dark)" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link
     rel="preconnect"

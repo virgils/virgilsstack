@@ -3,8 +3,8 @@
 
   // When a project has an externalUrl, the card links out instead of to /work
   let isExternal = $derived(!!project.externalUrl);
-  // A project with neither a slug nor an externalUrl is not clickable at all
-  let isLink = $derived(isExternal || !!project.slug);
+  // A `blocked` project is never clickable; otherwise it links if it has a slug/externalUrl
+  let isLink = $derived(!project.blocked && (isExternal || !!project.slug));
   let href = $derived(
     isLink ? (project.externalUrl ?? `/work/${project.slug}`) : undefined,
   );
@@ -56,8 +56,8 @@
   rel={isExternal ? "noopener noreferrer" : undefined}
 >
   <div class="card-media">
-    {#if project.nda}
-      <span class="nda-label">NDA</span>
+    {#if project.blocked}
+      <span class="nda-label">{project.blocked}</span>
     {/if}
     <!-- ADDED: Inline style for aspect-ratio with a fallback -->
     <div

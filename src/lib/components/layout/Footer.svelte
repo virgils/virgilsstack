@@ -25,7 +25,8 @@
 
   <div class="footer-bottom">
     <div class="footer-left">
-      <span class="copyright">© {new Date().getFullYear()} Virgil</span>
+      <span class="copyright">© {new Date().getFullYear()} Virgil's Stack</span
+      >
     </div>
     <div class="footer-links">
       <a
