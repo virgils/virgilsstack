@@ -133,14 +133,14 @@
     <br /><br />
     <p class="about-bio">Open to new collaborations.</p>
     <br /><br />
-    <a href="mailto:hello@virgil.studio" class="about-contact"
-      >hello@virgilstack.com</a
+    <a href="mailto:hello@virgilsstack.com" class="about-contact"
+      >hello@virgilsstack.com</a
     >
   </div>
 
   <div class="about-lists">
     <div class="list-block">
-      <h2 class="list-heading">Awards</h2>
+      <h2 class="list-heading">Recognition & Press</h2>
       <ul class="about-list">
         <li><span>8x Awwwards</span></li>
         <li><span>9x TheFWA</span></li>
@@ -148,6 +148,27 @@
         <li><span>1x Love Awards</span></li>
         <li><span>1x Creative Circle</span></li>
         <li><span>3x Anthem Awards</span></li>
+        <li>
+          <span
+            >Jury Member, <a
+              href="https://www.awwwards.com/virgil.spruit/"
+              target="_blank">Awwwards</a
+            >
+            &
+            <a href="https://thefwa.com/" target="_blank">TheFWA</a></span
+          >
+        </li>
+        <li>
+          <a
+            href="https://x.com/virgilrocks/status/963005637171978240"
+            target="_blank"><span>Featured in net magazine</span></a
+          >
+        </li>
+        <li>
+          <a href="https://thefwa.com/interviews/virgil-spruit" target="_blank"
+            ><span>Interviewed by TheFWA</span></a
+          >
+        </li>
       </ul>
     </div>
 
@@ -254,6 +275,11 @@
       display: inline-block;
       background-color: white;
       color: black;
+    }
+
+    a,
+    a span {
+      text-decoration: underline;
     }
   }
 

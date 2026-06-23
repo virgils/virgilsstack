@@ -1,6 +1,14 @@
 <script>
   let { project } = $props();
 
+  // When a project has an externalUrl, the card links out instead of to /work
+  let isExternal = $derived(!!project.externalUrl);
+  // A project with neither a slug nor an externalUrl is not clickable at all
+  let isLink = $derived(isExternal || !!project.slug);
+  let href = $derived(
+    isLink ? (project.externalUrl ?? `/work/${project.slug}`) : undefined,
+  );
+
   let isLoaded = $state(false);
 
   function handleLoad() {
@@ -35,12 +43,22 @@
   }
 </script>
 
-<a
-  href="/work/{project.slug}"
+<svelte:element
+  this={isLink ? "a" : "div"}
+  {href}
   class="card"
-  aria-label="{project.client} — {project.project}"
+  class:external={isExternal}
+  class:static={!isLink}
+  aria-label="{project.client} — {project.project}{isExternal
+    ? ' (opens in a new tab)'
+    : ''}"
+  target={isExternal ? "_blank" : undefined}
+  rel={isExternal ? "noopener noreferrer" : undefined}
 >
   <div class="card-media">
+    {#if project.nda}
+      <span class="nda-label">NDA</span>
+    {/if}
     <!-- ADDED: Inline style for aspect-ratio with a fallback -->
     <div
       class="media-wrapper"
@@ -63,6 +81,26 @@
           onload={handleLoad}
         />
       {/if}
+
+      {#if isExternal}
+        <div class="external-overlay" aria-hidden="true">
+          <svg
+            class="external-icon"
+            width="28"
+            height="28"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+            <polyline points="15 3 21 3 21 9" />
+            <line x1="10" y1="14" x2="21" y2="3" />
+          </svg>
+        </div>
+      {/if}
     </div>
   </div>
 
@@ -76,7 +114,7 @@
       <span class="card-year" class:show={isLoaded}>{project.year}</span>
     {/if}
   </div>
-</a>
+</svelte:element>
 
 <style>
   .card {
@@ -85,12 +123,41 @@
     text-decoration: none;
   }
 
+  .card.static {
+    cursor: default;
+  }
+
   .card-media {
+    position: relative;
     width: 100%;
     margin: 0 auto;
     overflow: hidden;
     padding: 20px;
     background-color: var(--bg-color-secondary);
+  }
+
+  .nda-label {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    z-index: 4;
+    padding: 4px 8px;
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 3px;
+  }
+
+  @media (--bp-sm) {
+    .nda-label {
+      top: 40px;
+      right: 40px;
+    }
   }
 
   @media (--bp-sm) {
@@ -154,6 +221,34 @@
 
   .media-wrapper.show:before {
     width: 0%;
+  }
+
+  /* External-link hover state: dim the media and reveal the icon */
+  .external-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.45);
+    color: #fff;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+  }
+
+  .card.external:hover .external-overlay {
+    opacity: 1;
+  }
+
+  .external-icon {
+    transform: scale(0.85);
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .card.external:hover .external-icon {
+    transform: scale(1);
   }
 
   .card-info {

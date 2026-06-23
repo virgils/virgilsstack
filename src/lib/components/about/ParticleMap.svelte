@@ -18,7 +18,7 @@
     amsLocationX = -0.09,
     amsLocationY = 0.06,
     hasStroke = false,
-    markerSize = 180.0,
+    markerSize = 120.0,
     scrollFade = false, // NEW: spread + fade particles on window scroll
     scrollFadeDistance = 0.9, // portion of a viewport to fully fade over — lower = fades faster
     scrollSpread = 300.0, // how far particles fly apart on scroll — higher = particles fly farther apart

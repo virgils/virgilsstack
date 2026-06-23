@@ -1,6 +1,15 @@
 <script lang="ts">
   import type { PageData } from "./$types";
-  import { Intro, SideBySide, WideMedia, Footer, Text } from "$lib";
+  import {
+    Intro,
+    SideBySide,
+    WideMedia,
+    Footer,
+    Text,
+    Gallery,
+    SectionHeading,
+    PullQuote,
+  } from "$lib";
 
   let { data }: { data: PageData } = $props();
   let project = $derived(data.project);
@@ -42,6 +51,12 @@
           playbackRate={section.playbackRate || 1}
           collapsed={section.collapsed || false}
         />
+      {:else if (section as any).type === "gallery"}
+        <Gallery {...(section as any)} />
+      {:else if (section as any).type === "heading"}
+        <SectionHeading {...(section as any)} />
+      {:else if (section as any).type === "quote"}
+        <PullQuote {...(section as any)} />
       {/if}
     {/each}
   {:else}

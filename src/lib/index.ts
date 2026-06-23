@@ -14,6 +14,9 @@ export { default as Intro } from "./components/work/Intro.svelte";
 export { default as SideBySide } from "./components/work/SideBySide.svelte";
 export { default as WideMedia } from "./components/work/WideMedia.svelte";
 export { default as Text } from "./components/work/Text.svelte";
+export { default as Gallery } from "./components/work/Gallery.svelte";
+export { default as SectionHeading } from "./components/work/SectionHeading.svelte";
+export { default as PullQuote } from "./components/work/PullQuote.svelte";
 
 // About page
 export { default as ParticleMap } from "./components/about/ParticleMap.svelte";

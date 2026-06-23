@@ -29,18 +29,18 @@
     </div>
     <div class="footer-links">
       <a
-        href="https://linkedin.com"
+        href="https://www.linkedin.com/in/virgils/"
         target="_blank"
         rel="noopener noreferrer"
         class="footer-link">LinkedIn</a
       >
       <a
-        href="https://instagram.com"
+        href="https://www.instagram.com/virgilrocks"
         target="_blank"
         rel="noopener noreferrer"
         class="footer-link">Instagram</a
       >
-      <a href="mailto:hello@virgil.studio" class="footer-link">Email</a>
+      <a href="mailto:hello@virgilsstack.com" class="footer-link">Email</a>
     </div>
   </div>
 </footer>
@@ -110,8 +110,6 @@
     flex-direction: column;
     gap: 24px;
     padding: 48px var(--page-padding-x);
-    max-width: 1200px;
-    margin: 0 auto;
     align-items: center;
   }
 
