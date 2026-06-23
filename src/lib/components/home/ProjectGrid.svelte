@@ -11,12 +11,44 @@
     innerWidth >= 1600 ? 4 : innerWidth >= 1024 ? 3 : innerWidth >= 560 ? 2 : 1,
   );
 
-  // Distribute projects round-robin across columns so the cards read
-  // left-to-right in projects.json order (col 0: 0,3,6… / col 1: 1,4,7… …)
-  // while each column still stacks its cards tightly (masonry).
+  // How many leading projects keep their curated, deterministic placement.
+  const FIXED_COUNT = 8;
+  // Rough height a card's title/year block + column gap adds on top of the
+  // media, in the same normalized units as the media height (column width = 1).
+  const INFO_BLOCK = 0.35;
+
+  // Estimate a card's rendered height relative to the column width.
+  // mediaRatio is "w / h" (defaults to 16/9, matching ProjectCard), so the
+  // media's height for a unit-width column is h / w = 1 / ratio.
+  function estimateHeight(project: Project): number {
+    const raw = project.mediaRatio || "16 / 9";
+    const [w, h] = String(raw).split("/").map((n) => parseFloat(n.trim()));
+    const ratio = w && h ? w / h : 16 / 9;
+    return 1 / ratio + INFO_BLOCK;
+  }
+
+  // First FIXED_COUNT projects keep their JSON order (round-robin so they read
+  // left-to-right). After that, each project drops into the currently shortest
+  // column so column heights stay as even as possible toward the bottom.
   let columns = $derived.by(() => {
     const cols: Project[][] = Array.from({ length: columnCount }, () => []);
-    projects.forEach((project, i) => cols[i % columnCount].push(project));
+    const heights: number[] = Array.from({ length: columnCount }, () => 0);
+
+    projects.forEach((project, i) => {
+      let target: number;
+      if (i < FIXED_COUNT) {
+        target = i % columnCount;
+      } else {
+        // index of the shortest column
+        target = heights.reduce(
+          (min, h, idx) => (h < heights[min] ? idx : min),
+          0,
+        );
+      }
+      cols[target].push(project);
+      heights[target] += estimateHeight(project);
+    });
+
     return cols;
   });
 </script>
