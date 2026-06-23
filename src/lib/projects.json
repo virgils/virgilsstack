@@ -393,51 +393,59 @@
     ]
   },
   {
-    "slug": "google-altitude",
-    "client": "Google Jigsaw",
-    "project": "Altitude",
+    "slug": "roam",
+    "client": "ROAM",
+    "project": "Brand Website",
     "year": "2023",
     "description": "Redefining the annual report through a fully responsive digital experience. We moved beyond static PDF layouts to create a narrative-driven platform that adapts from billboard-scale displays to mobile screens, showcasing the year’s research and impact with dynamic typography and motion-rich data visualizations.",
-    "media": "/projects/google-altitude/card.png",
-    "mediaType": "image",
-    "heroMedia": "/projects/google-altitude/card.png",
-    "heroMediaType": "image",
-    "mediaRatio": "1200 / 627",
-    "heroMediaRatio": "1200 / 627",
+    "media": "/projects/roam/card.mp4",
+    "mediaType": "video",
+    "heroMedia": "/projects/roam/hero.mp4",
+    "heroMediaType": "video",
+    "mediaRatio": "500 / 336",
+    "heroMediaRatio": "1920 / 600",
     "sections": [
       {
         "type": "intro",
         "techStack": "Angular, SASS, Grow, Webpack",
         "links": [
           {
-            "title": "TechCrunch",
-            "url": "https://techcrunch.com/2024/07/22/googles-jigsaw-open-sources-altitude-to-help-online-platforms-weed-out-extremist-content/"
+            "title": "ROAM Interior Design",
+            "url": "https://www.roaminteriordesign.com/"
           }
         ]
       },
       {
         "type": "wide-media",
-        "media": "/projects/google-altitude/hero.jpg",
-        "mediaType": "image",
+        "media": "/projects/roam/hero.mp4",
+        "mediaType": "video",
         "contained": false,
         "caption": "",
-        "mediaRatio": "2200 / 593"
+        "mediaRatio": "1920 / 600"
       },
       {
         "type": "wide-media",
-        "media": "/projects/google-altitude/demo.png",
-        "mediaType": "image",
-        "contained": true,
-        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer efficitur bibendum erat, quis aliquet diam tincidunt a. Vivamus non iaculis.",
-        "mediaRatio": "1185 / 3595"
-      },
-      {
-        "type": "wide-media",
-        "media": "/projects/google-altitude/demo.mp4",
+        "media": "/projects/roam/demo-home.mp4",
         "mediaType": "video",
         "contained": true,
         "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer efficitur bibendum erat, quis aliquet diam tincidunt a. Vivamus non iaculis.",
-        "mediaRatio": "1178 / 894"
+        "mediaRatio": "1000 / 626"
+      },
+      {
+        "type": "wide-media",
+        "media": "/projects/roam/demo-category.mp4",
+        "mediaType": "video",
+        "contained": true,
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer efficitur bibendum erat, quis aliquet diam tincidunt a. Vivamus non iaculis.",
+        "mediaRatio": "1000 / 626"
+      },
+      {
+        "type": "wide-media",
+        "media": "/projects/roam/demo-nav.mp4",
+        "mediaType": "video",
+        "contained": true,
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer efficitur bibendum erat, quis aliquet diam tincidunt a. Vivamus non iaculis.",
+        "mediaRatio": "954 / 594"
       }
     ]
   },
@@ -530,60 +538,53 @@
       }
     ]
   },
+
   {
-    "slug": "roam",
-    "client": "ROAM",
-    "project": "Brand Website",
+    "slug": "google-altitude",
+    "client": "Google Jigsaw",
+    "project": "Altitude",
     "year": "2023",
     "description": "Redefining the annual report through a fully responsive digital experience. We moved beyond static PDF layouts to create a narrative-driven platform that adapts from billboard-scale displays to mobile screens, showcasing the year’s research and impact with dynamic typography and motion-rich data visualizations.",
-    "media": "/projects/roam/card.mp4",
-    "mediaType": "video",
-    "heroMedia": "/projects/roam/hero.mp4",
-    "heroMediaType": "video",
-    "mediaRatio": "500 / 336",
-    "heroMediaRatio": "1920 / 600",
+    "media": "/projects/google-altitude/card.png",
+    "mediaType": "image",
+    "heroMedia": "/projects/google-altitude/card.png",
+    "heroMediaType": "image",
+    "mediaRatio": "1200 / 627",
+    "heroMediaRatio": "1200 / 627",
     "sections": [
       {
         "type": "intro",
         "techStack": "Angular, SASS, Grow, Webpack",
         "links": [
           {
-            "title": "ROAM Interior Design",
-            "url": "https://www.roaminteriordesign.com/"
+            "title": "TechCrunch",
+            "url": "https://techcrunch.com/2024/07/22/googles-jigsaw-open-sources-altitude-to-help-online-platforms-weed-out-extremist-content/"
           }
         ]
       },
       {
         "type": "wide-media",
-        "media": "/projects/roam/hero.mp4",
-        "mediaType": "video",
+        "media": "/projects/google-altitude/hero.jpg",
+        "mediaType": "image",
         "contained": false,
         "caption": "",
-        "mediaRatio": "1920 / 600"
+        "mediaRatio": "2200 / 593"
       },
       {
         "type": "wide-media",
-        "media": "/projects/roam/demo-home.mp4",
-        "mediaType": "video",
+        "media": "/projects/google-altitude/demo.png",
+        "mediaType": "image",
         "contained": true,
         "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer efficitur bibendum erat, quis aliquet diam tincidunt a. Vivamus non iaculis.",
-        "mediaRatio": "1000 / 626"
+        "mediaRatio": "1185 / 3595"
       },
       {
         "type": "wide-media",
-        "media": "/projects/roam/demo-category.mp4",
+        "media": "/projects/google-altitude/demo.mp4",
         "mediaType": "video",
         "contained": true,
         "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer efficitur bibendum erat, quis aliquet diam tincidunt a. Vivamus non iaculis.",
-        "mediaRatio": "1000 / 626"
-      },
-      {
-        "type": "wide-media",
-        "media": "/projects/roam/demo-nav.mp4",
-        "mediaType": "video",
-        "contained": true,
-        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer efficitur bibendum erat, quis aliquet diam tincidunt a. Vivamus non iaculis.",
-        "mediaRatio": "954 / 594"
+        "mediaRatio": "1178 / 894"
       }
     ]
   },
