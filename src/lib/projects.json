@@ -683,7 +683,7 @@
     "client": "Google Pixel",
     "project": "Recorder",
     "year": "2020",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer efficitur bibendum erat, quis aliquet diam tincidunt a. Vivamus non iaculis.",
+    "description": "Google Recorder is a voice recording and transcription app that uses on-device AI to capture, transcribe, and organize conversations in real time. I helped build the marketing experience that communicates the product's capabilities through interactive demonstrations and clear product explanations.",
     "media": "/projects/google-recorder/card.jpg",
     "mediaType": "image",
     "heroMedia": "/projects/google-recorder/hero.jpg",
@@ -694,7 +694,6 @@
         "media": "/projects/google-recorder/hero.jpg",
         "mediaType": "image",
         "contained": false,
-        "caption": "Full-bleed showcase of interactive video installation",
         "mediaRatio": "1800 / 734"
       },
       {
@@ -707,7 +706,6 @@
         "mediaType": "image",
         "contained": true,
         "collapsed": true,
-        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer efficitur bibendum erat, quis aliquet diam tincidunt a. Vivamus non iaculis.",
         "mediaRatio": "1368 / 6538"
       },
       {
@@ -715,7 +713,6 @@
         "media": "/projects/google-recorder/demo.mp4",
         "mediaType": "video",
         "contained": true,
-        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer efficitur bibendum erat, quis aliquet diam tincidunt a. Vivamus non iaculis.",
         "mediaRatio": "1000 / 562"
       }
     ],
