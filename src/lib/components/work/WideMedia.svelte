@@ -29,7 +29,7 @@
 
   // NEW: State and dynamic aspect ratio
   let isExpanded = $state(false);
-  let currentRatio = $derived(collapsed && !isExpanded ? "1 / 1" : mediaRatio);
+  let currentRatio = $derived(collapsed && !isExpanded ? "4 / 3" : mediaRatio);
 
   function rate(node: HTMLVideoElement, speed: number) {
     node.defaultPlaybackRate = speed;
