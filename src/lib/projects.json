@@ -724,7 +724,7 @@
     "client": "Google Jigsaw",
     "project": "Protect Your Democracy",
     "year": "2023",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer efficitur bibendum erat, quis aliquet diam tincidunt a. Vivamus non iaculis.",
+    "description": "Built for Google's Protect Your Democracy initiative, the website serves as a hub for security-focused programs and resources. Visitors can explore four key initiatives and learn more about the tools and practices that help strengthen digital safety and resilience.",
     "media": "/projects/google-pyd/card.mp4",
     "mediaType": "video",
     "heroMedia": "/projects/google-pyd/hero.png",
@@ -748,7 +748,7 @@
         "mediaType": "image",
         "contained": false,
         "caption": "",
-        "mediaRatio": "2200 / 593"
+        "mediaRatio": "2200 / 900"
       },
       {
         "type": "wide-media",
@@ -756,7 +756,6 @@
         "mediaType": "image",
         "contained": true,
         "collapsed": true,
-        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer efficitur bibendum erat, quis aliquet diam tincidunt a. Vivamus non iaculis.",
         "mediaRatio": "802 / 1600"
       },
       {
@@ -765,7 +764,6 @@
         "mediaType": "image",
         "contained": true,
         "collapsed": false,
-        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer efficitur bibendum erat, quis aliquet diam tincidunt a. Vivamus non iaculis.",
         "mediaRatio": "1600 / 1600"
       },
       {
@@ -773,7 +771,7 @@
         "media": "/projects/google-pyd/demo.mp4",
         "mediaType": "video",
         "contained": true,
-        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer efficitur bibendum erat, quis aliquet diam tincidunt a. Vivamus non iaculis.",
+        "text": "Here you can see the behaviour of the four different cards with initiatives.",
         "mediaRatio": "1000 / 758"
       },
       {
@@ -782,7 +780,7 @@
         "mediaType": "image",
         "contained": true,
         "collapsed": true,
-        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer efficitur bibendum erat, quis aliquet diam tincidunt a. Vivamus non iaculis.",
+        "text": "For the mobile version the cards are stacked and expand instead of overlaying.",
         "mediaRatio": "1428 / 1748"
       }
     ]
