@@ -1,7 +1,7 @@
 <div class="hero">
-  Senior developer specializing in building polished digital experiences across
-  platforms, campaigns, and products. Bridging design, technology, and client
-  collaboration for brands that care about craft.
+  Creative engineer and technical partner specializing in turning complex ideas
+  into polished, high-performance digital products. Combining deep expertise
+  with a strong eye for craft and user experience.
 </div>
 
 <style>
