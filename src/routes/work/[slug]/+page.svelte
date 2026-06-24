@@ -163,19 +163,19 @@
   }
 
   .project-label {
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.14em;
+    font-size: var(--fs-label);
+    font-weight: var(--fw-medium);
+    letter-spacing: var(--ls-label);
     text-transform: uppercase;
     color: var(--text-secondary);
     margin-bottom: 10px;
   }
 
   .project-title {
-    font-size: clamp(2rem, 5vw, 4rem);
-    font-weight: 300;
-    letter-spacing: -0.02em;
-    line-height: 1.05;
+    font-size: var(--fs-h1);
+    font-weight: var(--fw-light);
+    letter-spacing: var(--ls-tight);
+    line-height: var(--lh-display);
     color: var(--text-primary);
   }
 
@@ -185,9 +185,9 @@
   }
 
   .project-description {
-    font-size: 17px;
-    font-weight: 300;
-    line-height: 1.75;
+    font-size: var(--fs-body);
+    font-weight: var(--fw-light);
+    line-height: var(--lh-relaxed);
     color: var(--text-primary);
   }
 
@@ -196,9 +196,9 @@
     align-items: center;
     gap: 8px;
     margin: 0 var(--page-padding-x) 48px;
-    font-size: 12px;
-    font-weight: 500;
-    letter-spacing: 0.08em;
+    font-size: var(--fs-meta);
+    font-weight: var(--fw-medium);
+    letter-spacing: var(--ls-label);
     text-transform: uppercase;
     color: var(--text-secondary);
     transition: color 0.2s ease;

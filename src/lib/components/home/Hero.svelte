@@ -8,17 +8,16 @@
   .hero {
     width: 85%;
     padding: 60px var(--page-padding-x);
-    font-size: 1.6rem;
-    line-height: 1.2;
+    font-size: var(--fs-lead);
+    line-height: var(--lh-snug);
     box-sizing: border-box;
-    font-weight: 300;
+    font-weight: var(--fw-light);
   }
 
   @media (--bp-md) {
     .hero {
       width: 70%;
       padding: 120px var(--page-padding-x) 120px 10vw;
-      font-size: 2rem;
       max-width: 1000px;
     }
   }

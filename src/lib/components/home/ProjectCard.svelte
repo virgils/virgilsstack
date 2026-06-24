@@ -142,9 +142,9 @@
     right: 30px;
     z-index: 4;
     padding: 4px 8px;
-    font-size: 9px;
-    font-weight: 500;
-    letter-spacing: 0.12em;
+    font-size: var(--fs-label-sm);
+    font-weight: var(--fw-medium);
+    letter-spacing: var(--ls-label);
     text-transform: uppercase;
     color: #fff;
     background: rgba(0, 0, 0, 0.55);
@@ -314,25 +314,25 @@
   }
 
   .card-client {
-    font-size: 10px;
-    font-weight: 500;
-    letter-spacing: 0.12em;
+    font-size: var(--fs-label-sm);
+    font-weight: var(--fw-medium);
+    letter-spacing: var(--ls-label);
     text-transform: uppercase;
     color: var(--text-secondary);
   }
 
   .card-project {
-    font-size: 15px;
-    font-weight: 400;
-    letter-spacing: -0.01em;
+    font-size: var(--fs-body-sm);
+    font-weight: var(--fw-regular);
+    letter-spacing: var(--ls-snug);
     color: var(--text-primary);
-    line-height: 1.2;
+    line-height: var(--lh-snug);
   }
 
   .card-year {
-    font-size: 10px;
-    font-weight: 500;
-    letter-spacing: 0.1em;
+    font-size: var(--fs-label-sm);
+    font-weight: var(--fw-medium);
+    letter-spacing: var(--ls-label);
     color: var(--text-tertiary);
   }
 </style>

@@ -24,6 +24,6 @@
   }
 
   .content-text {
-    font-size: 22px;
+    font-size: var(--fs-body-lg);
   }
 </style>

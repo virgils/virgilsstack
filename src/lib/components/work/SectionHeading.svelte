@@ -36,10 +36,10 @@
   }
 
   .heading-title {
-    font-size: clamp(1.75rem, 4vw, 3rem);
-    font-weight: 300;
-    line-height: 1.1;
-    letter-spacing: -0.02em;
+    font-size: var(--fs-h2);
+    font-weight: var(--fw-light);
+    line-height: var(--lh-heading);
+    letter-spacing: var(--ls-tight);
     color: var(--text-primary);
     margin: 0;
     max-width: 16em;

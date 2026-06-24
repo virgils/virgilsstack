@@ -1,3 +1,7 @@
+/* Type system (tokens, element bases, utilities). Must stay first — @import
+   has to precede all other rules. */
+@import "./styles/type.css";
+
 /* ──────────────────────────────────────────────────────────
    Breakpoints — single source of truth (mobile-first, min-width)
    Reference anywhere as:  @media (--bp-md) { … }
@@ -37,6 +41,7 @@ html,
 body {
   margin: 0;
   padding: 0;
+  font-family: var(--ff-sans);
   background-color: var(--bg-color);
   color: var(--text-primary);
   -webkit-font-smoothing: antialiased;
@@ -54,21 +59,7 @@ body {
   padding: 0 var(--page-padding-x);
 }
 
-.caption {
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--text-tertiary);
-}
-
-.content-text {
-  font-size: 18px;
-  line-height: 1.6;
-  font-weight: 300;
-  color: var(--text-secondary);
-  margin: 0;
-}
+/* .caption and .content-text now live in styles/type.css */
 
 .component {
   margin-bottom: 50px;

@@ -32,10 +32,10 @@
 
   .quote-text {
     margin: 0;
-    font-size: clamp(1.5rem, 3.5vw, 2.5rem);
-    font-weight: 300;
+    font-size: var(--fs-quote);
+    font-weight: var(--fw-light);
     line-height: 1.3;
-    letter-spacing: -0.01em;
+    letter-spacing: var(--ls-snug);
     color: var(--text-primary);
   }
 
@@ -47,14 +47,14 @@
   }
 
   .quote-author {
-    font-size: 14px;
-    font-weight: 500;
+    font-size: var(--fs-ui);
+    font-weight: var(--fw-medium);
     color: var(--text-primary);
   }
 
   .quote-role {
-    font-size: 13px;
-    font-weight: 300;
+    font-size: var(--fs-meta);
+    font-weight: var(--fw-light);
     color: var(--text-secondary);
   }
 </style>

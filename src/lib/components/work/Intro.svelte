@@ -125,25 +125,25 @@
   }
 
   .client {
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.15em;
+    font-size: var(--fs-label);
+    font-weight: var(--fw-medium);
+    letter-spacing: var(--ls-label);
     text-transform: uppercase;
     color: var(--text-secondary);
   }
 
   .project-title {
-    font-size: clamp(2.5rem, 6vw, 4.5rem);
-    font-weight: 300;
-    line-height: 1.05;
-    letter-spacing: -0.02em;
+    font-size: var(--fs-display);
+    font-weight: var(--fw-light);
+    line-height: var(--lh-display);
+    letter-spacing: var(--ls-tight);
     color: var(--text-primary);
   }
 
   .description {
-    font-size: 18px;
-    line-height: 1.6;
-    font-weight: 300;
+    font-size: var(--fs-body);
+    line-height: var(--lh-body);
+    font-weight: var(--fw-light);
     color: var(--text-secondary);
     max-width: 680px;
   }
@@ -162,9 +162,9 @@
   }
 
   .sidebar-heading {
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.15em;
+    font-size: var(--fs-label);
+    font-weight: var(--fw-medium);
+    letter-spacing: var(--ls-label);
     text-transform: uppercase;
     color: var(--text-tertiary);
     margin-bottom: 8px;
@@ -182,12 +182,12 @@
   .list-item {
     display: flex;
     gap: 16px;
-    font-size: 13px;
+    font-size: var(--fs-meta);
     line-height: 1.4;
   }
 
   .list-label {
-    font-weight: 500;
+    font-weight: var(--fw-medium);
     color: var(--text-secondary);
     width: 40px;
     flex-shrink: 0;
@@ -200,13 +200,13 @@
   }
 
   .award-title {
-    font-weight: 400;
+    font-weight: var(--fw-regular);
     color: var(--text-primary);
   }
 
   .award-category {
     color: var(--text-tertiary);
-    font-size: 12px;
+    font-size: var(--fs-meta);
   }
 
   .link-item a {

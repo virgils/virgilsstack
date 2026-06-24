@@ -290,7 +290,7 @@
 
   .lb-content figcaption {
     color: rgba(255, 255, 255, 0.7);
-    font-size: 13px;
+    font-size: var(--fs-meta);
     text-align: center;
     max-width: 70ch;
   }

@@ -1,0 +1,167 @@
+/* ──────────────────────────────────────────────────────────
+   Type system — single source of truth for typography.
+   Imported at the top of app.css.
+
+   Layers:
+     1. Tokens        — CSS variables (family, weight, size, line-height, tracking)
+     2. Element bases — global h1–h4 / p (also style {@html}-injected content)
+     3. Utilities     — .t-* classes for the four roles:
+                        labels · headers · body copy · ui/meta ("text fields")
+
+   Retune the whole site from the tokens below; components reference them
+   rather than hard-coding values.
+   ────────────────────────────────────────────────────────── */
+
+:root {
+  /* Family ------------------------------------------------------------- */
+  --ff-sans: "DM Sans", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Weights ------------------------------------------------------------ */
+  --fw-light: 300; /* display + body copy */
+  --fw-regular: 400; /* ui / meta */
+  --fw-medium: 500; /* labels */
+
+  /* Font sizes — headers (fluid) -------------------------------------- */
+  --fs-display: clamp(2.5rem, 6vw, 4.5rem); /* project hero title */
+  --fs-h1: clamp(2rem, 5vw, 4rem);
+  --fs-h2: clamp(1.75rem, 4vw, 3rem);
+  --fs-h3: clamp(1.25rem, 2vw, 1.6rem);
+  --fs-quote: clamp(1.5rem, 3.5vw, 2.5rem); /* pull quotes */
+
+  /* Font sizes — body copy -------------------------------------------- */
+  --fs-lead: clamp(1.6rem, 3vw, 2rem); /* home hero lead statement */
+  --fs-body-lg: 20px;
+  --fs-body: 18px;
+  --fs-body-sm: 15px;
+
+  /* Font sizes — ui / meta / labels ----------------------------------- */
+  --fs-ui: 14px;
+  --fs-meta: 13px;
+  --fs-label: 11px;
+  --fs-label-sm: 10px;
+
+  /* Line heights ------------------------------------------------------- */
+  --lh-display: 1.05;
+  --lh-heading: 1.1;
+  --lh-snug: 1.2;
+  --lh-body: 1.6;
+  --lh-relaxed: 1.75;
+
+  /* Letter spacing ----------------------------------------------------- */
+  --ls-tight: -0.02em;
+  --ls-snug: -0.01em;
+  --ls-normal: 0;
+  --ls-ui: 0.04em;
+  --ls-wide: 0.06em; /* tracked links / buttons */
+  --ls-label: 0.12em;
+}
+
+/* ── 2. Element bases ────────────────────────────────────────────────
+   Global so they also style headings/paragraphs injected via {@html}
+   (e.g. an <h3> inside a side-by-side `text` field). Components that set
+   their own heading classes override these by specificity. */
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--ff-sans);
+  font-weight: var(--fw-light);
+  line-height: var(--lh-heading);
+  letter-spacing: var(--ls-tight);
+}
+
+h1 {
+  font-size: var(--fs-h1);
+  line-height: var(--lh-display);
+}
+
+h2 {
+  font-size: var(--fs-h2);
+}
+
+h3 {
+  font-size: var(--fs-h3);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--ls-snug);
+}
+
+h4 {
+  font-size: var(--fs-body-lg);
+  font-weight: var(--fw-medium);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--ls-normal);
+}
+
+/* ── 3. Utilities ────────────────────────────────────────────────────
+   font shorthand = weight size/line-height family; tracking is set
+   separately where needed (it isn't part of the `font` shorthand). */
+
+/* Headers */
+.t-display {
+  font: var(--fw-light) var(--fs-display) / var(--lh-display) var(--ff-sans);
+  letter-spacing: var(--ls-tight);
+}
+.t-h1 {
+  font: var(--fw-light) var(--fs-h1) / var(--lh-display) var(--ff-sans);
+  letter-spacing: var(--ls-tight);
+}
+.t-h2 {
+  font: var(--fw-light) var(--fs-h2) / var(--lh-heading) var(--ff-sans);
+  letter-spacing: var(--ls-tight);
+}
+.t-h3 {
+  font: var(--fw-regular) var(--fs-h3) / var(--lh-snug) var(--ff-sans);
+  letter-spacing: var(--ls-snug);
+}
+.t-quote {
+  font: var(--fw-light) var(--fs-quote) / 1.3 var(--ff-sans);
+  letter-spacing: var(--ls-snug);
+}
+
+/* Body copy */
+.t-body-lg {
+  font: var(--fw-light) var(--fs-body-lg) / var(--lh-body) var(--ff-sans);
+}
+.t-body {
+  font: var(--fw-light) var(--fs-body) / var(--lh-body) var(--ff-sans);
+}
+.t-body-sm {
+  font: var(--fw-regular) var(--fs-body-sm) / 1.4 var(--ff-sans);
+}
+
+/* Body copy used in component sections — light, secondary color */
+.content-text {
+  margin: 0;
+  font: var(--fw-light) var(--fs-body) / var(--lh-body) var(--ff-sans);
+  color: var(--text-secondary);
+}
+
+/* UI / meta ("text fields") */
+.t-ui {
+  font: var(--fw-regular) var(--fs-ui) / 1.4 var(--ff-sans);
+  letter-spacing: var(--ls-ui);
+}
+.t-meta {
+  font: var(--fw-regular) var(--fs-meta) / 1.4 var(--ff-sans);
+}
+
+/* Labels — uppercase, tracked, tertiary by default */
+.t-label,
+.caption {
+  font-family: var(--ff-sans);
+  font-size: var(--fs-label);
+  font-weight: var(--fw-medium);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+}
+.t-label-sm {
+  font-family: var(--ff-sans);
+  font-size: var(--fs-label-sm);
+  font-weight: var(--fw-medium);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+}

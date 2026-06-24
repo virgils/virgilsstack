@@ -74,9 +74,9 @@
   }
 
   .next-label {
-    font-size: 10px;
-    font-weight: 500;
-    letter-spacing: 0.1em;
+    font-size: var(--fs-label-sm);
+    font-weight: var(--fw-medium);
+    letter-spacing: var(--ls-label);
     text-transform: uppercase;
     color: var(--text-primary);
     margin-bottom: 32px;
@@ -93,17 +93,17 @@
   }
 
   .next-client {
-    font-size: 16px;
-    font-weight: 300;
+    font-size: var(--fs-body-sm);
+    font-weight: var(--fw-light);
     color: var(--text-secondary);
   }
 
   .next-title {
-    font-size: clamp(2rem, 4vw, 3.5rem);
-    font-weight: 300;
-    letter-spacing: -0.02em;
+    font-size: var(--fs-h2);
+    font-weight: var(--fw-light);
+    letter-spacing: var(--ls-tight);
     color: var(--text-primary);
-    line-height: 1.1;
+    line-height: var(--lh-heading);
   }
 
   .footer-bottom {
@@ -122,7 +122,7 @@
   }
 
   .copyright {
-    font-size: 13px;
+    font-size: var(--fs-meta);
     color: var(--text-secondary);
   }
 
@@ -132,7 +132,7 @@
   }
 
   .footer-link {
-    font-size: 13px;
+    font-size: var(--fs-meta);
     color: var(--text-secondary);
     transition: color 0.2s ease;
   }

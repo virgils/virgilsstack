@@ -12,16 +12,7 @@
 <svelte:head>
   <link rel="icon" href={favicon} media="(prefers-color-scheme: light)" />
   <link rel="icon" href={faviconWhite} media="(prefers-color-scheme: dark)" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link
-    rel="preconnect"
-    href="https://fonts.gstatic.com"
-    crossorigin="anonymous"
-  />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap"
-    rel="stylesheet"
-  />
+  <!-- Fonts are loaded once in src/app.html (DM Sans). -->
 </svelte:head>
 
 <nav class="nav">
@@ -48,10 +39,7 @@
     padding: 0;
   }
 
-  :global(html) {
-    /* font-family: "Inter", system-ui, sans-serif; */
-    font-family: "DM Sans", sans-serif;
-  }
+  /* font-family is set globally in app.css from the --ff-sans token */
 
   :global(body) {
     min-height: 100vh;
@@ -104,15 +92,15 @@
   }
 
   .nav-title {
-    font-size: 14px;
-    font-weight: 400;
-    letter-spacing: 0.04em;
+    font-size: var(--fs-ui);
+    font-weight: var(--fw-regular);
+    letter-spacing: var(--ls-ui);
   }
 
   .nav-link {
-    font-size: 13px;
-    font-weight: 400;
-    letter-spacing: 0.06em;
+    font-size: var(--fs-meta);
+    font-weight: var(--fw-regular);
+    letter-spacing: var(--ls-wide);
     color: var(--text-primary);
     position: relative;
     transition: color 0.3s ease;

@@ -358,7 +358,7 @@
     }
 
     .about-bio {
-      font-size: 16px;
+      font-size: var(--fs-body);
     }
   }
 
@@ -387,18 +387,18 @@
   }
 
   .about-heading {
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.14em;
+    font-size: var(--fs-label);
+    font-weight: var(--fw-medium);
+    letter-spacing: var(--ls-label);
     text-transform: uppercase;
     color: var(--text-tertiary);
     margin-bottom: 32px;
   }
 
   .about-bio {
-    font-size: 20px;
-    font-weight: 300;
-    line-height: 1.6;
+    font-size: var(--fs-body-lg);
+    font-weight: var(--fw-light);
+    line-height: var(--lh-body);
     color: var(--text-primary);
     margin-bottom: 20px;
   }
@@ -406,9 +406,9 @@
   .about-contact {
     display: inline-block;
     margin-top: 16px;
-    font-size: 13px;
-    font-weight: 400;
-    letter-spacing: 0.06em;
+    font-size: var(--fs-meta);
+    font-weight: var(--fw-regular);
+    letter-spacing: var(--ls-wide);
     color: var(--text-secondary);
     border-bottom: 1px solid rgba(0, 0, 0, 0.15);
     padding-bottom: 2px;
@@ -440,9 +440,9 @@
   }
 
   .list-heading {
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.14em;
+    font-size: var(--fs-label);
+    font-weight: var(--fw-medium);
+    letter-spacing: var(--ls-label);
     text-transform: uppercase;
     color: var(--text-tertiary);
     margin-bottom: 16px;
@@ -456,9 +456,9 @@
     display: flex;
     flex-direction: column;
     gap: 12px;
-    font-size: 14px;
+    font-size: var(--fs-ui);
     line-height: 1.4;
-    font-weight: 400;
+    font-weight: var(--fw-regular);
     color: var(--text-secondary);
   }
 
@@ -514,7 +514,7 @@
 
   .location.active {
     color: var(--text-primary);
-    font-weight: 400;
+    font-weight: var(--fw-regular);
     border-bottom-style: solid;
     border-bottom-color: currentColor;
   }
@@ -523,7 +523,7 @@
   p {
     display: inline;
     background-color: white;
-    line-height: 1.6;
+    line-height: var(--lh-body);
   }
 
   h2 {
@@ -550,9 +550,9 @@
   .experience-heading {
     display: block; /* override component-wide inline h2 */
     margin-bottom: 32px;
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.14em;
+    font-size: var(--fs-label);
+    font-weight: var(--fw-medium);
+    letter-spacing: var(--ls-label);
     text-transform: uppercase;
     color: var(--text-tertiary);
     background: none;
@@ -574,14 +574,14 @@
   }
 
   .job-role {
-    font-size: 16px;
-    font-weight: 400;
+    font-size: var(--fs-body-sm);
+    font-weight: var(--fw-regular);
     color: var(--text-primary);
   }
 
   .job-company {
-    font-size: 15px;
-    font-weight: 300;
+    font-size: var(--fs-body-sm);
+    font-weight: var(--fw-light);
     color: var(--text-secondary);
   }
 
@@ -595,9 +595,9 @@
   }
 
   .job-period {
-    font-size: 13px;
-    font-weight: 400;
-    letter-spacing: 0.04em;
+    font-size: var(--fs-meta);
+    font-weight: var(--fw-regular);
+    letter-spacing: var(--ls-ui);
     color: var(--text-tertiary);
   }
 
@@ -608,9 +608,9 @@
     background: none;
     cursor: pointer;
     font: inherit;
-    font-size: 13px;
-    font-weight: 400;
-    letter-spacing: 0.06em;
+    font-size: var(--fs-meta);
+    font-weight: var(--fw-regular);
+    letter-spacing: var(--ls-wide);
     color: var(--text-secondary);
     border-bottom: 1px solid rgba(0, 0, 0, 0.15);
     padding-bottom: 2px;
