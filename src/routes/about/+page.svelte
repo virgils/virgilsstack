@@ -205,7 +205,7 @@
         <li>
           <a
             href="https://x.com/virgilrocks/status/963005637171978240"
-            target="_blank"><span>Featured in net magazine</span></a
+            target="_blank"><span>Featured in net magazine, issue #300</span></a
           >
         </li>
         <li>

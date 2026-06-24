@@ -480,13 +480,7 @@
     "sections": [
       {
         "type": "intro",
-        "techStack": "Angular, SASS, Grow, Webpack",
-        "links": [
-          {
-            "title": "TechCrunch",
-            "url": "https://techcrunch.com/2024/07/22/googles-jigsaw-open-sources-altitude-to-help-online-platforms-weed-out-extremist-content/"
-          }
-        ]
+        "techStack": "Lit, SASS, Grow, Webpack"
       },
       {
         "type": "wide-media",
@@ -553,7 +547,7 @@
     "sections": [
       {
         "type": "intro",
-        "techStack": "Angular, SASS, Grow, Webpack",
+        "techStack": "Lit, SASS, Grow, Webpack",
         "links": [
           {
             "title": "TechCrunch",
@@ -602,11 +596,15 @@
     "sections": [
       {
         "type": "intro",
-        "techStack": "Angular, SASS, Grow, Webpack",
+        "techStack": "Typescript, SASS, Contentful",
         "links": [
           {
-            "title": "ROAM Interior Design",
-            "url": "https://www.roaminteriordesign.com/"
+            "title": "The Webbys - Crafted with Code",
+            "url": "https://www.webbyawards.com/crafted-with-code/virgin-hyperloop/"
+          },
+          {
+            "title": "Communication Arts - Webpicks",
+            "url": "https://www.commarts.com/webpicks/virgin-hyperloop"
           }
         ]
       },
@@ -704,29 +702,7 @@
       },
       {
         "type": "intro",
-        "techStack": "Angular, Tailwind CSS, TypeScript, SvelteKit",
-        "links": [
-          {
-            "title": "Live Demo",
-            "url": "https://example.com"
-          },
-          {
-            "title": "GitHub Repo",
-            "url": "https://github.com"
-          }
-        ],
-        "awards": [
-          {
-            "year": "2026",
-            "title": "FWA Site of the Year",
-            "category": "Interactive Portfolio"
-          },
-          {
-            "year": "2026",
-            "title": "Awwwards Site of the Day",
-            "category": "Design & Development"
-          }
-        ]
+        "techStack": "Angular, CSS, TypeScript"
       },
       {
         "type": "wide-media",
@@ -767,8 +743,8 @@
         "techStack": "Angular, SASS, Grow, Webpack",
         "links": [
           {
-            "title": "ROAM Interior Design",
-            "url": "https://www.roaminteriordesign.com/"
+            "title": "Google Blog",
+            "url": "https://blog.google/innovation-and-ai/technology/safety-security/building-a-secure-world/"
           }
         ]
       },
