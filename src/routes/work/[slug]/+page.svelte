@@ -95,7 +95,7 @@
 
     <section class="project-body">
       <div class="project-content">
-        <p class="project-description">{project.description}</p>
+        <p class="project-description">{@html project.description}</p>
       </div>
     </section>
 

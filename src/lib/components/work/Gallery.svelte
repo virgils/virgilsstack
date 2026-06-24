@@ -88,14 +88,14 @@
           </button>
         {/if}
         {#if item.caption}
-          <figcaption class="caption">{item.caption}</figcaption>
+          <figcaption class="caption">{@html item.caption}</figcaption>
         {/if}
       </figure>
     {/each}
   </div>
 
   {#if caption}
-    <span class="caption gallery-caption">{caption}</span>
+    <span class="caption gallery-caption">{@html caption}</span>
   {/if}
 </section>
 
@@ -160,7 +160,7 @@
     <figure class="lb-content" transition:scale={{ duration: 200, start: 0.96 }}>
       <img src={activeItem.media} alt={activeItem.alt ?? ""} />
       {#if activeItem.caption}
-        <figcaption>{activeItem.caption}</figcaption>
+        <figcaption>{@html activeItem.caption}</figcaption>
       {/if}
     </figure>
   </div>

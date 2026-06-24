@@ -22,7 +22,7 @@
   <!-- COLUMN A (LEFT) -->
   <div class="col-a {textOnLeft ? 'text-container' : 'media-container'}">
     {#if textOnLeft}
-      <p class="content-text">{text}</p>
+      <p class="content-text">{@html text}</p>
     {:else}
       <!-- Render primary media here if text is on the right OR if it's a media/media2 split -->
       {#if mediaType === "video"}
@@ -39,7 +39,7 @@
         <img src={media} {alt} loading="lazy" />
       {/if}
       {#if caption}
-        <span class="caption">{caption}</span>
+        <span class="caption">{@html caption}</span>
       {/if}
     {/if}
   </div>
@@ -48,7 +48,7 @@
   <!-- Assign text-container class if we render text, otherwise media-container -->
   <div class="col-b {textOnRight ? 'text-container' : 'media-container'}">
     {#if textOnRight}
-      <p class="content-text">{text}</p>
+      <p class="content-text">{@html text}</p>
     {:else if textOnLeft}
       <!-- If text took the left column, primary media is pushed to the right column -->
       {#if mediaType === "video"}
@@ -65,7 +65,7 @@
         <img src={media} {alt} loading="lazy" />
       {/if}
       {#if caption}
-        <span class="caption">{caption}</span>
+        <span class="caption">{@html caption}</span>
       {/if}
     {:else if media2}
       <!-- If there is no text, render the secondary media here -->
@@ -83,7 +83,7 @@
         <img src={media2} alt={alt2} loading="lazy" />
       {/if}
       {#if caption2}
-        <span class="caption">{caption2}</span>
+        <span class="caption">{@html caption2}</span>
       {/if}
     {/if}
   </div>

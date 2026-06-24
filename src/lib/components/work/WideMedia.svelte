@@ -105,10 +105,10 @@
   {#if caption || text}
     <div class="details-container">
       {#if caption}
-        <span class="caption">{caption}</span>
+        <span class="caption">{@html caption}</span>
       {/if}
       {#if text}
-        <p class="content-text">{text}</p>
+        <p class="content-text">{@html text}</p>
       {/if}
     </div>
   {/if}

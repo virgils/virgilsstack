@@ -35,7 +35,7 @@
       <span class="client">{client}</span>
     </div>
     <h1 class="project-title">{project}</h1>
-    <p class="description">{description}</p>
+    <p class="description">{@html description}</p>
   </div>
 
   <div class="intro-sidebar">

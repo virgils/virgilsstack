@@ -12,7 +12,7 @@
 
 <section class="pull-quote component layout-contained">
   <figure class="quote-inner">
-    <blockquote class="quote-text">{quote}</blockquote>
+    <blockquote class="quote-text">{@html quote}</blockquote>
     {#if author}
       <figcaption class="quote-attribution">
         <span class="quote-author">{author}</span>

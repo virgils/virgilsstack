@@ -8,7 +8,7 @@
 
 <section class="text-section component layout-contained">
   <div class="container">
-    <p class="content-text">{text}</p>
+    <p class="content-text">{@html text}</p>
   </div>
 </section>
 

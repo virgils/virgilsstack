@@ -16,10 +16,10 @@
       <span class="caption heading-index">{index}</span>
     {/if}
     {#if title}
-      <h2 class="heading-title">{title}</h2>
+      <h2 class="heading-title">{@html title}</h2>
     {/if}
     {#if text}
-      <p class="content-text heading-text">{text}</p>
+      <p class="content-text heading-text">{@html text}</p>
     {/if}
   </div>
 </section>
