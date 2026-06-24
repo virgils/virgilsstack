@@ -189,7 +189,7 @@
           <span
             class="hover-image"
             data-img="/images/webby-acceptance.jpg"
-            use:hoverImage>Accepting Webby Agency of the Year for Dept.</span
+            use:hoverImage>Webby's Agency of the Year, accepted for Dept</span
           >
         </li>
         <li>
