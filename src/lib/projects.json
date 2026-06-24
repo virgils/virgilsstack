@@ -127,6 +127,10 @@
         "mediaRatio": "1044 / 1272"
       },
       {
+        "type": "text",
+        "text": "To support right-to-left (RTL) languages like Arabic, Urdu, and Farsi without code bloat, I migrated the codebase from rigid physical CSS properties to CSS Logical Properties. To streamline this transition and empower the team for future localization, I engineered custom Tailwind CSS plugins. This allowed us to automatically mirror spacing, borders, and positioning based on the document direction, ensuring a maintainable and highly scalable styling architecture."
+      },
+      {
         "type": "wide-media",
         "media": "/projects/openai-localization/screen-2.jpg",
         "mediaType": "image",
@@ -136,7 +140,7 @@
       },
       {
         "type": "text",
-        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer efficitur bibendum erat, quis aliquet diam tincidunt a. Vivamus non iaculis."
+        "text": "Localizing an enterprise application goes deeper than just styling; bidirectional rendering often breaks interactive UI logic. I audited and refactored dozens of core React components, fixing critical JavaScript bugs related to keyboard navigation, sliders, and dynamic dropdowns under RTL conditions. By updating these interactive elements, I ensured that state changes and user inputs remained robust, highly responsive, and visually flawless regardless of language direction."
       },
       {
         "type": "wide-media",
@@ -156,7 +160,7 @@
       },
       {
         "type": "text",
-        "text": "The new language selector needed new functionality. So I implemented a dynamic language switching feature that allows users to seamlessly transition between languages without losing their place."
+        "text": "To support OpenAI's expanding global user base, I built a fully responsive language selection interface featuring built-in search functionality. The component is fully optimized for both desktop and mobile layouts, includes native RTL layout support, and ensures that switching languages never disrupts the user's active session."
       },
       {
         "type": "wide-media",
