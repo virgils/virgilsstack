@@ -185,7 +185,7 @@
     "client": "Google I/O",
     "project": "Trivia Twister",
     "year": "2024",
-    "description": "Designed and produced an interactive in-store environment for Forma Studio's flagship New York location. The installation blends physical product displays with reactive digital surfaces, creating a seamless narrative that guides customers through the brand story.",
+    "description": "For the 2024 Google I/O Gemini Developer API Competition, Hello Monday created three interactive AI games to surround the grand prize—a retrofitted electric DeLorean. Designed to inspire developers and showcase the API's capabilities beyond the standard chatbot, I was the developer behind one of these three flagship experiences: Trivia Twister.",
     "media": "/projects/google-trivia-twister/card.mp4",
     "mediaType": "video",
     "heroMedia": "/projects/google-trivia-twister/card.png",
@@ -193,7 +193,7 @@
     "sections": [
       {
         "type": "intro",
-        "techStack": "Angular, SASS, Grow, Webpack",
+        "techStack": "Lit, Typescript, Lottie, GSAP, Vite",
         "links": [
           {
             "title": "Google Blog",
@@ -214,7 +214,7 @@
         "media": "/projects/google-trivia-twister/1-cover.mp4",
         "mediaType": "video",
         "contained": true,
-        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer efficitur bibendum erat, quis aliquet diam tincidunt a. Vivamus non iaculis.",
+        "text": "",
         "mediaRatio": "1920 / 1080"
       },
       {
@@ -222,7 +222,7 @@
         "media": "/projects/google-trivia-twister/2-Trivia_Twister_01.2.mp4",
         "mediaType": "video",
         "contained": true,
-        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer efficitur bibendum erat, quis aliquet diam tincidunt a. Vivamus non iaculis.",
+        "text": "Built using Gemini 1.5 Pro, the Trivia Twister app creates a dynamic six-step game by blending user topics. After an initial safety check, Gemini generates six custom trivia questions, each featuring four multiple-choice answers.",
         "mediaRatio": "1280 / 800"
       },
       {
@@ -230,7 +230,7 @@
         "media": "/projects/google-trivia-twister/3-Trivia_Twister_02.mp4",
         "mediaType": "video",
         "contained": true,
-        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer efficitur bibendum erat, quis aliquet diam tincidunt a. Vivamus non iaculis.",
+        "text": "",
         "mediaRatio": "1280 / 800"
       },
       {
@@ -238,7 +238,7 @@
         "media": "/projects/google-trivia-twister/4-Weird_Trivia_Won.png",
         "mediaType": "image",
         "contained": true,
-        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer efficitur bibendum erat, quis aliquet diam tincidunt a. Vivamus non iaculis.",
+        "text": "",
         "mediaRatio": "1470 / 918"
       },
       {
@@ -246,8 +246,8 @@
         "direction": "right",
         "media": "/projects/google-trivia-twister/demo-2.jpg",
         "mediaType": "image",
-        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer efficitur bibendum erat, quis aliquet diam tincidunt a. Vivamus non iaculis.",
-        "caption": "Side-by-side view with text left and image right",
+        "text": "An exclusive brand activation in Japan gave developers hands-on access to the Gemini API's capabilities. Placed alongside other experimental AI tools, Trivia Twister served as a live, tactile case study in how advanced prompting can be instantly translated into engaging, real-time user experiences.",
+        "caption": "Trivia Twister and Draw your Comic",
         "ratio": "50-50",
         "mediaRatio": "578 / 480"
       },
@@ -256,8 +256,8 @@
         "direction": "left",
         "media": "/projects/google-trivia-twister/demo-1.jpg",
         "mediaType": "image",
-        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer efficitur bibendum erat, quis aliquet diam tincidunt a. Vivamus non iaculis.",
-        "caption": "Side-by-side view with text left and image right",
+        "text": "At Google I/O, the experience took center stage outdoors, flanking the competition's grand prize: a retrofitted electric DeLorean. Installed on interactive pillars, Trivia Twister and its sister apps gave conference attendees a high-visibility, physical destination to test Gemini 1.5 Pro.",
+        "caption": "The Delorean presented by Christopher Lloyd",
         "ratio": "50-50",
         "mediaRatio": "578 / 480"
       },
@@ -266,7 +266,7 @@
         "media": "/projects/google-trivia-twister/delorean.mp4",
         "mediaType": "video",
         "contained": true,
-        "caption": "Contained media container displaying key platform dashboard features",
+        "caption": "Custom built and restored by DeLorean Midwest",
         "c": "1280 / 720",
         "playbackRate": 0.4,
         "mediaRatio": "1280 / 720"
