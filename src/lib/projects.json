@@ -300,7 +300,7 @@
     "client": "Virgin Galactic",
     "project": "Brand Website",
     "year": "2022",
-    "description": "A data-driven annual report that translates complex financial performance into clear, compelling visual narratives. Custom infographics, editorial photography direction, and a print-ready layout system were developed in tandem with the digital web version.",
+    "description": "To truly capture the essence of commercial space travel, we partnered with Virgin Galactic to build an immersive digital experience that ultimately won a Webby Award. The site utilizes an unconventional grid utilizing both horizontal and vertical scrolling alongside full-bleed imagery to evoke the vastness and scale of space.",
     "media": "/projects/virgin-galactic/card.jpg",
     "mediaType": "image",
     "heroMedia": "/projects/virgin-galactic/hero.jpg",
@@ -310,7 +310,7 @@
     "sections": [
       {
         "type": "intro",
-        "techStack": "Angular, SASS, Grow, Webpack",
+        "techStack": "Typescript, 11ty, Liquid, Contentful",
         "awards": [
           {
             "year": "2023",
@@ -342,7 +342,6 @@
         "media": "/projects/virgin-galactic/virgin-galactic-1-cwc.jpg",
         "mediaType": "image",
         "contained": true,
-        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer efficitur bibendum erat, quis aliquet diam tincidunt a. Vivamus non iaculis.",
         "mediaRatio": "1488 / 814"
       },
       {
@@ -350,15 +349,17 @@
         "media": "/projects/virgin-galactic/virgin-galactic-2-cwc.jpg",
         "mediaType": "image",
         "contained": true,
-        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer efficitur bibendum erat, quis aliquet diam tincidunt a. Vivamus non iaculis.",
         "mediaRatio": "1498 / 815"
+      },
+      {
+        "type": "text",
+        "text": "Using Virgin Galactic's archive of photography, video, and audio, we designed a simple, content-first experience that lets the story speak for itself. Full-screen visuals and a minimal interface create an immersive journey, while the technology remains largely invisible to the user."
       },
       {
         "type": "wide-media",
         "media": "/projects/virgin-galactic/virgin-galactic-3-cwc.jpg",
         "mediaType": "image",
         "contained": true,
-        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer efficitur bibendum erat, quis aliquet diam tincidunt a. Vivamus non iaculis.",
         "mediaRatio": "1496 / 815"
       },
       {
