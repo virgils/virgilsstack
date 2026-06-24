@@ -11,6 +11,11 @@
     innerWidth >= 1600 ? 4 : innerWidth >= 1024 ? 3 : innerWidth >= 560 ? 2 : 1,
   );
 
+  // innerWidth is 0 until the window binding measures it (and during SSR), which
+  // would briefly render a 1-column fallback. Keep the grid hidden until we have
+  // a real measurement so it only ever paints at the correct column count.
+  let measured = $derived(innerWidth > 0);
+
   // How many leading projects keep their curated, deterministic placement.
   const FIXED_COUNT = 8;
   // Rough height a card's title/year block + column gap adds on top of the
@@ -56,7 +61,7 @@
 <svelte:window bind:innerWidth />
 
 <!-- Responsive masonry: 1 / 2 / 3 / 4 columns, cards read left-to-right in JSON order -->
-<section class="projects-grid">
+<section class="projects-grid" class:measured>
   {#each columns as column}
     <div class="grid-column">
       {#each column as project (project.slug)}
@@ -76,6 +81,14 @@
     display: flex;
     gap: 32px;
     padding: 32px var(--page-padding-x) 64px;
+    /* Hidden until the column count is measured, so the 1-column fallback
+       never flashes; revealed (with a soft fade) once we know the width. */
+    opacity: 0;
+  }
+
+  .projects-grid.measured {
+    opacity: 1;
+    transition: opacity 0.3s ease;
   }
 
   .grid-column {
