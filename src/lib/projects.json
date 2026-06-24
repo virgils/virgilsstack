@@ -1103,6 +1103,7 @@
         "type": "gallery",
         "columns": 3,
         "caption": "",
+        "modalBackground": "rgba(222, 222, 222, 1)",
         "items": [
           {
             "media": "/projects/dawnsignpress/elements-lessons.png",
