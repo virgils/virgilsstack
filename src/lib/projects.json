@@ -367,7 +367,6 @@
         "media": "/projects/virgin-galactic/virgin-galactic-4-cwc.jpg",
         "mediaType": "image",
         "contained": true,
-        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer efficitur bibendum erat, quis aliquet diam tincidunt a. Vivamus non iaculis.",
         "mediaRatio": "1497 / 816"
       },
       {
@@ -375,7 +374,6 @@
         "media": "/projects/virgin-galactic/video.mp4",
         "mediaType": "video",
         "contained": true,
-        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer efficitur bibendum erat, quis aliquet diam tincidunt a. Vivamus non iaculis.",
         "mediaRatio": "1200 / 676"
       }
     ]
@@ -402,7 +400,7 @@
     "client": "ROAM",
     "project": "Brand Website",
     "year": "2023",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer efficitur bibendum erat, quis aliquet diam tincidunt a. Vivamus non iaculis.",
+    "description": "Built around ROAM's stunning portfolio of interior and exterior spaces, the website uses a horizontal scrolling experience to create a sense of exploration and discovery. Large-scale imagery, subtle motion, and a minimal interface allow the work to take center stage while guiding users through the studio's story and projects.",
     "media": "/projects/roam/card.mp4",
     "mediaType": "video",
     "heroMedia": "/projects/roam/hero.mp4",
@@ -412,7 +410,7 @@
     "sections": [
       {
         "type": "intro",
-        "techStack": "Angular, SASS, Grow, Webpack",
+        "techStack": "Svelte, Typescript, SASS, Storybok",
         "links": [
           {
             "title": "ROAM Interior Design",
@@ -433,7 +431,6 @@
         "media": "/projects/roam/demo-home.mp4",
         "mediaType": "video",
         "contained": true,
-        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer efficitur bibendum erat, quis aliquet diam tincidunt a. Vivamus non iaculis.",
         "mediaRatio": "1000 / 626"
       },
       {
@@ -441,7 +438,6 @@
         "media": "/projects/roam/demo-category.mp4",
         "mediaType": "video",
         "contained": true,
-        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer efficitur bibendum erat, quis aliquet diam tincidunt a. Vivamus non iaculis.",
         "mediaRatio": "1000 / 626"
       },
       {
@@ -449,7 +445,6 @@
         "media": "/projects/roam/demo-nav.mp4",
         "mediaType": "video",
         "contained": true,
-        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer efficitur bibendum erat, quis aliquet diam tincidunt a. Vivamus non iaculis.",
         "mediaRatio": "954 / 594"
       }
     ]
