@@ -410,7 +410,7 @@
     "sections": [
       {
         "type": "intro",
-        "techStack": "Svelte, Typescript, SASS, Storybok",
+        "techStack": "Svelte, Typescript, SASS, Storyblok",
         "links": [
           {
             "title": "ROAM Interior Design",
@@ -424,12 +424,13 @@
         "mediaType": "video",
         "contained": false,
         "caption": "",
-        "mediaRatio": "1920 / 600"
+        "mediaRatio": "1920 / 800"
       },
       {
         "type": "wide-media",
         "media": "/projects/roam/demo-home.mp4",
         "mediaType": "video",
+        "caption": "Homepage",
         "contained": true,
         "mediaRatio": "1000 / 626"
       },
@@ -437,6 +438,7 @@
         "type": "wide-media",
         "media": "/projects/roam/demo-category.mp4",
         "mediaType": "video",
+        "caption": "Category work",
         "contained": true,
         "mediaRatio": "1000 / 626"
       },
@@ -444,6 +446,7 @@
         "type": "wide-media",
         "media": "/projects/roam/demo-nav.mp4",
         "mediaType": "video",
+        "caption": "Full bleed Navigation",
         "contained": true,
         "mediaRatio": "954 / 594"
       }
@@ -470,7 +473,7 @@
     "client": "Google Gemini",
     "project": "Jules",
     "year": "2025",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer efficitur bibendum erat, quis aliquet diam tincidunt a. Vivamus non iaculis.",
+    "description": "Jules is Google's autonomous AI coding agent, designed to help developers tackle complex software tasks directly within their existing workflows. Powered by Gemini, it can understand entire codebases, write features, fix bugs, run tests, and create pull requests while developers focus on higher-level work. <br/><br/>I helped build the public-facing experience that introduces Jules and communicates how AI agents are transforming the way software is developed.",
     "media": "/projects/google-jules/card.jpg",
     "mediaType": "image",
     "heroMedia": "/projects/google-jules/hero.jpg",
@@ -503,7 +506,6 @@
         "media": "/projects/google-jules/component-1.jpg",
         "mediaType": "image",
         "contained": true,
-        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer efficitur bibendum erat, quis aliquet diam tincidunt a. Vivamus non iaculis.",
         "mediaRatio": "1600 / 828"
       },
       {
@@ -511,7 +513,6 @@
         "media": "/projects/google-jules/component-2.jpg",
         "mediaType": "image",
         "contained": true,
-        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer efficitur bibendum erat, quis aliquet diam tincidunt a. Vivamus non iaculis.",
         "mediaRatio": "1600 / 900"
       },
       {
@@ -519,15 +520,14 @@
         "media": "/projects/google-jules/component-3.jpg",
         "mediaType": "image",
         "contained": true,
-        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer efficitur bibendum erat, quis aliquet diam tincidunt a. Vivamus non iaculis.",
         "mediaRatio": "1600 / 1037"
       },
       {
         "type": "wide-media",
         "media": "/projects/google-jules/demo-desktop.mp4",
         "mediaType": "videoplayer",
+        "caption": "demo of the desktop experience",
         "contained": true,
-        "caption": "",
         "mediaRatio": "1200 / 906"
       }
     ]
