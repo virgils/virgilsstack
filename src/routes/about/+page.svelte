@@ -85,6 +85,41 @@
   let visibleExperience = $derived(
     showAll ? experience : experience.slice(0, INITIAL_COUNT),
   );
+
+  // Cursor-following preview image for any `.hover-image` span (uses its data-img).
+  let hoverImg = $state<string | null>(null);
+  let cursorX = $state(0);
+  let cursorY = $state(0);
+
+  function hoverImage(node: HTMLElement) {
+    const src = node.dataset.img;
+    if (!src) return;
+
+    const enter = (e: MouseEvent) => {
+      cursorX = e.clientX;
+      cursorY = e.clientY;
+      hoverImg = src;
+    };
+    const move = (e: MouseEvent) => {
+      cursorX = e.clientX;
+      cursorY = e.clientY;
+    };
+    const leave = () => {
+      if (hoverImg === src) hoverImg = null;
+    };
+
+    node.addEventListener("mouseenter", enter);
+    node.addEventListener("mousemove", move);
+    node.addEventListener("mouseleave", leave);
+
+    return {
+      destroy() {
+        node.removeEventListener("mouseenter", enter);
+        node.removeEventListener("mousemove", move);
+        node.removeEventListener("mouseleave", leave);
+      },
+    };
+  }
 </script>
 
 <svelte:head>
@@ -140,14 +175,23 @@
 
   <div class="about-lists">
     <div class="list-block">
-      <h2 class="list-heading">Recognition & Press</h2>
+      <h2 class="list-heading">Awards</h2>
       <ul class="about-list">
         <li><span>8x Awwwards</span></li>
         <li><span>9x TheFWA</span></li>
-        <li><span>3x Webby Awards</span></li>
-        <li><span>1x Love Awards</span></li>
-        <li><span>1x Creative Circle</span></li>
+        <li><span>5x Webby Awards</span></li>
+        <li><span>1x Lovie Awards</span></li>
         <li><span>3x Anthem Awards</span></li>
+      </ul>
+      <h2 class="list-heading">Recognition</h2>
+      <ul class="about-list">
+        <li>
+          <span
+            class="hover-image"
+            data-img="/images/webby-acceptance.jpg"
+            use:hoverImage>Accepting Webby Agency of the Year for Dept.</span
+          >
+        </li>
         <li>
           <span
             >Jury Member, <a
@@ -235,6 +279,17 @@
     {/if}
   </div>
 </section>
+
+{#if hoverImg}
+  <img
+    class="cursor-image"
+    src={hoverImg}
+    alt=""
+    aria-hidden="true"
+    style="transform: translate({cursorX}px, {cursorY}px) translate(20px, -50%);"
+    transition:fade={{ duration: 150 }}
+  />
+{/if}
 
 <Footer />
 
@@ -390,7 +445,8 @@
     letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--text-tertiary);
-    margin-bottom: 24px;
+    margin-bottom: 16px;
+    margin-top: 40px;
   }
 
   .about-list {
@@ -410,6 +466,25 @@
     .about {
       padding: 72px var(--page-padding-x);
     }
+  }
+
+  .hover-image {
+    cursor: pointer;
+    border-bottom: 1px dotted var(--text-tertiary);
+  }
+
+  /* Floating preview that tracks the cursor while hovering a .hover-image */
+  .cursor-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    width: clamp(200px, 22vw, 320px);
+    height: auto;
+    border-radius: 6px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+    pointer-events: none;
+    will-change: transform;
   }
 
   .location {
