@@ -19,6 +19,7 @@
       width: 70%;
       padding: 120px var(--page-padding-x) 120px 10vw;
       font-size: 2rem;
+      max-width: 1000px;
     }
   }
 </style>
