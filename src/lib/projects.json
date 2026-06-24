@@ -102,7 +102,7 @@
     "sections": [
       {
         "type": "intro",
-        "techStack": "Angular, Tailwind CSS, TypeScript",
+        "techStack": "React, Tailwind CSS, TypeScript",
         "links": [
           {
             "title": "OpenAI",
