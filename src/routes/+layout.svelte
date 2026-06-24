@@ -78,11 +78,6 @@
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
   }
 
-  .nav-logo {
-    width: 32px;
-    height: 20px;
-  }
-
   .nav-brand {
     display: flex;
     align-items: center;
