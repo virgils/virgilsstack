@@ -1089,9 +1089,9 @@
         "type": "wide-media",
         "media": "/projects/dawnsignpress/demo.mp4",
         "mediaType": "videoplayer",
-        "text": "This video demonstrates the user flow throughout the ASL app. From signup to registration, and completing lessons and seeing your progress.",
+        "text": "This video demonstrates the complete user flow of the ASL learning platform, guiding users from signup and registration through onboarding, lesson progression and completion.",
         "contained": true,
-        "mediaRatio": "1000 / 562"
+        "mediaRatio": "1922 / 1082"
       },
       {
         "type": "heading",
