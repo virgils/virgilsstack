@@ -397,7 +397,7 @@
     "client": "ROAM",
     "project": "Brand Website",
     "year": "2023",
-    "description": "Redefining the annual report through a fully responsive digital experience. We moved beyond static PDF layouts to create a narrative-driven platform that adapts from billboard-scale displays to mobile screens, showcasing the year’s research and impact with dynamic typography and motion-rich data visualizations.",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer efficitur bibendum erat, quis aliquet diam tincidunt a. Vivamus non iaculis.",
     "media": "/projects/roam/card.mp4",
     "mediaType": "video",
     "heroMedia": "/projects/roam/hero.mp4",
@@ -538,13 +538,12 @@
       }
     ]
   },
-
   {
     "slug": "google-altitude",
     "client": "Google Jigsaw",
     "project": "Altitude",
     "year": "2023",
-    "description": "Redefining the annual report through a fully responsive digital experience. We moved beyond static PDF layouts to create a narrative-driven platform that adapts from billboard-scale displays to mobile screens, showcasing the year’s research and impact with dynamic typography and motion-rich data visualizations.",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer efficitur bibendum erat, quis aliquet diam tincidunt a. Vivamus non iaculis.",
     "media": "/projects/google-altitude/card.png",
     "mediaType": "image",
     "heroMedia": "/projects/google-altitude/card.png",
@@ -593,7 +592,7 @@
     "client": "Virgin Hyperloop",
     "project": "Brand Website",
     "year": "2020",
-    "description": "Redefining the annual report through a fully responsive digital experience. We moved beyond static PDF layouts to create a narrative-driven platform that adapts from billboard-scale displays to mobile screens, showcasing the year’s research and impact with dynamic typography and motion-rich data visualizations.",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer efficitur bibendum erat, quis aliquet diam tincidunt a. Vivamus non iaculis.",
     "media": "/projects/virgin-hyperloop/card.mp4",
     "mediaType": "video",
     "heroMedia": "/projects/virgin-hyperloop/hero2.jpg",
@@ -676,7 +675,7 @@
     "project": "Brand Website",
     "year": "2023",
     "externalUrl": "https://www.hellomonday.com/work/zipline",
-    "description": "Redefining the annual report through a fully responsive digital experience. We moved beyond static PDF layouts to create a narrative-driven platform that adapts from billboard-scale displays to mobile screens, showcasing the year’s research and impact with dynamic typography and motion-rich data visualizations.",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer efficitur bibendum erat, quis aliquet diam tincidunt a. Vivamus non iaculis.",
     "media": "/projects/zipline/card.jpg",
     "mediaType": "image",
     "heroMedia": "/projects/zipline/hero.jpg",
@@ -1058,6 +1057,146 @@
       {
         "type": "intro",
         "techStack": "Lit, Typescript"
+      }
+    ]
+  },
+  {
+    "slug": "dsp-asl-pal",
+    "client": "Dawn Sign Press",
+    "project": "ASL Learning Hub",
+    "year": "2025",
+    "description": "DawnSign is a Deaf-owned ASL EdTech company that develops curriculum, digital tools, and learning resources used by colleges across the United States. As Lead Developer, I led the development of a learning platform built around DawnSign's proprietary ASL video-analysis API, creating an engaging educational experience that helps students practice, evaluate, and improve their American Sign Language skills.",
+    "media": "/projects/dawnsignpress/card.png",
+    "mediaType": "image",
+    "heroMedia": "/projects/dawnsignpress/hero.png",
+    "heroMediaType": "image",
+    "mediaRatio": "800 / 800",
+    "heroMediaRatio": "1440 / 400",
+    "sections": [
+      {
+        "type": "intro",
+        "techStack": "Svelte, Typescript, CSS Animations, SASS, Vite, Sanity"
+      },
+      {
+        "type": "wide-media",
+        "media": "/projects/dawnsignpress/hero.png",
+        "mediaType": "image",
+        "contained": false,
+        "caption": "",
+        "mediaRatio": "1440 / 400"
+      },
+      {
+        "type": "wide-media",
+        "media": "/projects/dawnsignpress/demo.mp4",
+        "mediaType": "videoplayer",
+        "text": "This video demonstrates the user flow throughout the ASL app. From signup to registration, and completing lessons and seeing your progress.",
+        "contained": true,
+        "mediaRatio": "1000 / 562"
+      },
+      {
+        "type": "heading",
+        "index": "01",
+        "title": "Elements",
+        "text": "Below is a selection of the elements that are used throughout the site that are specific to this app."
+      },
+      {
+        "type": "gallery",
+        "columns": 3,
+        "caption": "",
+        "items": [
+          {
+            "media": "/projects/dawnsignpress/elements-lessons.png",
+            "mediaType": "image",
+            "alt": "Lesson states",
+            "caption": "All the different states for a Lesson",
+            "mediaRatio": "887 / 786"
+          },
+          {
+            "media": "/projects/dawnsignpress/elements-progress.png",
+            "mediaType": "image",
+            "alt": "Progression indicators",
+            "caption": "Progression indicators",
+            "mediaRatio": "563 / 385"
+          },
+          {
+            "media": "/projects/dawnsignpress/elements-units.png",
+            "mediaType": "image",
+            "alt": "Unit states",
+            "caption": "Unit states",
+            "mediaRatio": "680 / 812"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "index": "02",
+        "title": "Configuration Pages",
+        "text": "The following screens show three key pages for the ASL app. Click expand to view the page in it's entirety."
+      },
+      {
+        "type": "wide-media",
+        "media": "/projects/dawnsignpress/demo-settings.png",
+        "mediaType": "image",
+        "contained": true,
+        "collapsed": true,
+        "mediaRatio": "1440 / 3097"
+      },
+      {
+        "type": "wide-media",
+        "media": "/projects/dawnsignpress/demo-progress.png",
+        "mediaType": "image",
+        "contained": true,
+        "collapsed": true,
+        "mediaRatio": "1440 / 2441"
+      },
+      {
+        "type": "wide-media",
+        "media": "/projects/dawnsignpress/demo-level.png",
+        "mediaType": "image",
+        "contained": true,
+        "collapsed": true,
+        "mediaRatio": "1440 / 1788"
+      },
+      {
+        "type": "heading",
+        "index": "03",
+        "title": "Lesson View",
+        "text": "As seen in the demo video earlier on this page, below displays the lesson flow."
+      },
+      {
+        "type": "wide-media",
+        "media": "/projects/dawnsignpress/demo-lesson-3.png",
+        "mediaType": "image",
+        "contained": true,
+        "mediaRatio": "1440 / 810"
+      },
+      {
+        "type": "wide-media",
+        "media": "/projects/dawnsignpress/demo-lesson-6.png",
+        "mediaType": "image",
+        "contained": true,
+        "mediaRatio": "1440 / 810"
+      },
+      {
+        "type": "wide-media",
+        "media": "/projects/dawnsignpress/demo-lesson-7.png",
+        "mediaType": "image",
+        "contained": true,
+        "mediaRatio": "1440 / 810"
+      },
+      {
+        "type": "wide-media",
+        "media": "/projects/dawnsignpress/demo-lesson-8.png",
+        "mediaType": "image",
+        "contained": true,
+        "mediaRatio": "1440 / 810"
+      },
+      {
+        "type": "wide-media",
+        "media": "/projects/dawnsignpress/demo-lesson-9.png",
+        "mediaType": "image",
+        "contained": true,
+        "mediaRatio": "1440 / 810"
       }
     ]
   }
