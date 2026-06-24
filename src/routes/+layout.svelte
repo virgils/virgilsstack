@@ -73,9 +73,21 @@
     justify-content: space-between;
     padding: 24px var(--page-padding-x);
     background: rgba(255, 255, 255, 0.55);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  }
+
+  /* Separate @supports blocks so the CSS minifier can't collapse the
+     prefixed + standard pair down to only -webkit- (which breaks Firefox). */
+  @supports (backdrop-filter: blur(1px)) {
+    .nav {
+      backdrop-filter: blur(8px);
+    }
+  }
+
+  @supports (-webkit-backdrop-filter: blur(1px)) {
+    .nav {
+      -webkit-backdrop-filter: blur(8px);
+    }
   }
 
   .nav-brand {

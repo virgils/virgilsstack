@@ -148,9 +148,21 @@
     text-transform: uppercase;
     color: #fff;
     background: rgba(0, 0, 0, 0.55);
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
     border-radius: 3px;
+  }
+
+  /* Separate @supports blocks so the CSS minifier can't collapse the
+     prefixed + standard pair down to only -webkit- (which breaks Firefox). */
+  @supports (backdrop-filter: blur(1px)) {
+    .nda-label {
+      backdrop-filter: blur(4px);
+    }
+  }
+
+  @supports (-webkit-backdrop-filter: blur(1px)) {
+    .nda-label {
+      -webkit-backdrop-filter: blur(4px);
+    }
   }
 
   @media (--bp-sm) {

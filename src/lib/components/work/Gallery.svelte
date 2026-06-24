@@ -248,9 +248,21 @@
     padding: 0;
     margin: 0;
     background: rgba(0, 0, 0, 0.88);
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
     cursor: zoom-out;
+  }
+
+  /* Separate @supports blocks so the CSS minifier can't collapse the
+     prefixed + standard pair down to only -webkit- (which breaks Firefox). */
+  @supports (backdrop-filter: blur(1px)) {
+    .lb-backdrop {
+      backdrop-filter: blur(4px);
+    }
+  }
+
+  @supports (-webkit-backdrop-filter: blur(1px)) {
+    .lb-backdrop {
+      -webkit-backdrop-filter: blur(4px);
+    }
   }
 
   .lb-content {
