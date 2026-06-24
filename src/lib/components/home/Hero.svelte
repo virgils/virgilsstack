@@ -6,9 +6,9 @@
 
 <style>
   .hero {
-    width: 100%;
+    width: 85%;
     padding: 60px var(--page-padding-x);
-    font-size: 2.5rem;
+    font-size: 1.6rem;
     line-height: 1.2;
     box-sizing: border-box;
     font-weight: 300;

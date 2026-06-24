@@ -8,14 +8,25 @@ export const load: PageLoad = ({ params }) => {
   if (index === -1) error(404, "Project not found");
 
   const project = projects[index];
-  const nextProject = projects[(index + 1) % projects.length];
+
+  // Find the next project, skipping any that are `blocked` (no public page to link to).
+  let nextProject = null;
+  for (let step = 1; step < projects.length; step++) {
+    const candidate = projects[(index + step) % projects.length];
+    if (!(candidate as any).blocked) {
+      nextProject = candidate;
+      break;
+    }
+  }
 
   return {
     project,
-    nextProject: {
-      client: nextProject.client,
-      name: nextProject.project,
-      slug: nextProject.slug,
-    },
+    nextProject: nextProject
+      ? {
+          client: nextProject.client,
+          name: nextProject.project,
+          slug: nextProject.slug,
+        }
+      : null,
   };
 };

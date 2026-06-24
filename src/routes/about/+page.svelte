@@ -327,7 +327,7 @@
     padding: 40px 0;
 
     li span {
-      display: inline-block;
+      display: inline;
       background-color: white;
       color: black;
     }

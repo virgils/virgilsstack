@@ -154,6 +154,14 @@
     transition: aspect-ratio 0.8s cubic-bezier(0.25, 1, 0.5, 1); /* Smooth expansion */
   }
 
+  /* On mobile, full-width media uses a 5/3 crop regardless of its native ratio.
+     !important is required to override the inline aspect-ratio on .collapsible-media. */
+  @media (max-width: 767px) {
+    .full-width .collapsible-media {
+      aspect-ratio: 5 / 3 !important;
+    }
+  }
+
   /* --- NEW: Overlay Styles --- */
   .reveal-overlay {
     position: absolute;

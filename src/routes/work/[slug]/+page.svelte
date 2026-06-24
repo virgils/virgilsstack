@@ -120,9 +120,9 @@
   {/if}
 
   <Footer
-    nextProjectName={data.nextProject.name}
-    nextProjectClient={data.nextProject.client}
-    nextProjectSlug={data.nextProject.slug}
+    nextProjectName={data.nextProject?.name}
+    nextProjectClient={data.nextProject?.client}
+    nextProjectSlug={data.nextProject?.slug}
   />
 </article>
 
