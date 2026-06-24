@@ -250,7 +250,7 @@
         "direction": "right",
         "media": "/projects/google-trivia-twister/demo-2.jpg",
         "mediaType": "image",
-        "text": "An exclusive brand activation in Japan gave developers hands-on access to the Gemini API's capabilities. Placed alongside other experimental AI tools, Trivia Twister served as a live, tactile case study in how advanced prompting can be instantly translated into engaging, real-time user experiences.",
+        "text": "<h4>Gemini Demo Night</h4><br/>An exclusive brand activation in Japan gave developers hands-on access to the Gemini API's capabilities. Placed alongside other experimental AI tools, Trivia Twister served as a live, tactile case study in how advanced prompting can be instantly translated into engaging, real-time user experiences.",
         "caption": "Trivia Twister and Draw your Comic",
         "ratio": "50-50",
         "mediaRatio": "578 / 480"
@@ -260,7 +260,7 @@
         "direction": "left",
         "media": "/projects/google-trivia-twister/demo-1.jpg",
         "mediaType": "image",
-        "text": "At Google I/O, the experience took center stage outdoors, flanking the competition's grand prize: a retrofitted electric DeLorean. Installed on interactive pillars, Trivia Twister and its sister apps gave conference attendees a high-visibility, physical destination to test Gemini 1.5 Pro.",
+        "text": "<h4>Google I/O Showcase</h4><br/>At Google I/O, the experience took center stage outdoors, flanking the competition's grand prize: a retrofitted electric DeLorean. Installed on interactive pillars, Trivia Twister and its sister apps gave conference attendees a high-visibility, physical destination to test Gemini 1.5 Pro.",
         "caption": "The Delorean presented by Christopher Lloyd",
         "ratio": "50-50",
         "mediaRatio": "578 / 480"
@@ -498,7 +498,7 @@
         "media": "/projects/google-jules/screen-intro.mp4",
         "mediaType": "video",
         "contained": true,
-        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer efficitur bibendum erat, quis aliquet diam tincidunt a. Vivamus non iaculis.",
+        "text": "The homepage intro animation showcases a layered animation approach that combines Lottie, SVG animation, PNG assets, and gradient effects. ",
         "mediaRatio": "800 / 444"
       },
       {
@@ -537,7 +537,7 @@
     "client": "Google Jigsaw",
     "project": "Altitude",
     "year": "2023",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer efficitur bibendum erat, quis aliquet diam tincidunt a. Vivamus non iaculis.",
+    "description": "Developed the website for Altitude, an open-source platform combating extremist content, showcasing the moderation tool by Google Jigsaw and Tech Against Terrorism. Built a responsive interface to demonstrate the tool’s features, integrate blog content, and highlight workflows for end users.",
     "media": "/projects/google-altitude/card.png",
     "mediaType": "image",
     "heroMedia": "/projects/google-altitude/card.png",
@@ -568,7 +568,6 @@
         "media": "/projects/google-altitude/demo.png",
         "mediaType": "image",
         "contained": true,
-        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer efficitur bibendum erat, quis aliquet diam tincidunt a. Vivamus non iaculis.",
         "mediaRatio": "1185 / 3595"
       },
       {
@@ -576,7 +575,6 @@
         "media": "/projects/google-altitude/demo.mp4",
         "mediaType": "video",
         "contained": true,
-        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer efficitur bibendum erat, quis aliquet diam tincidunt a. Vivamus non iaculis.",
         "mediaRatio": "1178 / 894"
       }
     ]
@@ -586,7 +584,7 @@
     "client": "Virgin Hyperloop",
     "project": "Brand Website",
     "year": "2020",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer efficitur bibendum erat, quis aliquet diam tincidunt a. Vivamus non iaculis.",
+    "description": "Virgin Hyperloop is developing a next-generation transportation system capable of moving passengers and cargo at airline speeds. I helped build an interactive platform that explains the technology, showcases global initiatives, and makes a complex concept easier to understand.",
     "media": "/projects/virgin-hyperloop/card.mp4",
     "mediaType": "video",
     "heroMedia": "/projects/virgin-hyperloop/hero2.jpg",
@@ -629,7 +627,7 @@
         "media": "/projects/virgin-hyperloop/virgin-hyperloop--commarts02a.jpg",
         "mediaType": "image",
         "contained": true,
-        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer efficitur bibendum erat, quis aliquet diam tincidunt a. Vivamus non iaculis.",
+        "text": "A series of interactive Three.js experiences guide users through the core components of the Hyperloop system, helping explain how the technology works through exploration rather than lengthy technical content.",
         "mediaRatio": "1586 / 900"
       },
       {
@@ -637,7 +635,7 @@
         "media": "/projects/virgin-hyperloop/virgin-hyperloop--commarts03a.jpg",
         "mediaType": "image",
         "contained": true,
-        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer efficitur bibendum erat, quis aliquet diam tincidunt a. Vivamus non iaculis.",
+        "text": "An interactive map highlights Hyperloop projects and partnerships around the world, providing users with a clear overview of the company's growing international presence.",
         "mediaRatio": "1586 / 900"
       },
       {
@@ -645,7 +643,7 @@
         "media": "/projects/virgin-hyperloop/virgin-hyperloop--commarts04a.jpg",
         "mediaType": "image",
         "contained": true,
-        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer efficitur bibendum erat, quis aliquet diam tincidunt a. Vivamus non iaculis.",
+        "text": "An interactive route estimator compares travel times across traditional modes of transportation and Hyperloop, helping users understand the potential impact of high-speed transit on real-world journeys.",
         "mediaRatio": "1586 / 900"
       },
       {
@@ -653,7 +651,6 @@
         "media": "/projects/virgin-hyperloop/virgin-hyperloop--commarts05a.jpg",
         "mediaType": "image",
         "contained": true,
-        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer efficitur bibendum erat, quis aliquet diam tincidunt a. Vivamus non iaculis.",
         "mediaRatio": "1586 / 900"
       },
       {
@@ -662,7 +659,7 @@
         "mediaType": "image",
         "contained": true,
         "collapsed": true,
-        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer efficitur bibendum erat, quis aliquet diam tincidunt a. Vivamus non iaculis.",
+        "text": "Dedicated regional pages showcase local Hyperloop initiatives, project progress, and relevant news updates, providing a closer look at development efforts around the world.",
         "mediaRatio": "1600 / 7099"
       }
     ]
