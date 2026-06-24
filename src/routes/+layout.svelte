@@ -24,7 +24,7 @@
   />
 </svelte:head>
 
-<nav>
+<nav class="nav">
   <a href="/" class="nav-brand">
     <!-- <img src="/images/stack.png" alt="Virgil's Stack Logo" class="nav-logo" /> -->
     <span class="nav-title">Virgil's Stack.</span>
@@ -62,7 +62,7 @@
     text-decoration: none;
   }
 
-  nav {
+  .nav {
     position: fixed;
     top: 0;
     left: 0;
