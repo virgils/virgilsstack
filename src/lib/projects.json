@@ -790,7 +790,7 @@
     "client": "Scotch & Soda",
     "project": "E-Commerce and Campaigns",
     "year": "2012-2018",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer efficitur bibendum erat, quis aliquet diam tincidunt a. Vivamus non iaculis.",
+    "description": "During my time at Cartelle, I helped build and maintain the e-commerce platform for Scotch & Soda, developing product listing pages, product detail pages, editorial content, and campaign experiences. The platform combined commerce with a strong visual identity, using immersive imagery and custom layouts to create a more engaging shopping experience. <br/>Following my time at Cartelle, I continued working with Scotch & Soda on the evolution of their digital platform.",
     "media": "/projects/scotch-soda/card2.jpg",
     "mediaType": "image",
     "heroMedia": "/projects/scotch-soda/hero.jpg",
@@ -834,6 +834,12 @@
         "mediaRatio": "1800 / 812"
       },
       {
+        "type": "heading",
+        "index": "01",
+        "title": "E-Commerce Platform",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer efficitur bibendum erat, quis aliquet diam tincidunt a. Vivamus non iaculis."
+      },
+      {
         "type": "wide-media",
         "media": "/projects/scotch-soda/_0000_scotchsoda.jpg",
         "mediaType": "image",
@@ -862,6 +868,12 @@
         "mediaRatio": "1600 / 914"
       },
       {
+        "type": "heading",
+        "index": "02",
+        "title": "Portraits",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer efficitur bibendum erat, quis aliquet diam tincidunt a. Vivamus non iaculis."
+      },
+      {
         "type": "wide-media",
         "media": "/projects/scotch-soda/_0004_scotchsoda.jpg",
         "mediaType": "image",
@@ -877,7 +889,7 @@
       },
       {
         "type": "heading",
-        "index": "01",
+        "index": "03",
         "title": "Misguiding Guide",
         "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer efficitur bibendum erat, quis aliquet diam tincidunt a. Vivamus non iaculis."
       },
@@ -890,7 +902,7 @@
       },
       {
         "type": "heading",
-        "index": "02",
+        "index": "04",
         "title": "All Together Now",
         "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer efficitur bibendum erat, quis aliquet diam tincidunt a. Vivamus non iaculis."
       },
@@ -903,7 +915,7 @@
       },
       {
         "type": "heading",
-        "index": "03",
+        "index": "05",
         "title": "Holiday Campaign",
         "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer efficitur bibendum erat, quis aliquet diam tincidunt a. Vivamus non iaculis."
       },
@@ -916,7 +928,7 @@
       },
       {
         "type": "heading",
-        "index": "04",
+        "index": "06",
         "title": "Sir Safari Pop",
         "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer efficitur bibendum erat, quis aliquet diam tincidunt a. Vivamus non iaculis."
       },
@@ -958,7 +970,7 @@
     "sections": [
       {
         "type": "intro",
-        "techStack": "Angular, SASS",
+        "techStack": "Angular, SASS, GSAP",
         "awards": [
           {
             "year": "2020",
