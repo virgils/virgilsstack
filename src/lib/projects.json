@@ -619,7 +619,6 @@
         "media": "/projects/virgin-hyperloop/virgin-hyperloop--commarts01a.jpg",
         "mediaType": "image",
         "contained": true,
-        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer efficitur bibendum erat, quis aliquet diam tincidunt a. Vivamus non iaculis.",
         "mediaRatio": "1586 / 900"
       },
       {
@@ -690,16 +689,17 @@
     "heroMediaType": "image",
     "sections": [
       {
+        "type": "intro",
+        "techStack": "Angular, CSS, TypeScript"
+      },
+      {
         "type": "wide-media",
         "media": "/projects/google-recorder/hero.jpg",
         "mediaType": "image",
         "contained": false,
         "mediaRatio": "1800 / 734"
       },
-      {
-        "type": "intro",
-        "techStack": "Angular, CSS, TypeScript"
-      },
+
       {
         "type": "wide-media",
         "media": "/projects/google-recorder/demo.jpg",
@@ -713,6 +713,7 @@
         "media": "/projects/google-recorder/demo.mp4",
         "mediaType": "video",
         "contained": true,
+        "text": "I've built an interactive search demo that allows users to quickly find and access the sections of the recordings.",
         "mediaRatio": "1000 / 562"
       }
     ],
@@ -1046,7 +1047,30 @@
     "sections": [
       {
         "type": "intro",
-        "techStack": "Lit, Typescript"
+        "techStack": "Javascript, PHP, ThreeJS, PHP",
+        "links": [
+          {
+            "title": "Bartlett Shows",
+            "url": "https://shows.bartlettarchucl.com/"
+          }
+        ],
+        "awards": [
+          {
+            "year": "2020",
+            "title": "Awwwards",
+            "category": "Site of the Day"
+          },
+          {
+            "year": "2020",
+            "title": "TheFWA",
+            "category": "Site of the Day"
+          },
+          {
+            "year": "2020",
+            "title": "TheFWA",
+            "category": "Site of the Month"
+          }
+        ]
       }
     ]
   },
