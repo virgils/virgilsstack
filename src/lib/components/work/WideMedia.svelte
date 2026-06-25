@@ -79,27 +79,6 @@
         style="aspect-ratio: {currentRatio};"
       />
     {/if}
-
-    <!-- NEW: Reveal Gradient Overlay and Button -->
-    {#if collapsed && !isExpanded}
-      <div class="reveal-overlay">
-        <button class="reveal-btn" onclick={() => (isExpanded = true)}>
-          Expand
-          <svg
-            width="14"
-            height="14"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2.5"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <polyline points="6 9 12 15 18 9"></polyline>
-          </svg>
-        </button>
-      </div>
-    {/if}
   </div>
 
   {#if caption || text}
@@ -112,6 +91,27 @@
       {/if}
     </div>
   {/if}
+
+  <!-- NEW: Reveal Gradient Overlay and Button -->
+  {#if collapsed && !isExpanded}
+    <div class="reveal-overlay">
+      <button class="reveal-btn" onclick={() => (isExpanded = true)}>
+        Expand
+        <svg
+          width="14"
+          height="14"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+      </button>
+    </div>
+  {/if}
 </section>
 
 <style>
@@ -119,6 +119,7 @@
     display: flex;
     flex-direction: column;
     width: 100%;
+    position: relative;
   }
 
   /* Full width only gets margin, no padding/max-width */
@@ -199,6 +200,8 @@
     cursor: pointer;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     transition: transform 0.2s ease;
+    bottom: -50px;
+    position: relative;
 
     /* Center text and caret */
     display: flex;
