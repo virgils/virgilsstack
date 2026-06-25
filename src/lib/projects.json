@@ -948,7 +948,7 @@
     "client": "Google Brand Studio",
     "project": "Most Searched",
     "year": "2020",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer efficitur bibendum erat, quis aliquet diam tincidunt a. Vivamus non iaculis.",
+    "description": "Created for Google's Black History Month 2020 campaign, Most Searched explored influential Black figures, events, and achievements through the lens of Google Search trends. The experience combined historical context, media, and data-driven insights to celebrate individuals and moments that shaped American culture.",
     "media": "/projects/google-most-searched/card.mp4",
     "mediaType": "video",
     "heroMedia": "/projects/google-most-searched/hero.jpg",
@@ -964,6 +964,12 @@
             "year": "2020",
             "title": "ADC Awards - Silver",
             "category": "Online / Mobile Websites / Campaign Site"
+          }
+        ],
+        "links": [
+          {
+            "title": "Commercial",
+            "url": "https://www.youtube.com/watch?v=Qyiautg41h8"
           }
         ]
       },
@@ -986,15 +992,9 @@
         "type": "wide-media",
         "media": "/projects/google-most-searched/scroll.mp4",
         "mediaType": "video",
+        "text": "The History Makers section stays fixed within the viewport as users scroll, revealing a curated list of Google's most searched Black history figures, achievements, and cultural moments.",
         "contained": true,
         "mediaRatio": "1200 / 676"
-      },
-      {
-        "type": "wide-media",
-        "media": "/projects/google-most-searched/screen-1.jpg",
-        "mediaType": "image",
-        "contained": true,
-        "mediaRatio": "1901 / 1372"
       },
       {
         "type": "wide-media",
@@ -1009,6 +1009,16 @@
         "mediaType": "image",
         "contained": true,
         "mediaRatio": "1901 / 1372"
+      },
+      {
+        "type": "side-by-side",
+        "direction": "right",
+        "media": "/projects/google-most-searched/street.jpg",
+        "mediaType": "image",
+        "text": "It was rewarding to see the campaign featured on a massive billboard just a block from my apartment. Seeing something I had worked on come to life in the real world was a memorable and unexpected moment.",
+        "caption": "Most Searched Billboard in Brooklyn",
+        "ratio": "50-50",
+        "mediaRatio": "1064 / 1253"
       }
     ]
   },
