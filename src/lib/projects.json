@@ -94,7 +94,7 @@
     "client": "OpenAI",
     "project": "Localization & RTL Support",
     "year": "2026",
-    "description": "Enhanced OpenAI's global accessibility by building a dynamic language selection interface and implementing comprehensive RTL (Right-to-Left) layout support. Successfully launched localized experiences for Arabic, Urdu, and Farsi by auditing and updating dozens of core components, buttons, and interactive elements to ensure pixel-perfect bidirectional rendering and a seamless user experience.",
+    "description": "Enhanced OpenAI’s global web experience by expanding localization support and implementing comprehensive right-to-left (RTL) capabilities. Built a new language selector with locale and language search, developed supporting Tailwind utilities, and updated core components and interaction patterns to ensure a consistent experience across Arabic, Urdu, Farsi, and other localized interfaces.",
     "media": "/projects/openai-localization/card.jpg",
     "mediaType": "image",
     "heroMedia": "/projects/openai-localization/hero.jpg",
@@ -119,16 +119,18 @@
         "mediaRatio": "900 / 295"
       },
       {
+        "type": "heading",
+        "index": "01",
+        "title": "RTL Support",
+        "text": "Led RTL (right-to-left) support across the platform by identifying and resolving UI inconsistencies, refactoring core CSS architecture, and migrating from physical to logical styling primitives. Audited and refactored numerous core React components to address RTL-specific issues in interactive behaviors, including keyboard navigation, sliders, and dynamic dropdowns. Established RTL integration patterns with accompanying documentation to guide consistent implementation across engineering teams."
+      },
+      {
         "type": "wide-media",
         "media": "/projects/openai-localization/screen-1.jpg",
         "mediaType": "image",
         "contained": true,
         "caption": "",
         "mediaRatio": "1044 / 1272"
-      },
-      {
-        "type": "text",
-        "text": "To support right-to-left (RTL) languages like Arabic, Urdu, and Farsi without code bloat, I migrated the codebase from rigid physical CSS properties to CSS Logical Properties. To streamline this transition and empower the team for future localization, I engineered custom Tailwind CSS plugins. This allowed us to automatically mirror spacing, borders, and positioning based on the document direction, ensuring a maintainable and highly scalable styling architecture."
       },
       {
         "type": "wide-media",
@@ -140,7 +142,7 @@
       },
       {
         "type": "text",
-        "text": "Localizing an enterprise application goes deeper than just styling; bidirectional rendering often breaks interactive UI logic. I audited and refactored dozens of core React components, fixing critical JavaScript bugs related to keyboard navigation, sliders, and dynamic dropdowns under RTL conditions. By updating these interactive elements, I ensured that state changes and user inputs remained robust, highly responsive, and visually flawless regardless of language direction."
+        "text": "Engineered a Tailwind-based abstraction layer to eliminate manual left/right styling across the codebase. Introduced direction-aware utilities that standardize spacing, borders, and positioning using logical CSS properties, allowing components to automatically adapt between LTR and RTL layouts without duplication or conditional styling."
       },
       {
         "type": "wide-media",
@@ -159,8 +161,10 @@
         "mediaRatio": "2400 / 1800"
       },
       {
-        "type": "text",
-        "text": "To support OpenAI's expanding global user base, I built a fully responsive language selection interface featuring built-in search functionality. The component is fully optimized for both desktop and mobile layouts, includes native RTL layout support, and ensures that switching languages never disrupts the user's active session."
+        "type": "heading",
+        "index": "02",
+        "title": "Localization",
+        "text": "Designed and developed a fully responsive language selector that enables users to search by both language name and locale code, making it easy to discover and switch between supported languages. Built for desktop and mobile, the experience preserves the user's active session when changing languages and was designed to scale as additional locales are introduced."
       },
       {
         "type": "wide-media",
@@ -168,7 +172,7 @@
         "mediaType": "image",
         "contained": true,
         "caption": "",
-        "text": "The different states for the new Language Selector.",
+        "text": "Desktop interaction states for the Language Selector.",
         "mediaRatio": "1641 / 600"
       },
       {
