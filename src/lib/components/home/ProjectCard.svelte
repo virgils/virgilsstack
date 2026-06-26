@@ -1,4 +1,6 @@
 <script>
+  import { ENABLE_TILT } from "$lib/effects";
+
   let { project } = $props();
 
   // When a project has an externalUrl, the card links out instead of to /work
@@ -46,6 +48,7 @@
   // Writes --tilt-rx / --tilt-ry, composed with the scroll tilt in CSS.
   const MOUSE_TILT = 6; // max degrees from centre to edge
   function tilt(node) {
+    if (!ENABLE_TILT) return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     function move(e) {
       const r = node.getBoundingClientRect();

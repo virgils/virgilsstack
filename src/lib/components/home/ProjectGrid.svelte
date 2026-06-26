@@ -1,5 +1,6 @@
 <script lang="ts">
   import ProjectCard from "./ProjectCard.svelte";
+  import { ENABLE_TILT, ENABLE_PARALLAX } from "$lib/effects";
 
   type Project = Record<string, any>;
 
@@ -100,11 +101,20 @@
       "(prefers-reduced-motion: reduce)",
     ).matches;
 
-    // No parallax/tilt on mobile (single column) or when reduced motion is set.
-    if (n <= 1 || reduce) {
+    // Off on mobile (single column), with reduced motion, or if both toggles
+    // are disabled. Always clear any stale styles first.
+    if (n <= 1 || reduce || (!ENABLE_TILT && !ENABLE_PARALLAX)) {
       colEls.forEach((el) => el && (el.style.transform = ""));
       tiltEls.forEach((el) => el.style.removeProperty("--tilt-scroll"));
       return;
+    }
+
+    // Clear whichever single effect is turned off (the other still runs).
+    if (!ENABLE_PARALLAX) {
+      colEls.forEach((el) => el && (el.style.transform = ""));
+    }
+    if (!ENABLE_TILT) {
+      tiltEls.forEach((el) => el.style.removeProperty("--tilt-scroll"));
     }
 
     let lastScroll = window.scrollY;
@@ -128,27 +138,30 @@
 
       const moving = Math.abs(velocity) > 5;
 
-      // Per-card tilt: signed by scroll direction, scaled by speed.
-      const tilt = moving
-        ? Math.max(
-            -MAX_TILT,
-            Math.min(MAX_TILT, (velocity / TILT_VELOCITY) * MAX_TILT),
-          )
-        : 0;
-      tiltEls.forEach((el) =>
-        el.style.setProperty("--tilt-scroll", `${tilt.toFixed(2)}deg`),
-      );
+      // Per-media tilt: signed by scroll direction, scaled by speed.
+      if (ENABLE_TILT) {
+        const tilt = moving
+          ? Math.max(
+              -MAX_TILT,
+              Math.min(MAX_TILT, (velocity / TILT_VELOCITY) * MAX_TILT),
+            )
+          : 0;
+        tiltEls.forEach((el) =>
+          el.style.setProperty("--tilt-scroll", `${tilt.toFixed(2)}deg`),
+        );
+      }
 
       // Parallax offset — locked to scroll position (top row stays aligned).
-      const rect = gridEl.getBoundingClientRect();
-      let progress = -rect.top / rect.height;
-      progress = Math.max(0, Math.min(1, progress));
-
-      for (let i = 0; i < n; i++) {
-        const el = colEls[i];
-        if (!el) continue;
-        const offset = progress * COLUMN_SPEED[i % COLUMN_SPEED.length];
-        el.style.transform = `translate3d(0, ${offset.toFixed(2)}px, 0)`;
+      if (ENABLE_PARALLAX) {
+        const rect = gridEl.getBoundingClientRect();
+        let progress = -rect.top / rect.height;
+        progress = Math.max(0, Math.min(1, progress));
+        for (let i = 0; i < n; i++) {
+          const el = colEls[i];
+          if (!el) continue;
+          const offset = progress * COLUMN_SPEED[i % COLUMN_SPEED.length];
+          el.style.transform = `translate3d(0, ${offset.toFixed(2)}px, 0)`;
+        }
       }
 
       if (moving) frame = requestAnimationFrame(tick);
