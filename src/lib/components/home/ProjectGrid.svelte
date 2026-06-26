@@ -216,7 +216,7 @@
 <svelte:window bind:innerWidth />
 
 <!-- Responsive masonry: 1 / 2 / 3 / 4 columns, cards read left-to-right in JSON order -->
-<section class="projects-grid" class:measured bind:this={gridEl}>
+<section class="projects-grid" class:visible bind:this={gridEl}>
   {#each columns as column, ci}
     <div class="grid-column" bind:this={colEls[ci]}>
       {#each column as project (project.slug)}
