@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { revealWipes } from "$lib/actions/revealWipes";
+
   interface Award {
     year?: string;
     title: string;
@@ -29,10 +31,10 @@
   } = $props();
 </script>
 
-<section class="intro-section">
+<section class="intro-section" use:revealWipes>
   <div class="intro-main">
     <div class="metadata">
-      <span class="client">{client}</span>
+      <span class="client wipe">{client}</span>
     </div>
     <h1 class="project-title">{project}</h1>
     <p class="description">{@html description}</p>

@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { revealWipes } from "$lib/actions/revealWipes";
   import "../../../app.css";
 
   let {
@@ -12,13 +13,13 @@
   } = $props();
 </script>
 
-<footer class="footer">
+<footer class="footer" use:revealWipes>
   {#if nextProjectSlug && nextProjectName}
     <a href="/work/{nextProjectSlug}" class="next-project-link">
       <span class="next-label">Next Project</span>
       <div class="next-project-info">
         <span class="next-client">{nextProjectClient}</span>
-        <span class="next-title">{nextProjectName}</span>
+        <span class="next-title wipe">{nextProjectName}</span>
       </div>
     </a>
   {/if}
@@ -78,12 +79,24 @@
     font-weight: var(--fw-medium);
     letter-spacing: var(--ls-label);
     text-transform: uppercase;
-    color: var(--text-primary);
+    /* Default: inverted — white text on a black pill */
+    color: var(--bg-color);
+    background: var(--text-primary);
+    border: 1px solid var(--text-primary);
     margin-bottom: 32px;
     padding: 6px 16px;
-    border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 20px;
+    transition:
+      color 0.3s ease,
+      background 0.3s ease,
+      border-color 0.3s ease;
+  }
+
+  /* Hovering the link inverts it back to dark text on a light pill */
+  .next-project-link:hover .next-label {
+    color: var(--text-primary);
     background: var(--bg-color);
+    border-color: rgba(0, 0, 0, 0.1);
   }
 
   .next-project-info {

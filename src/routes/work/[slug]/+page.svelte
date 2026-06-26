@@ -9,6 +9,7 @@
     Gallery,
     SectionHeading,
     PullQuote,
+    revealWipes,
   } from "$lib";
 
   let { data }: { data: PageData } = $props();
@@ -20,7 +21,7 @@
   <meta name="description" content={project.description} />
 </svelte:head>
 
-<article class="project-page">
+<article class="project-page" use:revealWipes>
   {#if project.sections && project.sections.length > 0}
     {#each project.sections as section}
       {#if section.type === "intro"}

@@ -70,3 +70,39 @@ body {
     margin-bottom: 100px;
   }
 }
+
+/* ──────────────────────────────────────────────────────────
+   Inline "wipe" reveal — mark text in any {@html} field with
+   <span class='wipe'>…</span>. A black cover sits over the text and wipes
+   away (right→left) once scrolled into view; driven by use:revealWipes
+   (src/lib/actions/revealWipes.ts), which adds .is-revealed.
+   Global so it reaches {@html}-injected markup. Override the cover color
+   per use with --wipe-color (defaults to black).
+   ────────────────────────────────────────────────────────── */
+.wipe {
+  position: relative;
+  display: inline-block;
+}
+
+.wipe::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--wipe-color, #000);
+  transform: scaleX(1);
+  transform-origin: left center;
+  transition: transform 0.6s cubic-bezier(0.76, 0, 0.24, 1);
+  transition-delay: var(--wipe-delay, 0ms);
+  pointer-events: none;
+}
+
+.wipe.is-revealed::after {
+  transform: scaleX(0);
+}
+
+/* No JS / reduced motion: never hide the text behind a cover. */
+@media (prefers-reduced-motion: reduce) {
+  .wipe::after {
+    display: none;
+  }
+}

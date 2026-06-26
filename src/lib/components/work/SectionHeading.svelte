@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { revealWipes } from "$lib/actions/revealWipes";
+
   let {
     index = "",
     title = "",
@@ -10,13 +12,13 @@
   } = $props();
 </script>
 
-<section class="section-heading component layout-contained">
+<section class="section-heading component layout-contained" use:revealWipes>
   <div class="heading-inner">
     {#if index}
       <span class="caption heading-index">{index}</span>
     {/if}
     {#if title}
-      <h2 class="heading-title">{@html title}</h2>
+      <h2 class="heading-title"><span class="wipe">{@html title}</span></h2>
     {/if}
     {#if text}
       <p class="content-text heading-text">{@html text}</p>

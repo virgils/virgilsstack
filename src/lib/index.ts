@@ -20,3 +20,6 @@ export { default as PullQuote } from "./components/work/PullQuote.svelte";
 
 // About page
 export { default as ParticleMap } from "./components/about/ParticleMap.svelte";
+
+// Actions
+export { revealWipes } from "./actions/revealWipes";
