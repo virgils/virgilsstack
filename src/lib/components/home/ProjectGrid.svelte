@@ -84,11 +84,12 @@
   // Travel (px) per column as you scroll down through the grid. Alternating
   // signs make neighbours move opposite ways; magnitude = how far each drifts.
   const COLUMN_SPEED = [-50, 55, -35, 80];
-  // Each card tilts on the X axis while scrolling: angle scales with scroll
+  // Each media tilts on the X axis while scrolling: angle scales with scroll
   // speed, sign follows direction (down vs up), easing back to flat on stop.
+  // Written as the --tilt-scroll CSS var so it composes with the per-card
+  // mouse tilt (see ProjectCard) rather than fighting over `transform`.
   const MAX_TILT = 9; // max degrees at full speed
   const TILT_VELOCITY = 2600; // px/s at which the tilt hits its max
-  const CARD_PERSPECTIVE = 900; // px — smaller = stronger 3D foreshortening
   const VEL_SMOOTH = 0.08; // velocity low-pass (s) so the tilt isn't jumpy
 
   $effect(() => {
@@ -102,7 +103,7 @@
     // No parallax/tilt on mobile (single column) or when reduced motion is set.
     if (n <= 1 || reduce) {
       colEls.forEach((el) => el && (el.style.transform = ""));
-      tiltEls.forEach((el) => (el.style.transform = ""));
+      tiltEls.forEach((el) => el.style.removeProperty("--tilt-scroll"));
       return;
     }
 
@@ -134,10 +135,9 @@
             Math.min(MAX_TILT, (velocity / TILT_VELOCITY) * MAX_TILT),
           )
         : 0;
-      const tiltTransform = tilt
-        ? `perspective(${CARD_PERSPECTIVE}px) rotateX(${tilt.toFixed(2)}deg)`
-        : "";
-      tiltEls.forEach((el) => (el.style.transform = tiltTransform));
+      tiltEls.forEach((el) =>
+        el.style.setProperty("--tilt-scroll", `${tilt.toFixed(2)}deg`),
+      );
 
       // Parallax offset — locked to scroll position (top row stays aligned).
       const rect = gridEl.getBoundingClientRect();
@@ -175,7 +175,7 @@
       window.removeEventListener("resize", start);
       cancelAnimationFrame(frame);
       colEls.forEach((el) => el && (el.style.transform = ""));
-      tiltEls.forEach((el) => (el.style.transform = ""));
+      tiltEls.forEach((el) => el.style.removeProperty("--tilt-scroll"));
     };
   });
 </script>

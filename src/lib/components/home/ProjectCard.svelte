@@ -41,6 +41,32 @@
       },
     };
   }
+
+  // Cursor-directional tilt: the media leans toward where the mouse is over it.
+  // Writes --tilt-rx / --tilt-ry, composed with the scroll tilt in CSS.
+  const MOUSE_TILT = 6; // max degrees from centre to edge
+  function tilt(node) {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    function move(e) {
+      const r = node.getBoundingClientRect();
+      const px = (e.clientX - r.left) / r.width - 0.5; // -0.5 … 0.5
+      const py = (e.clientY - r.top) / r.height - 0.5;
+      node.style.setProperty("--tilt-ry", `${(px * MOUSE_TILT * 2).toFixed(2)}deg`);
+      node.style.setProperty("--tilt-rx", `${(-py * MOUSE_TILT * 2).toFixed(2)}deg`);
+    }
+    function leave() {
+      node.style.setProperty("--tilt-rx", "0deg");
+      node.style.setProperty("--tilt-ry", "0deg");
+    }
+    node.addEventListener("mousemove", move);
+    node.addEventListener("mouseleave", leave);
+    return {
+      destroy() {
+        node.removeEventListener("mousemove", move);
+        node.removeEventListener("mouseleave", leave);
+      },
+    };
+  }
 </script>
 
 <svelte:element
@@ -63,6 +89,7 @@
     <div
       class="media-wrapper"
       class:show={isLoaded}
+      use:tilt
       style="aspect-ratio: {project.mediaRatio || '16 / 9'};"
     >
       {#if project.mediaType === "video"}
@@ -188,11 +215,16 @@
 
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
-    /* `transform` is left free for the scroll-speed tilt (driven in
-       ProjectGrid). Only box-shadow transitions here so the tilt tracks
-       instantly; the hover-zoom now lives on the inner media below. */
     will-change: transform;
-    transition: box-shadow 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    /* Composes two tilts: --tilt-scroll (scroll speed, set in ProjectGrid) on
+       X, and --tilt-rx / --tilt-ry (cursor position, set by use:tilt) on both
+       axes. The hover-zoom lives on the inner media so it doesn't collide. */
+    transform: perspective(900px)
+      rotateX(calc(var(--tilt-scroll, 0deg) + var(--tilt-rx, 0deg)))
+      rotateY(var(--tilt-ry, 0deg));
+    transition:
+      box-shadow 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+      transform 0.15s ease-out;
   }
 
   .card:hover .media-wrapper {
