@@ -1,4 +1,6 @@
 <script>
+  import { reveal } from "$lib/effects";
+
   let { project } = $props();
 
   // When a project has an externalUrl, the card links out instead of to /work
@@ -49,6 +51,8 @@
   class="card"
   class:external={isExternal}
   class:static={!isLink}
+  class:reveal-wipe={reveal === "wipe"}
+  class:reveal-fade={reveal === "fadein"}
   aria-label="{project.client} — {project.project}{isExternal
     ? ' (opens in a new tab)'
     : ''}"
@@ -218,8 +222,8 @@
     opacity: 1;
   }
 
-  /* Black cover overlay */
-  .media-wrapper:before {
+  /* Black cover overlay (WIPE mode only) */
+  .reveal-wipe .media-wrapper:before {
     content: "";
     position: absolute;
     z-index: 1;
@@ -231,7 +235,7 @@
     transition: width 0.4s ease-out;
   }
 
-  .media-wrapper.show:before {
+  .reveal-wipe .media-wrapper.show:before {
     width: 0%;
   }
 
@@ -282,8 +286,8 @@
     display: inline-block;
   }
 
-  /* Slide-off cover for text */
-  .card-info span:before {
+  /* Slide-off cover for text (WIPE mode only) */
+  .reveal-wipe .card-info span:before {
     content: "";
     position: absolute;
     z-index: 1;
@@ -296,21 +300,44 @@
   }
 
   /* Reveal text by shrinking cover */
-  .card-info span.show:before {
+  .reveal-wipe .card-info span.show:before {
     width: 0%;
   }
 
   /* Staggered Transitions written in full shorthand: property duration easing delay */
-  .card-client:before {
+  .reveal-wipe .card-client:before {
     transition: width 0.4s ease-out 0.1s;
   }
 
-  .card-project:before {
+  .reveal-wipe .card-project:before {
     transition: width 0.4s ease-out 0.25s;
   }
 
-  .card-year:before {
+  .reveal-wipe .card-year:before {
     transition: width 0.4s ease-out 0.4s;
+  }
+
+  /* FADEIN mode — fade the title/year in (media already fades via opacity),
+     staggered to mirror the wipe timing. */
+  .reveal-fade .card-info span {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+
+  .reveal-fade .card-info span.show {
+    opacity: 1;
+  }
+
+  .reveal-fade .card-client {
+    transition-delay: 0.1s;
+  }
+
+  .reveal-fade .card-project {
+    transition-delay: 0.25s;
+  }
+
+  .reveal-fade .card-year {
+    transition-delay: 0.4s;
   }
 
   .card-client {

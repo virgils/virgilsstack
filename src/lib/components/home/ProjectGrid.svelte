@@ -16,6 +16,26 @@
   // a real measurement so it only ever paints at the correct column count.
   let measured = $derived(innerWidth > 0);
 
+  // Fade the grid when the filter changes: fade out, swap the rendered set
+  // while invisible (so the swap isn't seen), then fade back in. `displayed`
+  // is the set actually laid out; it lags `projects` by one fade-out.
+  const FADE_MS = 220;
+  // $state.raw (not $state) so `displayed` stays reference-equal to the prop —
+  // a deep-proxied $state would never === `projects`, causing an endless fade.
+  let displayed = $state.raw(projects);
+  let shown = $state(true);
+  let visible = $derived(measured && shown);
+
+  $effect(() => {
+    if (projects === displayed) return; // no change (or already in sync)
+    shown = false; // fade out
+    const t = setTimeout(() => {
+      displayed = projects; // swap while invisible
+      shown = true; // fade back in
+    }, FADE_MS);
+    return () => clearTimeout(t);
+  });
+
   // How many leading projects keep their curated, deterministic placement.
   const FIXED_COUNT = 8;
   // Rough height a card's title/year block + column gap adds on top of the
@@ -39,7 +59,7 @@
     const cols: Project[][] = Array.from({ length: columnCount }, () => []);
     const heights: number[] = Array.from({ length: columnCount }, () => 0);
 
-    projects.forEach((project, i) => {
+    displayed.forEach((project, i) => {
       let target: number;
       if (i < FIXED_COUNT) {
         target = i % columnCount;
@@ -61,7 +81,7 @@
 <svelte:window bind:innerWidth />
 
 <!-- Responsive masonry: 1 / 2 / 3 / 4 columns, cards read left-to-right in JSON order -->
-<section class="projects-grid" class:measured>
+<section class="projects-grid" class:visible>
   {#each columns as column}
     <div class="grid-column">
       {#each column as project (project.slug)}
@@ -81,14 +101,14 @@
     display: flex;
     gap: 32px;
     padding: 32px var(--page-padding-x) 64px;
-    /* Hidden until the column count is measured, so the 1-column fallback
-       never flashes; revealed (with a soft fade) once we know the width. */
+    /* Hidden until measured (avoids the 1-column flash) and while swapping the
+       filtered set; fades in/out via `.visible`. */
     opacity: 0;
+    transition: opacity 0.22s ease;
   }
 
-  .projects-grid.measured {
+  .projects-grid.visible {
     opacity: 1;
-    transition: opacity 0.3s ease;
   }
 
   .grid-column {

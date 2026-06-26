@@ -1,12 +1,26 @@
 <script lang="ts">
   import favicon from "$lib/assets/favicon.png";
   import faviconWhite from "$lib/assets/favicon.white.png";
-  import { LogoAnimation } from "$lib";
-  import { fade } from "svelte/transition";
+  import { LogoAnimation, categories } from "$lib";
+  import { fade, fly } from "svelte/transition";
+  import { cubicOut } from "svelte/easing";
   import { page } from "$app/state";
   import "../app.css"; // Ensure your global variables are imported here
 
   let { children } = $props();
+
+  // The category currently filtering the homepage (from the ?category= query).
+  let activeCategory = $derived(
+    page.url.pathname === "/" ? page.url.searchParams.get("category") : null,
+  );
+
+  // Mobile menu (only used when there are categories to show).
+  let menuOpen = $state(false);
+  // Close the menu whenever the route/filter changes (covers back/forward too).
+  $effect(() => {
+    page.url.href;
+    menuOpen = false;
+  });
 </script>
 
 <svelte:head>
@@ -15,13 +29,93 @@
   <!-- Fonts are loaded once in src/app.html (DM Sans). -->
 </svelte:head>
 
-<nav class="nav">
+<nav class="nav" class:has-menu={categories.length > 0}>
   <a href="/" class="nav-brand">
     <!-- <img src="/images/stack.png" alt="Virgil's Stack Logo" class="nav-logo" /> -->
     <span class="nav-title">Virgil's Stack.</span>
   </a>
-  <a href="/about" class="nav-link">About</a>
+
+  {#if categories.length > 0}
+    <button
+      class="nav-toggle"
+      aria-label={menuOpen ? "Close menu" : "Open menu"}
+      aria-expanded={menuOpen}
+      aria-controls="nav-menu"
+      onclick={() => (menuOpen = !menuOpen)}
+    >
+      {#if menuOpen}
+        <svg
+          width="22"
+          height="22"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.6"
+          stroke-linecap="round"
+        >
+          <line x1="5" y1="5" x2="19" y2="19" />
+          <line x1="19" y1="5" x2="5" y2="19" />
+        </svg>
+      {:else}
+        <svg
+          width="22"
+          height="22"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.6"
+          stroke-linecap="round"
+        >
+          <line x1="3" y1="7" x2="21" y2="7" />
+          <line x1="3" y1="12" x2="21" y2="12" />
+          <line x1="3" y1="17" x2="21" y2="17" />
+        </svg>
+      {/if}
+    </button>
+  {/if}
+
+  <div class="nav-links">
+    {@render navItems()}
+  </div>
 </nav>
+
+{#if menuOpen}
+  <!-- Dark overlay over the page content; click to close -->
+  <button
+    class="nav-backdrop"
+    aria-label="Close menu"
+    transition:fade={{ duration: 250 }}
+    onclick={() => (menuOpen = false)}
+  ></button>
+  <!-- Slide-out drawer -->
+  <div
+    id="nav-menu"
+    class="nav-drawer"
+    transition:fly={{ x: 320, duration: 320, easing: cubicOut }}
+  >
+    {@render navItems()}
+  </div>
+{/if}
+
+{#snippet navItems()}
+  {#each categories as category}
+    <a
+      href={activeCategory === category.tag ? "/" : `/?category=${category.tag}`}
+      class="nav-link"
+      class:active={activeCategory === category.tag}
+      data-sveltekit-noscroll
+      onclick={() => (menuOpen = false)}
+    >
+      {category.label}
+    </a>
+  {/each}
+  <a
+    href="/about"
+    class="nav-link"
+    class:active={page.url.pathname === "/about"}
+    onclick={() => (menuOpen = false)}>About</a
+  >
+{/snippet}
 
 <!-- Add the fade-in-on-load class to main -->
 <main class="fade-in-on-load">
@@ -95,6 +189,90 @@
     font-size: var(--fs-meta);
     font-weight: var(--fw-regular);
     letter-spacing: var(--ls-wide);
+    white-space: nowrap;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 20px;
+  }
+
+  @media (--bp-sm) {
+    .nav-links {
+      gap: 28px;
+    }
+  }
+
+  /* Hamburger toggle — only shown on mobile when categories exist */
+  .nav-toggle {
+    display: none;
+    padding: 4px;
+    margin: -4px;
+    border: none;
+    background: none;
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+
+  .nav-toggle:hover {
+    color: var(--color-blue);
+  }
+
+  /* Dark overlay behind the drawer — clicking it closes the menu */
+  .nav-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 90;
+    border: none;
+    padding: 0;
+    background: rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+  }
+
+  /* Slide-out drawer (mobile) */
+  .nav-drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 95; /* above backdrop, below the nav bar so the ✕ stays tappable */
+    height: 100vh;
+    height: 100dvh;
+    width: min(78vw, 320px);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 22px;
+    padding: 96px var(--page-padding-x) 32px;
+    background: var(--bg-color);
+    box-shadow: -8px 0 30px rgba(0, 0, 0, 0.12);
+  }
+
+  .nav-drawer .nav-link {
+    font-size: var(--fs-body-sm);
+  }
+
+  /* On mobile with categories: show the hamburger, hide the inline links. */
+  @media (max-width: 767px) {
+    .nav.has-menu .nav-toggle {
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .nav.has-menu .nav-links {
+      display: none;
+    }
+  }
+
+  /* Never show the mobile drawer/backdrop on desktop (e.g. if open during a
+     resize) — the inline links take over there. */
+  @media (min-width: 768px) {
+    .nav-backdrop,
+    .nav-drawer {
+      display: none;
+    }
   }
 
   .nav-link {
@@ -106,8 +284,13 @@
     transition: color 0.3s ease;
   }
 
-  /* About hovers Blue */
+  /* Hovers Blue */
   .nav-link:hover {
+    color: var(--color-blue);
+  }
+
+  /* Active category / page */
+  .nav-link.active {
     color: var(--color-blue);
   }
 

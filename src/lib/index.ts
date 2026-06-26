@@ -1,5 +1,8 @@
 export { default as projects } from "./projects.json";
 
+// Project category filter (nav links + homepage filtering)
+export { categories, type Category } from "./categories";
+
 // Layout / global chrome
 export { default as Footer } from "./components/layout/Footer.svelte";
 export { default as LogoAnimation } from "./components/layout/LogoAnimation.svelte";
@@ -22,4 +25,4 @@ export { default as PullQuote } from "./components/work/PullQuote.svelte";
 export { default as ParticleMap } from "./components/about/ParticleMap.svelte";
 
 // Actions
-export { revealWipes } from "./actions/revealWipes";
+export { reveal } from "./actions/reveal";

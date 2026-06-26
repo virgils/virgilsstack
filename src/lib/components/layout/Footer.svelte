@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { revealWipes } from "$lib/actions/revealWipes";
+  import { reveal } from "$lib/actions/reveal";
   import "../../../app.css";
 
   let {
@@ -13,13 +13,13 @@
   } = $props();
 </script>
 
-<footer class="footer" use:revealWipes>
+<footer class="footer" use:reveal>
   {#if nextProjectSlug && nextProjectName}
     <a href="/work/{nextProjectSlug}" class="next-project-link">
       <span class="next-label">Next Project</span>
       <div class="next-project-info">
         <span class="next-client">{nextProjectClient}</span>
-        <span class="next-title wipe">{nextProjectName}</span>
+        <span class="next-title reveal">{nextProjectName}</span>
       </div>
     </a>
   {/if}

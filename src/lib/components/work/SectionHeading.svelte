@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { revealWipes } from "$lib/actions/revealWipes";
+  import { reveal } from "$lib/actions/reveal";
 
   let {
     index = "",
@@ -12,13 +12,13 @@
   } = $props();
 </script>
 
-<section class="section-heading component layout-contained" use:revealWipes>
+<section class="section-heading component layout-contained" use:reveal>
   <div class="heading-inner">
     {#if index}
       <span class="caption heading-index">{index}</span>
     {/if}
     {#if title}
-      <h2 class="heading-title"><span class="wipe">{@html title}</span></h2>
+      <h2 class="heading-title"><span class="reveal">{@html title}</span></h2>
     {/if}
     {#if text}
       <p class="content-text heading-text">{@html text}</p>

@@ -1,6 +1,6 @@
 <script lang="ts">
   import { Footer, ParticleMap } from "$lib";
-  import { revealWipes } from "$lib/actions/revealWipes";
+  import { reveal } from "$lib/actions/reveal";
   import { fade } from "svelte/transition";
 
   let activeCity = $state("nyc");
@@ -132,12 +132,12 @@
 </svelte:head>
 
 <section class="about">
-  <div class="about-content" use:revealWipes>
+  <div class="about-content" use:reveal>
     <h1 class="about-heading">About</h1>
     <p class="about-bio">
       Originally from <span
         data-city="ams"
-        class="location wipe"
+        class="location reveal"
         class:active={activeCity === "ams"}
         class:hovering={hoveredCity === "ams"}
         onmouseenter={() => onCityEnter("ams")}
@@ -148,14 +148,14 @@
       and now based in
       <span
         data-city="nyc"
-        class="location wipe"
+        class="location reveal"
         class:active={activeCity === "nyc"}
         class:hovering={hoveredCity === "nyc"}
         onmouseenter={() => onCityEnter("nyc")}
         onmouseleave={onCityLeave}
         role="button"
         tabindex="0">New York</span
-      >, my name is <span class="wipe">Virgil Spruit</span>. I enjoy
+      >, my name is <span class="reveal">Virgil Spruit</span>. I enjoy
       collaborating with clients and creative teams to translate complex ideas
       into intuitive digital experiences.
     </p>

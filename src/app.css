@@ -72,37 +72,54 @@ body {
 }
 
 /* ──────────────────────────────────────────────────────────
-   Inline "wipe" reveal — mark text in any {@html} field with
-   <span class='wipe'>…</span>. A black cover sits over the text and wipes
-   away (right→left) once scrolled into view; driven by use:revealWipes
-   (src/lib/actions/revealWipes.ts), which adds .is-revealed.
-   Global so it reaches {@html}-injected markup. Override the cover color
-   per use with --wipe-color (defaults to black).
+   In-view reveal — mark text in any {@html} field with
+   <span class='reveal'>…</span>. Once scrolled into view it reveals a single
+   time; driven by use:reveal (src/lib/actions/reveal.ts), which tags each
+   element with the active mode (reveal-wipe | reveal-fade, from effects.ts)
+   and adds .is-revealed. Global so it reaches {@html}-injected markup.
+   Until the action runs (or with no JS) the text is simply visible.
    ────────────────────────────────────────────────────────── */
-.wipe {
+
+/* WIPE mode — a cover slides away (right → left).
+   Override the cover color per use with --reveal-color (defaults to black). */
+.reveal.reveal-wipe {
   position: relative;
   display: inline-block;
 }
 
-.wipe::after {
+.reveal.reveal-wipe::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: var(--wipe-color, #000);
+  background: var(--reveal-color, #000);
   transform: scaleX(1);
   transform-origin: left center;
   transition: transform 0.6s cubic-bezier(0.76, 0, 0.24, 1);
-  transition-delay: var(--wipe-delay, 0ms);
+  transition-delay: var(--reveal-delay, 0ms);
   pointer-events: none;
 }
 
-.wipe.is-revealed::after {
+.reveal.reveal-wipe.is-revealed::after {
   transform: scaleX(0);
 }
 
-/* No JS / reduced motion: never hide the text behind a cover. */
+/* FADEIN mode — the element fades in. */
+.reveal.reveal-fade {
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+.reveal.reveal-fade.is-revealed {
+  opacity: 1;
+}
+
+/* Reduced motion: skip the effect, show content immediately. */
 @media (prefers-reduced-motion: reduce) {
-  .wipe::after {
+  .reveal.reveal-wipe::after {
     display: none;
+  }
+  .reveal.reveal-fade {
+    opacity: 1;
   }
 }
