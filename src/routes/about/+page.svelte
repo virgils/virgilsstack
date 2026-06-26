@@ -403,6 +403,8 @@
     line-height: var(--lh-body);
     color: var(--text-primary);
     margin-bottom: 20px;
+    box-decoration-break: clone;
+    padding-right: 5px;
   }
 
   .about-contact {
