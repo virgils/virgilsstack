@@ -28,17 +28,13 @@
   --fs-h3: clamp(1.25rem, 2vw, 1.6rem);
   --fs-quote: clamp(1.5rem, 3.5vw, 2.5rem); /* pull quotes */
 
-  /* Font sizes — body copy -------------------------------------------- */
+  /* Font sizes — body + ui (one deliberate step per size, no 1px dupes) */
   --fs-lead: clamp(1.6rem, 3vw, 2rem); /* home hero lead statement */
-  --fs-body-lg: 20px;
-  --fs-body: 18px;
-  --fs-body-sm: 15px;
-
-  /* Font sizes — ui / meta / labels ----------------------------------- */
-  --fs-ui: 14px;
-  --fs-meta: 13px;
-  --fs-label: 11px;
-  --fs-label-sm: 10px;
+  --fs-body-lg: 20px; /* feature/lead body, standalone text blocks */
+  --fs-body: 18px; /* default body copy */
+  --fs-body-sm: 15px; /* secondary body, card titles, job rows */
+  --fs-meta: 13px; /* meta / fine print / UI links / captions */
+  --fs-label: 11px; /* uppercase labels & eyebrows */
 
   /* Line heights ------------------------------------------------------- */
   --lh-display: 1.05;
@@ -48,12 +44,11 @@
   --lh-relaxed: 1.75;
 
   /* Letter spacing ----------------------------------------------------- */
-  --ls-tight: -0.02em;
-  --ls-snug: -0.01em;
+  --ls-tight: -0.02em; /* large headings */
+  --ls-snug: -0.01em; /* small headings */
   --ls-normal: 0;
-  --ls-ui: 0.04em;
-  --ls-wide: 0.06em; /* tracked links / buttons */
-  --ls-label: 0.12em;
+  --ls-wide: 0.06em; /* tracked UI text / links */
+  --ls-label: 0.12em; /* uppercase labels */
 }
 
 /* ── 2. Element bases ────────────────────────────────────────────────
@@ -137,10 +132,10 @@ h4 {
   color: var(--text-secondary);
 }
 
-/* UI / meta ("text fields") */
+/* UI / meta ("text fields") — same size, distinguished by tracking */
 .t-ui {
-  font: var(--fw-regular) var(--fs-ui) / 1.4 var(--ff-sans);
-  letter-spacing: var(--ls-ui);
+  font: var(--fw-regular) var(--fs-meta) / 1.4 var(--ff-sans);
+  letter-spacing: var(--ls-wide);
 }
 .t-meta {
   font: var(--fw-regular) var(--fs-meta) / 1.4 var(--ff-sans);
@@ -156,12 +151,4 @@ h4 {
   letter-spacing: var(--ls-label);
   text-transform: uppercase;
   color: var(--text-tertiary);
-}
-.t-label-sm {
-  font-family: var(--ff-sans);
-  font-size: var(--fs-label-sm);
-  font-weight: var(--fw-medium);
-  line-height: var(--lh-snug);
-  letter-spacing: var(--ls-label);
-  text-transform: uppercase;
 }

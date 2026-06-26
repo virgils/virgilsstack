@@ -195,7 +195,7 @@
     border: none;
     padding: 12px 28px;
     border-radius: 30px;
-    font-size: var(--fs-ui);
+    font-size: var(--fs-meta);
     font-weight: var(--fw-medium);
     cursor: pointer;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);

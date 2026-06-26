@@ -47,7 +47,7 @@
   }
 
   .quote-author {
-    font-size: var(--fs-ui);
+    font-size: var(--fs-meta);
     font-weight: var(--fw-medium);
     color: var(--text-primary);
   }

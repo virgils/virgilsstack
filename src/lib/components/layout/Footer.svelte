@@ -74,7 +74,7 @@
   }
 
   .next-label {
-    font-size: var(--fs-label-sm);
+    font-size: var(--fs-label);
     font-weight: var(--fw-medium);
     letter-spacing: var(--ls-label);
     text-transform: uppercase;

@@ -457,7 +457,7 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
-    font-size: var(--fs-ui);
+    font-size: var(--fs-meta);
     line-height: 1.4;
     font-weight: var(--fw-regular);
     color: var(--text-secondary);
@@ -598,7 +598,7 @@
   .job-period {
     font-size: var(--fs-meta);
     font-weight: var(--fw-regular);
-    letter-spacing: var(--ls-ui);
+    letter-spacing: var(--ls-wide);
     color: var(--text-tertiary);
   }
 
