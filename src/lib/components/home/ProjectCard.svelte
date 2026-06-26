@@ -1,5 +1,6 @@
 <script>
   import { reveal } from "$lib/effects";
+  import { ENABLE_TILT } from "$lib/effects";
 
   let { project } = $props();
 
@@ -43,6 +44,39 @@
       },
     };
   }
+
+  // Cursor-directional tilt: the media leans toward where the mouse is over it.
+  // Writes --tilt-rx / --tilt-ry, composed with the scroll tilt in CSS.
+  const MOUSE_TILT = 6; // max degrees from centre to edge
+  function tilt(node) {
+    if (!ENABLE_TILT) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    function move(e) {
+      const r = node.getBoundingClientRect();
+      const px = (e.clientX - r.left) / r.width - 0.5; // -0.5 … 0.5
+      const py = (e.clientY - r.top) / r.height - 0.5;
+      node.style.setProperty(
+        "--tilt-ry",
+        `${(px * MOUSE_TILT * 2).toFixed(2)}deg`,
+      );
+      node.style.setProperty(
+        "--tilt-rx",
+        `${(-py * MOUSE_TILT * 2).toFixed(2)}deg`,
+      );
+    }
+    function leave() {
+      node.style.setProperty("--tilt-rx", "0deg");
+      node.style.setProperty("--tilt-ry", "0deg");
+    }
+    node.addEventListener("mousemove", move);
+    node.addEventListener("mouseleave", leave);
+    return {
+      destroy() {
+        node.removeEventListener("mousemove", move);
+        node.removeEventListener("mouseleave", leave);
+      },
+    };
+  }
 </script>
 
 <svelte:element
@@ -67,6 +101,7 @@
     <div
       class="media-wrapper"
       class:show={isLoaded}
+      use:tilt
       style="aspect-ratio: {project.mediaRatio || '16 / 9'};"
     >
       {#if project.mediaType === "video"}
@@ -99,7 +134,9 @@
             stroke-linecap="round"
             stroke-linejoin="round"
           >
-            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+            <path
+              d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+            />
             <polyline points="15 3 21 3 21 9" />
             <line x1="10" y1="14" x2="21" y2="3" />
           </svg>
@@ -190,17 +227,21 @@
     position: relative;
     box-shadow: 0 0 21px 0px rgba(0, 0, 0, 0.25);
 
-    transform: translateZ(0) scale(1.008) rotate(0.001deg);
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
-
+    will-change: transform;
+    /* Composes two tilts: --tilt-scroll (scroll speed, set in ProjectGrid) on
+       X, and --tilt-rx / --tilt-ry (cursor position, set by use:tilt) on both
+       axes. The hover-zoom lives on the inner media so it doesn't collide. */
+    transform: perspective(900px)
+      rotateX(calc(var(--tilt-scroll, 0deg) + var(--tilt-rx, 0deg)))
+      rotateY(var(--tilt-ry, 0deg));
     transition:
-      transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-      box-shadow 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      box-shadow 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+      transform 0.15s ease-out;
   }
 
   .card:hover .media-wrapper {
-    transform: translateZ(0) scale(0.988) rotate(0.001deg);
     box-shadow: 0 0 11px 0px rgba(0, 0, 0, 0.1);
   }
 
@@ -209,11 +250,20 @@
     width: 100%;
     height: auto;
     display: block;
-    transform: translateZ(0);
+    transform: translateZ(0) scale(1.008);
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
     opacity: 0;
-    transition: opacity 0.6s ease-in-out;
+    transition:
+      opacity 0.6s ease-in-out,
+      transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  /* Hover-zoom: pull the media in slightly (moved off .media-wrapper so its
+     transform stays available for the tilt). */
+  .card:hover .media-wrapper video,
+  .card:hover .media-wrapper img {
+    transform: translateZ(0) scale(0.988);
   }
 
   /* Fade in media when loaded */
