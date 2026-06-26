@@ -154,8 +154,9 @@
         onmouseleave={onCityLeave}
         role="button"
         tabindex="0">New York</span
-      >, I enjoy collaborating with clients and creative teams to translate
-      complex ideas into intuitive digital experiences.
+      >,my name is Virgil Spruit. I enjoy collaborating with clients and
+      creative teams to translate complex ideas into intuitive digital
+      experiences.
     </p>
     <br /><br />
     <p class="about-bio">
@@ -397,7 +398,7 @@
 
   .about-bio {
     font-size: var(--fs-body-lg);
-    font-weight: var(--fw-light);
+    font-weight: var(--fw-regular);
     line-height: var(--lh-body);
     color: var(--text-primary);
     margin-bottom: 20px;
@@ -455,7 +456,7 @@
     margin: 0;
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 10px;
     font-size: var(--fs-ui);
     line-height: 1.4;
     font-weight: var(--fw-regular);

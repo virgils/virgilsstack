@@ -836,7 +836,7 @@
       },
       {
         "type": "heading",
-        "index": "01",
+        "index": "Campaign",
         "title": "E-Commerce Platform",
         "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer efficitur bibendum erat, quis aliquet diam tincidunt a. Vivamus non iaculis."
       },
@@ -870,7 +870,7 @@
       },
       {
         "type": "heading",
-        "index": "02",
+        "index": "Campaign",
         "title": "Portraits",
         "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer efficitur bibendum erat, quis aliquet diam tincidunt a. Vivamus non iaculis."
       },
@@ -890,7 +890,7 @@
       },
       {
         "type": "heading",
-        "index": "03",
+        "index": "Campaign",
         "title": "Misguiding Guide",
         "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer efficitur bibendum erat, quis aliquet diam tincidunt a. Vivamus non iaculis."
       },
@@ -903,7 +903,7 @@
       },
       {
         "type": "heading",
-        "index": "04",
+        "index": "Campaign",
         "title": "All Together Now",
         "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer efficitur bibendum erat, quis aliquet diam tincidunt a. Vivamus non iaculis."
       },
@@ -916,8 +916,8 @@
       },
       {
         "type": "heading",
-        "index": "05",
-        "title": "Holiday Campaign",
+        "index": "Campaign",
+        "title": "Rewind the Night",
         "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer efficitur bibendum erat, quis aliquet diam tincidunt a. Vivamus non iaculis."
       },
       {
@@ -929,7 +929,7 @@
       },
       {
         "type": "heading",
-        "index": "06",
+        "index": "Campaign",
         "title": "Sir Safari Pop",
         "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer efficitur bibendum erat, quis aliquet diam tincidunt a. Vivamus non iaculis."
       },
