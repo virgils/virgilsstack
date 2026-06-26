@@ -14,8 +14,8 @@ export interface Category {
 //   { label: "Features",    tag: "features" },
 //   { label: "Shorts",      tag: "shorts" },
 // An empty array shows no category links (nav looks unchanged).
-export const categories: Category[] = [
-  { label: "Brand", tag: "brand" },
-  { label: "Product", tag: "product" },
-  { label: "Interactive", tag: "interactive" },
-];
+export const categories: Category[] = [];
+
+// { label: "Brand", tag: "brand" },
+// { label: "Product", tag: "product" },
+// { label: "Interactive", tag: "interactive" },
