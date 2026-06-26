@@ -186,17 +186,16 @@
     position: relative;
     box-shadow: 0 0 21px 0px rgba(0, 0, 0, 0.25);
 
-    transform: translateZ(0) scale(1.008) rotate(0.001deg);
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
-
-    transition:
-      transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-      box-shadow 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    /* `transform` is left free for the scroll-speed tilt (driven in
+       ProjectGrid). Only box-shadow transitions here so the tilt tracks
+       instantly; the hover-zoom now lives on the inner media below. */
+    will-change: transform;
+    transition: box-shadow 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
 
   .card:hover .media-wrapper {
-    transform: translateZ(0) scale(0.988) rotate(0.001deg);
     box-shadow: 0 0 11px 0px rgba(0, 0, 0, 0.1);
   }
 
@@ -205,11 +204,20 @@
     width: 100%;
     height: auto;
     display: block;
-    transform: translateZ(0);
+    transform: translateZ(0) scale(1.008);
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
     opacity: 0;
-    transition: opacity 0.6s ease-in-out;
+    transition:
+      opacity 0.6s ease-in-out,
+      transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  /* Hover-zoom: pull the media in slightly (moved off .media-wrapper so its
+     transform stays available for the tilt). */
+  .card:hover .media-wrapper video,
+  .card:hover .media-wrapper img {
+    transform: translateZ(0) scale(0.988);
   }
 
   /* Fade in media when loaded */

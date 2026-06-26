@@ -67,9 +67,29 @@
   // Desktop / multi-column only; disabled for reduced motion.
   let gridEl: HTMLElement;
   let colEls: HTMLElement[] = [];
+  // Each card registers its .media-wrapper here so we can tilt just the media.
+  // (The hover-zoom was moved onto the inner img/video so the wrapper's
+  // transform is free for this tilt — see ProjectCard.)
+  const tiltEls = new Set<HTMLElement>();
+  function card(node: HTMLElement) {
+    const media = node.querySelector<HTMLElement>(".media-wrapper");
+    if (!media) return;
+    tiltEls.add(media);
+    return {
+      destroy() {
+        tiltEls.delete(media);
+      },
+    };
+  }
   // Travel (px) per column as you scroll down through the grid. Alternating
   // signs make neighbours move opposite ways; magnitude = how far each drifts.
   const COLUMN_SPEED = [-50, 55, -35, 80];
+  // Each card tilts on the X axis while scrolling: angle scales with scroll
+  // speed, sign follows direction (down vs up), easing back to flat on stop.
+  const MAX_TILT = 9; // max degrees at full speed
+  const TILT_VELOCITY = 2600; // px/s at which the tilt hits its max
+  const CARD_PERSPECTIVE = 900; // px — smaller = stronger 3D foreshortening
+  const VEL_SMOOTH = 0.08; // velocity low-pass (s) so the tilt isn't jumpy
 
   $effect(() => {
     const n = columnCount;
@@ -79,46 +99,83 @@
       "(prefers-reduced-motion: reduce)",
     ).matches;
 
-    // No parallax on mobile (single column) or when reduced motion is set.
+    // No parallax/tilt on mobile (single column) or when reduced motion is set.
     if (n <= 1 || reduce) {
       colEls.forEach((el) => el && (el.style.transform = ""));
+      tiltEls.forEach((el) => (el.style.transform = ""));
       return;
     }
 
+    let lastScroll = window.scrollY;
+    let velocity = 0; // smoothed scroll velocity, px/s
+    let last = 0;
     let frame = 0;
-    let ticking = false;
+    let running = false;
 
-    function update() {
-      ticking = false;
+    function tick(now: number) {
+      if (!last) last = now;
+      let dt = (now - last) / 1000;
+      last = now;
+      if (dt < 0.001) dt = 0.001;
+      if (dt > 0.05) dt = 0.05; // clamp after tab refocus / long frames
+
+      const cur = window.scrollY;
+      const instant = (cur - lastScroll) / dt; // px/s this frame
+      lastScroll = cur;
+      const a = 1 - Math.exp(-dt / VEL_SMOOTH);
+      velocity += (instant - velocity) * a;
+
+      const moving = Math.abs(velocity) > 5;
+
+      // Per-card tilt: signed by scroll direction, scaled by speed.
+      const tilt = moving
+        ? Math.max(
+            -MAX_TILT,
+            Math.min(MAX_TILT, (velocity / TILT_VELOCITY) * MAX_TILT),
+          )
+        : 0;
+      const tiltTransform = tilt
+        ? `perspective(${CARD_PERSPECTIVE}px) rotateX(${tilt.toFixed(2)}deg)`
+        : "";
+      tiltEls.forEach((el) => (el.style.transform = tiltTransform));
+
+      // Parallax offset — locked to scroll position (top row stays aligned).
       const rect = gridEl.getBoundingClientRect();
-      // 0 while the grid's top is at/below the viewport top (so the top row of
-      // cards stays aligned), then grows toward 1 as you scroll down through it.
       let progress = -rect.top / rect.height;
       progress = Math.max(0, Math.min(1, progress));
+
       for (let i = 0; i < n; i++) {
         const el = colEls[i];
         if (!el) continue;
         const offset = progress * COLUMN_SPEED[i % COLUMN_SPEED.length];
         el.style.transform = `translate3d(0, ${offset.toFixed(2)}px, 0)`;
       }
+
+      if (moving) frame = requestAnimationFrame(tick);
+      else running = false;
     }
 
-    function onScroll() {
-      if (!ticking) {
-        ticking = true;
-        frame = requestAnimationFrame(update);
+    function start() {
+      if (!running) {
+        running = true;
+        // Reset only the frame clock (so dt is sane on resume). Keep lastScroll
+        // persistent — resetting it here would zero out the very delta we need
+        // to measure velocity, leaving the fade permanently at 0.
+        last = 0;
+        frame = requestAnimationFrame(tick);
       }
     }
 
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll);
-    update(); // set initial positions
+    window.addEventListener("scroll", start, { passive: true });
+    window.addEventListener("resize", start);
+    start(); // set initial positions
 
     return () => {
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onScroll);
+      window.removeEventListener("scroll", start);
+      window.removeEventListener("resize", start);
       cancelAnimationFrame(frame);
       colEls.forEach((el) => el && (el.style.transform = ""));
+      tiltEls.forEach((el) => (el.style.transform = ""));
     };
   });
 </script>
@@ -130,7 +187,7 @@
   {#each columns as column, ci}
     <div class="grid-column" bind:this={colEls[ci]}>
       {#each column as project (project.slug)}
-        <div class="card-wrap">
+        <div class="card-wrap" use:card>
           <ProjectCard {project} />
         </div>
       {/each}
@@ -162,7 +219,7 @@
     display: flex;
     flex-direction: column;
     gap: 40px;
-    will-change: transform; /* parallax lag is applied via translate3d in JS */
+    will-change: transform; /* parallax translate, driven in JS */
   }
 
   @media (--bp-sm) {
