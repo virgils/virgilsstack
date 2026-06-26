@@ -85,6 +85,7 @@
   class="card"
   class:external={isExternal}
   class:static={!isLink}
+  class:blocked={!!project.blocked}
   class:reveal-wipe={reveal === "wipe"}
   class:reveal-fade={reveal === "fadein"}
   aria-label="{project.client} — {project.project}{isExternal
@@ -122,9 +123,8 @@
       {/if}
 
       {#if isExternal}
-        <div class="external-overlay" aria-hidden="true">
+        <div class="media-overlay" aria-hidden="true">
           <svg
-            class="external-icon"
             width="28"
             height="28"
             viewBox="0 0 24 24"
@@ -139,6 +139,22 @@
             />
             <polyline points="15 3 21 3 21 9" />
             <line x1="10" y1="14" x2="21" y2="3" />
+          </svg>
+        </div>
+      {:else if project.blocked}
+        <div class="media-overlay" aria-hidden="true">
+          <svg
+            width="26"
+            height="26"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <rect x="4" y="11" width="16" height="9" rx="2" />
+            <path d="M8 11V7a4 4 0 0 1 8 0v4" />
           </svg>
         </div>
       {/if}
@@ -289,8 +305,9 @@
     width: 0%;
   }
 
-  /* External-link hover state: dim the media and reveal the icon */
-  .external-overlay {
+  /* Hover state for external (↗) and blocked (lock) cards: dim the media and
+     reveal the icon. */
+  .media-overlay {
     position: absolute;
     inset: 0;
     z-index: 3;
@@ -304,16 +321,18 @@
     transition: opacity 0.4s ease;
   }
 
-  .card.external:hover .external-overlay {
+  .card.external:hover .media-overlay,
+  .card.blocked:hover .media-overlay {
     opacity: 1;
   }
 
-  .external-icon {
+  .media-overlay svg {
     transform: scale(0.85);
     transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
 
-  .card.external:hover .external-icon {
+  .card.external:hover .media-overlay svg,
+  .card.blocked:hover .media-overlay svg {
     transform: scale(1);
   }
 
