@@ -18,13 +18,18 @@
     amsLocationX = -0.09,
     amsLocationY = 0.06,
     hasStroke = false,
-    markerSize = 180.0,
     scrollFade = false, // NEW: spread + fade particles on window scroll
     scrollFadeDistance = 0.9, // portion of a viewport to fully fade over — lower = fades faster
     scrollSpread = 300.0, // how far particles fly apart on scroll — higher = particles fly farther apart
   } = $props();
 
   let THREE;
+
+  // Marker size is responsive: larger on mobile so it stays prominent.
+  let viewportWidth = $state(
+    typeof window !== "undefined" ? window.innerWidth : 1024,
+  );
+  let markerSize = $derived(viewportWidth < 768 ? 360.0 : 180.0);
 
   let movementDistance = $derived(
     typeof ambientMovement === "boolean"
@@ -542,6 +547,7 @@
   });
 
   function onWindowResize() {
+    viewportWidth = window.innerWidth; // keep responsive markerSize in sync
     if (!camera || !renderer) return;
     camera.aspect = window.innerWidth / window.innerHeight;
     camera.updateProjectionMatrix();
