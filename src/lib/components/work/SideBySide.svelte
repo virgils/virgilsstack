@@ -1,4 +1,7 @@
 <script lang="ts">
+  import placeholders from "$lib/placeholders.json";
+  import { lazyMedia } from "$lib/actions/lazyMedia";
+
   let {
     media = "",
     mediaType = "image",
@@ -11,12 +14,43 @@
     caption = "",
     caption2 = "",
     ratio = "50-50",
+    mediaRatio = "4 / 3",
+    mediaRatio2 = "4 / 3",
   } = $props();
 
   // Determine layouts based on the JSON configuration
   let textOnLeft = $derived(!!text && direction === "left");
   let textOnRight = $derived(!!text && direction !== "left");
+
+  const lookup = placeholders as Record<string, string>;
+  function frameStyle(src: string, aspect: string) {
+    const ph = lookup[src];
+    return (
+      `aspect-ratio: ${aspect};` +
+      (ph
+        ? ` background-image: url('${ph}'); background-size: cover; background-position: top;`
+        : "")
+    );
+  }
 </script>
+
+{#snippet mediaFrame(src, type, aspect, altText)}
+  <div class="media-frame" style={frameStyle(src, aspect)}>
+    {#if type === "video"}
+      <video
+        class="media-el"
+        use:lazyMedia={src}
+        autoplay
+        loop
+        muted
+        playsinline
+        aria-hidden="true"
+      ></video>
+    {:else}
+      <img class="media-el" use:lazyMedia={src} alt={altText} />
+    {/if}
+  </div>
+{/snippet}
 
 <div class="side-by-side component layout-contained ratio-{ratio}">
   <!-- COLUMN A (LEFT) -->
@@ -24,20 +58,7 @@
     {#if textOnLeft}
       <p class="content-text">{@html text}</p>
     {:else}
-      <!-- Render primary media here if text is on the right OR if it's a media/media2 split -->
-      {#if mediaType === "video"}
-        <video
-          src={media}
-          autoplay
-          loop
-          muted
-          playsinline
-          preload="metadata"
-          aria-hidden="true"
-        ></video>
-      {:else}
-        <img src={media} {alt} loading="lazy" />
-      {/if}
+      {@render mediaFrame(media, mediaType, mediaRatio, alt)}
       {#if caption}
         <span class="caption">{@html caption}</span>
       {/if}
@@ -45,43 +66,18 @@
   </div>
 
   <!-- COLUMN B (RIGHT) -->
-  <!-- Assign text-container class if we render text, otherwise media-container -->
   <div class="col-b {textOnRight ? 'text-container' : 'media-container'}">
     {#if textOnRight}
       <p class="content-text">{@html text}</p>
     {:else if textOnLeft}
-      <!-- If text took the left column, primary media is pushed to the right column -->
-      {#if mediaType === "video"}
-        <video
-          src={media}
-          autoplay
-          loop
-          muted
-          playsinline
-          preload="metadata"
-          aria-hidden="true"
-        ></video>
-      {:else}
-        <img src={media} {alt} loading="lazy" />
-      {/if}
+      <!-- text took the left column → primary media goes right -->
+      {@render mediaFrame(media, mediaType, mediaRatio, alt)}
       {#if caption}
         <span class="caption">{@html caption}</span>
       {/if}
     {:else if media2}
-      <!-- If there is no text, render the secondary media here -->
-      {#if mediaType2 === "video"}
-        <video
-          src={media2}
-          autoplay
-          loop
-          muted
-          playsinline
-          preload="metadata"
-          aria-hidden="true"
-        ></video>
-      {:else}
-        <img src={media2} alt={alt2} loading="lazy" />
-      {/if}
+      <!-- no text → secondary media -->
+      {@render mediaFrame(media2, mediaType2, mediaRatio2, alt2)}
       {#if caption2}
         <span class="caption">{@html caption2}</span>
       {/if}
@@ -131,11 +127,27 @@
     gap: 12px;
   }
 
-  .media-container video,
-  .media-container img {
+  /* Frame holds the aspect-ratio + blurred placeholder; media fades in over it. */
+  .media-frame {
+    position: relative;
     width: 100%;
-    height: auto;
+    display: block;
+    overflow: hidden;
+  }
+
+  .media-el {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
     display: block;
     object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+  }
+
+  /* :global on the runtime-added class so Svelte doesn't prune it as "unused" */
+  .media-el:global(.is-loaded) {
+    opacity: 1;
   }
 </style>

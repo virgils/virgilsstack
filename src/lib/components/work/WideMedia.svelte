@@ -1,5 +1,7 @@
 <script lang="ts">
   import VideoPlayer from "svelte-video-player";
+  import placeholders from "$lib/placeholders.json";
+  import { lazyMedia } from "$lib/actions/lazyMedia";
 
   let {
     media,
@@ -31,6 +33,16 @@
   let isExpanded = $state(false);
   let currentRatio = $derived(collapsed && !isExpanded ? "4 / 3" : mediaRatio);
 
+  // Blurred LQIP placeholder shown behind the media until it lazy-loads.
+  const lookup = placeholders as Record<string, string>;
+  let placeholder = $derived(lookup[poster] ?? lookup[media] ?? "");
+  let frameStyle = $derived(
+    `aspect-ratio: ${currentRatio};` +
+      (placeholder
+        ? ` background-image: url('${placeholder}'); background-size: cover; background-position: top;`
+        : ""),
+  );
+
   function rate(node: HTMLVideoElement, speed: number) {
     node.defaultPlaybackRate = speed;
     node.playbackRate = speed;
@@ -51,33 +63,26 @@
 >
   <div class="media-wrapper custom-player-theme" class:browser class:contained>
     {#if mediaType === "videoplayer"}
-      <div
-        class="collapsible-media"
-        style="aspect-ratio: {currentRatio}; width: 100%;"
-      >
+      <div class="collapsible-media" style={frameStyle}>
         <VideoPlayer source={media} {poster} color="#000000" />
       </div>
     {:else if mediaType === "video"}
-      <video
-        class="collapsible-media"
-        src={media}
-        use:rate={playbackRate}
-        autoplay
-        loop
-        muted
-        playsinline
-        preload="metadata"
-        aria-hidden="true"
-        style="aspect-ratio: {currentRatio};"
-      ></video>
+      <div class="collapsible-media" style={frameStyle}>
+        <video
+          class="media-el"
+          use:rate={playbackRate}
+          use:lazyMedia={media}
+          autoplay
+          loop
+          muted
+          playsinline
+          aria-hidden="true"
+        ></video>
+      </div>
     {:else}
-      <img
-        class="collapsible-media"
-        src={media}
-        {alt}
-        loading="lazy"
-        style="aspect-ratio: {currentRatio};"
-      />
+      <div class="collapsible-media" style={frameStyle}>
+        <img class="media-el" use:lazyMedia={media} {alt} />
+      </div>
     {/if}
   </div>
 
@@ -144,15 +149,37 @@
     }
   }
 
-  .media-wrapper video,
-  .media-wrapper img,
+  /* Frame: holds the aspect-ratio + the blurred placeholder backdrop. */
   .collapsible-media {
+    position: relative;
     width: 100%;
-    height: auto;
+    display: block;
+    overflow: hidden;
+    transition: aspect-ratio 0.8s cubic-bezier(0.25, 1, 0.5, 1); /* Smooth expansion */
+  }
+
+  /* The real media fills the frame and fades in over the placeholder once loaded. */
+  .media-el {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
     display: block;
     object-fit: cover;
-    object-position: top; /* Prevents center-cropping during transition */
-    transition: aspect-ratio 0.8s cubic-bezier(0.25, 1, 0.5, 1); /* Smooth expansion */
+    object-position: top;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+  }
+
+  /* :global on the runtime-added class so Svelte doesn't prune it as "unused" */
+  .media-el:global(.is-loaded) {
+    opacity: 1;
+  }
+
+  /* svelte-video-player fills the frame */
+  .collapsible-media :global(.video-player),
+  .collapsible-media :global(video) {
+    width: 100%;
   }
 
   /* On mobile, full-width media uses a 5/3 crop regardless of its native ratio.
@@ -234,8 +261,7 @@
     padding: 12px 0 0;
   }
 
-  :global(.layout-contained) .media-wrapper video,
-  :global(.layout-contained) .media-wrapper img {
+  :global(.layout-contained) .collapsible-media {
     border-radius: 8px;
   }
 </style>

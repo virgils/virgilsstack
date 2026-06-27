@@ -104,7 +104,7 @@
   }
   // Travel (px) per column as you scroll down through the grid. Alternating
   // signs make neighbours move opposite ways; magnitude = how far each drifts.
-  const COLUMN_SPEED = [-50, 55, -35, 81];
+  const COLUMN_SPEED = [-70, 65, -35, 81];
   // Each media tilts on the X axis while scrolling: angle scales with scroll
   // speed, sign follows direction (down vs up), easing back to flat on stop.
   // Written as the --tilt-scroll CSS var so it composes with the per-card

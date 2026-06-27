@@ -1,11 +1,25 @@
 <script lang="ts">
   import { fade, scale } from "svelte/transition";
+  import placeholders from "$lib/placeholders.json";
+  import { lazyMedia } from "$lib/actions/lazyMedia";
 
   interface GalleryItem {
     media: string;
     mediaType?: "image" | "video";
     alt?: string;
     caption?: string;
+    mediaRatio?: string;
+  }
+
+  const lookup = placeholders as Record<string, string>;
+  function frameStyle(src: string, aspect = "4 / 3") {
+    const ph = lookup[src];
+    return (
+      `aspect-ratio: ${aspect};` +
+      (ph
+        ? ` background-image: url('${ph}'); background-size: cover; background-position: top;`
+        : "")
+    );
   }
 
   let {
@@ -66,15 +80,17 @@
     {#each items as item}
       <figure class="gallery-item">
         {#if item.mediaType === "video"}
-          <video
-            src={item.media}
-            autoplay
-            loop
-            muted
-            playsinline
-            preload="metadata"
-            aria-hidden="true"
-          ></video>
+          <div class="media-frame" style={frameStyle(item.media, item.mediaRatio)}>
+            <video
+              class="media-el"
+              use:lazyMedia={item.media}
+              autoplay
+              loop
+              muted
+              playsinline
+              aria-hidden="true"
+            ></video>
+          </div>
         {:else}
           <button
             type="button"
@@ -84,7 +100,9 @@
               ? `View larger: ${item.alt}`
               : "View larger image"}
           >
-            <img src={item.media} alt={item.alt ?? ""} loading="lazy" />
+            <div class="media-frame" style={frameStyle(item.media, item.mediaRatio)}>
+              <img class="media-el" use:lazyMedia={item.media} alt={item.alt ?? ""} />
+            </div>
           </button>
         {/if}
         {#if item.caption}
@@ -197,12 +215,30 @@
     min-width: 0;
   }
 
-  .gallery-item img,
-  .gallery-item video {
+  /* Frame holds the aspect-ratio + blurred placeholder; media fades in over it. */
+  .media-frame {
+    position: relative;
     width: 100%;
-    height: auto;
+    display: block;
+    overflow: hidden;
+  }
+
+  .media-el {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
     display: block;
     object-fit: cover;
+    opacity: 0;
+    transition:
+      opacity 0.6s ease,
+      transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  /* :global on the runtime-added class so Svelte doesn't prune it as "unused" */
+  .media-el:global(.is-loaded) {
+    opacity: 1;
   }
 
   /* Clickable image wrapper — reset native button styling */
@@ -217,11 +253,7 @@
     overflow: hidden;
   }
 
-  .gallery-trigger img {
-    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  }
-
-  .gallery-trigger:hover img {
+  .gallery-trigger:hover .media-el {
     transform: scale(1.03);
   }
 
