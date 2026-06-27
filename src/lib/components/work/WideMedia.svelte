@@ -38,9 +38,7 @@
   let placeholder = $derived(lookup[poster] ?? lookup[media] ?? "");
   let frameStyle = $derived(
     `aspect-ratio: ${currentRatio};` +
-      (placeholder
-        ? ` background-image: url('${placeholder}'); background-size: cover; background-position: top;`
-        : ""),
+      (placeholder ? ` --ph: url('${placeholder}');` : ""),
   );
 
   function rate(node: HTMLVideoElement, speed: number) {
@@ -158,7 +156,19 @@
     transition: aspect-ratio 0.8s cubic-bezier(0.25, 1, 0.5, 1); /* Smooth expansion */
   }
 
-  /* The real media fills the frame and fades in over the placeholder once loaded. */
+  /* Blurred placeholder backdrop — fades out once the media loads so it never
+     shows through transparent (PNG) media. */
+  .collapsible-media::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: var(--ph);
+    background-size: cover;
+    background-position: top;
+    transition: opacity 0.6s ease;
+  }
+
+  /* The real media fills the frame and fades in once loaded. */
   .media-el {
     position: absolute;
     inset: 0;
@@ -171,9 +181,13 @@
     transition: opacity 0.6s ease;
   }
 
-  /* :global on the runtime-added class so Svelte doesn't prune it as "unused" */
-  .media-el:global(.is-loaded) {
+  /* :global on the runtime-added class so Svelte doesn't prune these as "unused" */
+  .collapsible-media:global(.is-loaded) .media-el {
     opacity: 1;
+  }
+
+  .collapsible-media:global(.is-loaded)::before {
+    opacity: 0;
   }
 
   /* svelte-video-player fills the frame */

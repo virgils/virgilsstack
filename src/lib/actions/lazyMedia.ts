@@ -15,7 +15,9 @@ export function lazyMedia(
   const isVideo = node.tagName === "VIDEO";
   const loadEvent = isVideo ? "loadeddata" : "load";
 
-  const onLoaded = () => node.classList.add("is-loaded");
+  // Mark the frame (parent) as loaded — its CSS fades the media in and the
+  // blurred placeholder backdrop out (so it doesn't show through transparent PNGs).
+  const onLoaded = () => (node.parentElement ?? node).classList.add("is-loaded");
   node.addEventListener(loadEvent, onLoaded);
 
   const observer = new IntersectionObserver(

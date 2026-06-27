@@ -14,12 +14,7 @@
   const lookup = placeholders as Record<string, string>;
   function frameStyle(src: string, aspect = "4 / 3") {
     const ph = lookup[src];
-    return (
-      `aspect-ratio: ${aspect};` +
-      (ph
-        ? ` background-image: url('${ph}'); background-size: cover; background-position: top;`
-        : "")
-    );
+    return `aspect-ratio: ${aspect};` + (ph ? ` --ph: url('${ph}');` : "");
   }
 
   let {
@@ -223,6 +218,17 @@
     overflow: hidden;
   }
 
+  /* Blurred placeholder backdrop — fades out once the media loads. */
+  .media-frame::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: var(--ph);
+    background-size: cover;
+    background-position: top;
+    transition: opacity 0.6s ease;
+  }
+
   .media-el {
     position: absolute;
     inset: 0;
@@ -236,9 +242,13 @@
       transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
 
-  /* :global on the runtime-added class so Svelte doesn't prune it as "unused" */
-  .media-el:global(.is-loaded) {
+  /* :global on the runtime-added class so Svelte doesn't prune these as "unused" */
+  .media-frame:global(.is-loaded) .media-el {
     opacity: 1;
+  }
+
+  .media-frame:global(.is-loaded)::before {
+    opacity: 0;
   }
 
   /* Clickable image wrapper — reset native button styling */
