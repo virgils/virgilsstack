@@ -4,7 +4,13 @@
 
   type Project = Record<string, any>;
 
-  let { projects }: { projects: Project[] } = $props();
+  let {
+    projects,
+    // When true, columns drift so their BOTTOMS align on one line at the end of
+    // the grid (mirroring how their tops align at the top), instead of fanning
+    // out by the fixed COLUMN_SPEED amounts.
+    evenOut = false,
+  }: { projects: Project[]; evenOut?: boolean } = $props();
 
   // Track viewport width to pick the column count (matches breakpoints in app.css).
   let innerWidth = $state(0);
@@ -105,6 +111,28 @@
   // Travel (px) per column as you scroll down through the grid. Alternating
   // signs make neighbours move opposite ways; magnitude = how far each drifts.
   const COLUMN_SPEED = [-70, 65, -35, 81];
+
+  // evenOut: per-column travel so every column's bottom reaches the tallest
+  // column's bottom by the end (shorter columns drift down more). Measured from
+  // live column heights; recomputed on layout changes.
+  let evenSpeeds: number[] = [];
+  function computeEvenSpeeds(cols: number) {
+    const heights: number[] = [];
+    for (let i = 0; i < cols; i++) {
+      const col = colEls[i];
+      const last = col?.lastElementChild;
+      // Content height = last card's bottom minus the column's top. This ignores
+      // the flex `stretch` (which makes every column's box the same height) and
+      // is transform-invariant (column + cards shift together under translateY).
+      heights.push(
+        col && last
+          ? last.getBoundingClientRect().bottom - col.getBoundingClientRect().top
+          : 0,
+      );
+    }
+    const maxH = Math.max(0, ...heights);
+    evenSpeeds = heights.map((h) => maxH - h);
+  }
   // Each media tilts on the X axis while scrolling: angle scales with scroll
   // speed, sign follows direction (down vs up), easing back to flat on stop.
   // Written as the --tilt-scroll CSS var so it composes with the per-card
@@ -121,25 +149,46 @@
       "(prefers-reduced-motion: reduce)",
     ).matches;
 
-    // Off on mobile (single column), with reduced motion, or if both toggles
-    // are disabled. Always clear any stale styles first.
-    if (n <= 1 || reduce || (!ENABLE_TILT && !ENABLE_PARALLAX)) {
+    // Tilt works on any column count (incl. single-column mobile); parallax
+    // needs multiple columns to fan. Both respect reduced motion + their toggle.
+    const tiltActive = ENABLE_TILT && !reduce;
+    const parallaxActive = ENABLE_PARALLAX && !reduce && n > 1;
+
+    // Nothing to do — clear any stale styles and bail.
+    if (!tiltActive && !parallaxActive) {
       colEls.forEach((el) => el && (el.style.transform = ""));
       tiltEls.forEach((el) => el.style.removeProperty("--tilt-scroll"));
       return;
     }
 
-    // Clear whichever single effect is turned off (the other still runs).
-    if (!ENABLE_PARALLAX) {
+    // Clear whichever effect is inactive (the other still runs).
+    if (!parallaxActive) {
       colEls.forEach((el) => el && (el.style.transform = ""));
     }
-    if (!ENABLE_TILT) {
+    if (!tiltActive) {
       tiltEls.forEach((el) => el.style.removeProperty("--tilt-scroll"));
     }
+
+    // Cache the grid's geometry so the per-frame loop never calls
+    // getBoundingClientRect — reading layout every frame forces a reflow, which
+    // is the main source of jitter. We derive the grid's viewport position from
+    // the cached document offset + scrollY instead. Recomputed on resize.
+    let gridTop = 0; // grid's distance from the top of the document
+    let gridHeight = 0;
+    let viewportH = window.innerHeight;
+    function measureGeometry() {
+      const rect = gridEl.getBoundingClientRect();
+      gridTop = rect.top + window.scrollY;
+      gridHeight = rect.height;
+      viewportH = window.innerHeight;
+      if (evenOut) computeEvenSpeeds(n);
+    }
+    measureGeometry();
 
     let lastScroll = window.scrollY;
     let velocity = 0; // smoothed scroll velocity, px/s
     let last = 0;
+    let lastScrollTime = 0;
     let frame = 0;
     let running = false;
 
@@ -156,56 +205,74 @@
       const a = 1 - Math.exp(-dt / VEL_SMOOTH);
       velocity += (instant - velocity) * a;
 
-      const moving = Math.abs(velocity) > 5;
-
       // Per-media tilt: signed by scroll direction, scaled by speed.
-      if (ENABLE_TILT) {
-        const tilt = moving
-          ? Math.max(
-              -MAX_TILT,
-              Math.min(MAX_TILT, (velocity / TILT_VELOCITY) * MAX_TILT),
-            )
-          : 0;
+      if (tiltActive) {
+        const tilt =
+          Math.abs(velocity) > 5
+            ? Math.max(
+                -MAX_TILT,
+                Math.min(MAX_TILT, (velocity / TILT_VELOCITY) * MAX_TILT),
+              )
+            : 0;
         tiltEls.forEach((el) =>
           el.style.setProperty("--tilt-scroll", `${tilt.toFixed(2)}deg`),
         );
       }
 
       // Parallax offset — locked to scroll position (top row stays aligned).
-      if (ENABLE_PARALLAX) {
-        const rect = gridEl.getBoundingClientRect();
-        let progress = -rect.top / rect.height;
-        progress = Math.max(0, Math.min(1, progress));
+      // Computed purely from cached geometry + scrollY (no layout reads).
+      if (parallaxActive) {
+        const rectTop = gridTop - cur;
+        // evenOut completes (progress 1) when the grid's bottom reaches the
+        // viewport bottom; the default fan spans the full grid height.
+        const denom = evenOut ? gridHeight - viewportH : gridHeight;
+        let progress = denom > 0 ? -rectTop / denom : 0;
+        progress = progress < 0 ? 0 : progress > 1 ? 1 : progress;
         for (let i = 0; i < n; i++) {
           const el = colEls[i];
           if (!el) continue;
-          const offset = progress * COLUMN_SPEED[i % COLUMN_SPEED.length];
-          el.style.transform = `translate3d(0, ${offset.toFixed(2)}px, 0)`;
+          const speed = evenOut
+            ? (evenSpeeds[i] ?? 0)
+            : COLUMN_SPEED[i % COLUMN_SPEED.length];
+          el.style.transform = `translate3d(0, ${(progress * speed).toFixed(2)}px, 0)`;
         }
       }
 
-      if (moving) frame = requestAnimationFrame(tick);
-      else running = false;
+      // Keep ticking through the whole scroll gesture (so the position-locked
+      // parallax tracks every frame, even on slow scrolls), plus a tail while
+      // the tilt velocity settles. Idle → stop.
+      if (now - lastScrollTime < 140 || Math.abs(velocity) > 5) {
+        frame = requestAnimationFrame(tick);
+      } else {
+        running = false;
+      }
     }
 
     function start() {
       if (!running) {
         running = true;
-        // Reset only the frame clock (so dt is sane on resume). Keep lastScroll
-        // persistent — resetting it here would zero out the very delta we need
-        // to measure velocity, leaving the fade permanently at 0.
-        last = 0;
+        last = 0; // reset frame clock; lastScroll persists for velocity
         frame = requestAnimationFrame(tick);
       }
     }
 
-    window.addEventListener("scroll", start, { passive: true });
-    window.addEventListener("resize", start);
+    function onScroll() {
+      lastScrollTime = performance.now();
+      start();
+    }
+
+    function onResize() {
+      measureGeometry();
+      start();
+    }
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onResize);
     start(); // set initial positions
 
     return () => {
-      window.removeEventListener("scroll", start);
-      window.removeEventListener("resize", start);
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onResize);
       cancelAnimationFrame(frame);
       colEls.forEach((el) => el && (el.style.transform = ""));
       tiltEls.forEach((el) => el.style.removeProperty("--tilt-scroll"));

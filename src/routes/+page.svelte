@@ -23,9 +23,11 @@
 <Hero />
 
 {#if activeCategory && visibleProjects.length === 0}
-  <p class="no-results">No projects tagged “{activeLabel ?? activeCategory}”.</p>
+  <p class="no-results">
+    No projects tagged “{activeLabel ?? activeCategory}”.
+  </p>
 {:else}
-  <ProjectGrid projects={visibleProjects} />
+  <ProjectGrid projects={visibleProjects} evenOut />
 {/if}
 
 <Footer />
