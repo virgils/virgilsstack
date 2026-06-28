@@ -1,6 +1,7 @@
 <script lang="ts">
   import ProjectCard from "./ProjectCard.svelte";
   import { ENABLE_TILT, ENABLE_PARALLAX } from "$lib/effects";
+  import { BP_SM, BP_LG, BP_XL, isMobileWidth } from "$lib/breakpoints";
 
   type Project = Record<string, any>;
 
@@ -15,8 +16,9 @@
   // Track viewport width to pick the column count (matches breakpoints in app.css).
   let innerWidth = $state(0);
   let columnCount = $derived(
-    innerWidth >= 1600 ? 4 : innerWidth >= 1024 ? 3 : innerWidth >= 560 ? 2 : 1,
+    innerWidth >= BP_XL ? 4 : innerWidth >= BP_LG ? 3 : innerWidth >= BP_SM ? 2 : 1,
   );
+  let isMobile = $derived(isMobileWidth(innerWidth));
 
   // innerWidth is 0 until the window binding measures it (and during SSR), which
   // would briefly render a 1-column fallback. Keep the grid hidden until we have
@@ -137,7 +139,9 @@
   // speed, sign follows direction (down vs up), easing back to flat on stop.
   // Written as the --tilt-scroll CSS var so it composes with the per-card
   // mouse tilt (see ProjectCard) rather than fighting over `transform`.
-  const MAX_TILT = 9; // max degrees at full speed
+  // Max tilt degrees at full speed — exaggerated on mobile, where it's the
+  // primary scroll effect (parallax is desktop/multi-column only).
+  let maxTilt = $derived(isMobile ? 18 : 9);
   const TILT_VELOCITY = 2600; // px/s at which the tilt hits its max
   const VEL_SMOOTH = 0.08; // velocity low-pass (s) so the tilt isn't jumpy
 
@@ -210,8 +214,8 @@
         const tilt =
           Math.abs(velocity) > 5
             ? Math.max(
-                -MAX_TILT,
-                Math.min(MAX_TILT, (velocity / TILT_VELOCITY) * MAX_TILT),
+                -maxTilt,
+                Math.min(maxTilt, (velocity / TILT_VELOCITY) * maxTilt),
               )
             : 0;
         tiltEls.forEach((el) =>

@@ -1,5 +1,6 @@
 <script>
   import { onMount, onDestroy } from "svelte";
+  import { BP_MD } from "$lib/breakpoints";
 
   let {
     ambientMovement = 0.08,
@@ -29,7 +30,7 @@
   let viewportWidth = $state(
     typeof window !== "undefined" ? window.innerWidth : 1024,
   );
-  let markerSize = $derived(viewportWidth < 768 ? 360.0 : 180.0);
+  let markerSize = $derived(viewportWidth < BP_MD ? 360.0 : 180.0);
 
   let movementDistance = $derived(
     typeof ambientMovement === "boolean"
