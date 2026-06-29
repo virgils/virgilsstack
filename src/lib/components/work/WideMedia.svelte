@@ -137,7 +137,7 @@
   }
 
   .media-wrapper.contained {
-    padding: 20px 30px;
+    padding: 20px 20px;
     background-color: var(--bg-color-secondary);
   }
 
@@ -276,6 +276,12 @@
   }
 
   :global(.layout-contained) .collapsible-media {
-    border-radius: 8px;
+    border-radius: 4px;
+  }
+
+  @media (--bp-sm) {
+    :global(.layout-contained) .collapsible-media {
+      border-radius: 8px;
+    }
   }
 </style>
