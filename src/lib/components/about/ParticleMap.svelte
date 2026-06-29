@@ -26,11 +26,24 @@
 
   let THREE;
 
-  // Marker size is responsive: larger on mobile so it stays prominent.
   let viewportWidth = $state(
     typeof window !== "undefined" ? window.innerWidth : 1024,
   );
-  let markerSize = $derived(viewportWidth < BP_MD ? 360.0 : 180.0);
+
+  // Location marker — kept consistent at 180 across breakpoints. (Mobile used
+  // to be 360, but that's disproportionately large next to the smaller mobile
+  // particles, and the half-height mobile canvas already enlarges the framing.)
+  const markerSize = 180.0;
+
+  // City particles render ~50% smaller on mobile.
+  let effectivePointSize = $derived(
+    viewportWidth < BP_MD ? pointSize * 0.5 : pointSize,
+  );
+
+  // Rendered canvas height: half the window on mobile, full height otherwise.
+  // Keep in sync with the .particle-map-container height in the styles below.
+  const viewHeight = () =>
+    window.innerWidth < BP_MD ? window.innerHeight * 0.5 : window.innerHeight;
 
   let movementDistance = $derived(
     typeof ambientMovement === "boolean"
@@ -280,14 +293,14 @@
     scene = new THREE.Scene();
     camera = new THREE.PerspectiveCamera(
       45,
-      window.innerWidth / window.innerHeight,
+      window.innerWidth / viewHeight(),
       0.1,
       100,
     );
     camera.position.z = 25;
 
     renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setSize(window.innerWidth, viewHeight());
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     container.appendChild(renderer.domElement);
 
@@ -320,7 +333,9 @@
         uNycBottom: { value: new THREE.Color(nycColorBottom) },
         uAmsTop: { value: new THREE.Color(amsColorTop) },
         uAmsBottom: { value: new THREE.Color(amsColorBottom) },
-        uPointSize: { value: pointSize * Math.min(window.devicePixelRatio, 2) },
+        uPointSize: {
+          value: effectivePointSize * Math.min(window.devicePixelRatio, 2),
+        },
         uAmbientMovement: { value: movementDistance },
         uCursorSize: { value: cursorSize },
         uPulse: { value: pulse ? 1.0 : 0.0 },
@@ -543,25 +558,40 @@
       particlesMaterial.uniforms.uScrollSpread.value = scrollSpread;
   });
 
+  // React to the responsive point size (e.g. when crossing the mobile
+  // breakpoint on resize). Read `effectivePointSize` first so the effect always
+  // subscribes to it — otherwise, on the initial run `particlesMaterial` is
+  // still undefined and the short-circuit would skip the read, leaving the
+  // effect unsubscribed and the size frozen.
+  $effect(() => {
+    const size = effectivePointSize * Math.min(window.devicePixelRatio, 2);
+    if (particlesMaterial) particlesMaterial.uniforms.uPointSize.value = size;
+  });
+
   $effect(() => {
     targetTransition = city === "ams" ? 1.0 : 0.0;
   });
 
   function onWindowResize() {
-    viewportWidth = window.innerWidth; // keep responsive markerSize in sync
+    viewportWidth = window.innerWidth; // keep responsive particle size in sync
     if (!camera || !renderer) return;
-    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.aspect = window.innerWidth / viewHeight();
     camera.updateProjectionMatrix();
-    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setSize(window.innerWidth, viewHeight());
     updateCameraDistance();
   }
 
   function updateCameraDistance() {
     if (!camera || !renderer) return;
-    const windowAspect = window.innerWidth / window.innerHeight;
+    const renderH = viewHeight();
     const mapW = 30;
     const mapH = 30 * maxAspect;
-    const neededHeight = Math.max(mapH, mapW / windowAspect);
+    // Fit the map at full-window scale, then scale the framing down to the
+    // rendered height. This keeps the particles the same on-screen size when
+    // the canvas is shorter (mobile = 50vh) instead of zooming/smushing them.
+    const fullAspect = window.innerWidth / window.innerHeight;
+    const neededHeight =
+      Math.max(mapH, mapW / fullAspect) * (renderH / window.innerHeight);
     const margin = 1.15;
     const fovRad = (camera.fov * Math.PI) / 180;
     camera.position.z = (neededHeight * margin) / (2 * Math.tan(fovRad / 2));
@@ -663,5 +693,14 @@
     background-color: #ffffff;
     overflow: hidden;
     /* CSS fade removed entirely, handled in shader */
+  }
+
+  /* Mobile: half the window height, pushed below the fixed nav (80px).
+     (Matches BP_MD / viewHeight() in script.) */
+  @media (max-width: 767px) {
+    .particle-map-container {
+      top: 80px;
+      height: 50vh;
+    }
   }
 </style>

@@ -309,7 +309,7 @@
     /* Update this class to whatever wraps your ParticleMap/Canvas */
     position: relative !important;
     width: 100%;
-    height: 45vh; /* Gives the canvas enough space to show */
+    height: 50vh; /* matches the ParticleMap's mobile height */
     min-height: 250px;
     order: 1;
   }
@@ -373,6 +373,15 @@
     padding: 48px var(--page-padding-x);
     max-width: 1400px;
     margin: 0 auto;
+  }
+
+  /* Mobile: no gap between the map and the content, and no top padding so the
+     reserved canvas space lines up with the fixed map (which starts at 80px). */
+  @media (max-width: 767px) {
+    .about {
+      gap: 0;
+      padding-top: 0;
+    }
   }
 
   @media (--bp-lg) {
