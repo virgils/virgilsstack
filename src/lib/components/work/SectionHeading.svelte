@@ -51,4 +51,8 @@
     margin-top: 24px;
     max-width: 38em;
   }
+
+  :global(.section-heading .content-text a) {
+    text-decoration: underline;
+  }
 </style>

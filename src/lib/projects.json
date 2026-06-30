@@ -454,7 +454,6 @@
     "project": "Superbowl Takeover",
     "year": "2025",
     "tags": ["brand", "interactive"],
-    "blocked": "Coming soon",
     "description": [
       "OpenAI partnered with Dept to create an interactive homepage takeover that introduced generative AI through a playful, Mad Libs-inspired experience. Designed mobile-first, the project combined UX, UI, front-end development, and OpenAI API integration, all delivered within an ambitious two to three week timeline before being implemented by OpenAI's engineering team."
     ],
@@ -464,7 +463,7 @@
     "sections": [
       {
         "type": "intro",
-        "techStack": "Lit, Typescript"
+        "techStack": "React, Typescript"
       },
       {
         "type": "wide-media",
@@ -860,7 +859,7 @@
     "project": "E-Commerce and Campaigns",
     "year": "2012-2018",
     "tags": ["brand"],
-    "description": "During my time at <a href=\"https://www.cartelle.com\">Cartelle</a>, I helped build and maintain the e-commerce platform for Scotch & Soda, developing product listing pages, product detail pages, editorial content, and campaign experiences. The platform combined commerce with a strong visual identity, using vivid imagery and custom layouts to create a more engaging shopping experience. <br/>Following my time at Cartelle, I continued working with Scotch & Soda on the evolution of their digital platform.",
+    "description": "During my time at <a href=\"https://www.cartelle.nl\" target=\"_blank\">Cartelle</a>, I helped build and maintain the e-commerce platform for Scotch & Soda, developing product listing pages, product detail pages, editorial content, and campaign experiences. The platform combined commerce with a strong visual identity, using vivid imagery and custom layouts to create a more engaging shopping experience. <br/>Following my time at Cartelle, I continued working with Scotch & Soda on the evolution of their digital platform.",
     "media": "/projects/scotch-soda/card2.jpg",
     "mediaType": "image",
     "mediaRatio": "480 / 640",
@@ -1056,7 +1055,7 @@
         "mediaType": "image",
         "contained": false,
         "caption": "",
-        "mediaRatio": "2200 / 536"
+        "mediaRatio": "2200 / 650"
       },
       {
         "type": "wide-media",
@@ -1280,14 +1279,14 @@
   },
   {
     "slug": "cracked",
-    "client": "Collaboration With Nessim",
+    "client": "Collaboration With Ness",
     "project": "Cracked",
     "year": "2019",
     "tags": ["brand"],
-    "blocked": "Coming soon",
     "media": "/projects/cracked/card.jpg",
     "mediaType": "image",
     "mediaRatio": "600 / 957",
+    "description": "Developed in collaboration with <a href=\"https://www.nessimhigson.com/\" target=\"_blank\">Nessim Higson</a>, this project explores how typography can emerge from texture instead of traditional letterforms. Using a curated collection of glass fracture assets alongside generative crack patterns, every word becomes a unique composition that mimics the appearance of a shattered display. The result is a visual illusion that balances abstraction with legibility, encouraging users to create their own cracked-screen artwork from any word they choose.",
     "sections": [
       {
         "type": "intro",
@@ -1296,6 +1295,10 @@
           {
             "title": "Cracked",
             "url": "https://www.crackkked.com/"
+          },
+          {
+            "title": "Nessim Higson",
+            "url": "https://www.nessimhigson.com/"
           }
         ],
         "awards": [
@@ -1323,44 +1326,115 @@
         "type": "heading",
         "index": "01",
         "title": "Setup",
-        "text": "Lipsum dolor sit amet, consectetur adipiscing elit."
+        "text": "The first challenge was making each composition feel unique. Fortunately, Ness had created between three and six variations for every letter, allowing each character to be selected at random. From there, I generated columns with varying widths, randomized each letter's vertical position within the canvas, and introduced subtle rotation. These small variations ensured that every word felt naturally fractured rather than mechanically assembled."
+      },
+      {
+        "type": "wide-media",
+        "media": "/projects/cracked/brooklyn.png",
+        "mediaType": "image",
+        "contained": true,
+        "mediaRatio": "1800 / 1125",
+        "caption": "Brooklyn"
       },
       {
         "type": "side-by-side",
         "direction": "right",
         "media": "/projects/cracked/pixels.jpg",
         "mediaType": "image",
-        "text": "<h4>Gemini Demo Night</h4><br/>An exclusive brand activation in Japan gave developers hands-on access to the Gemini API's capabilities. Placed alongside other experimental AI tools, Trivia Twister served as a live, tactile case study in how advanced prompting can be instantly translated into engaging, real-time user experiences.",
-        "caption": "Trivia Twister and Draw your Comic",
+        "text": "<h4>Anchor points</h4><br/>While the randomized letterforms worked well on their own, we felt the illusion wasn't complete—the cracks needed to continue seamlessly across the entire composition. To achieve this, Ness created an additional library of glass fracture assets, including nine vertical connectors, sixteen horizontal connectors, and dedicated corner cracks. <br/><br/> To align these assets, I embedded small red and blue marker pixels into every letter image. At runtime, the canvas scans each letter to locate those markers, using their coordinates as anchor points for the connecting fracture lines. Once their positions have been recorded, the marker pixels are made transparent, leaving only the finished composition visible. This approach allows the crack patterns to flow naturally between letters, making the final image feel like a single shattered screen rather than a collection of separate characters.",
+        "caption": "The letter 'A' with it's markers.",
         "ratio": "50-50",
-        "mediaRatio": "537 / 604"
+        "mediaRatio": "550 / 625"
       },
       {
         "type": "heading",
         "index": "02",
         "title": "Assets",
-        "text": "Lipsum dolor sit amet, consectetur adipiscing elit."
+        "text": "The project is built from a library of 122 handcrafted assets. Below is a small selection of the different components."
       },
       {
         "type": "wide-media",
         "media": "/projects/cracked/alphabet.png",
         "mediaType": "image",
         "contained": true,
-        "mediaRatio": "1200 / 800"
+        "mediaRatio": "1200 / 800",
+        "caption": "The first letters of the alphabet."
       },
       {
         "type": "wide-media",
         "media": "/projects/cracked/lines.png",
         "mediaType": "image",
         "contained": true,
-        "mediaRatio": "1200 / 800"
+        "mediaRatio": "1200 / 800",
+        "caption": "These are some of the vertical lines."
       },
       {
         "type": "wide-media",
         "media": "/projects/cracked/corners.png",
         "mediaType": "image",
         "contained": true,
-        "mediaRatio": "1200 / 800"
+        "mediaRatio": "1200 / 800",
+        "caption": "The corner pieces that give the finishing touch to the composition."
+      },
+      {
+        "type": "heading",
+        "index": "03",
+        "title": "Demo",
+        "text": "A quick look at the experience in action. For the full effect, visit the <a href=\"https://www.crackkked.com\" target=\"_blank\">site</a> and create your own compositions."
+      },
+      {
+        "type": "wide-media",
+        "media": "/projects/cracked/demo.mp4",
+        "mediaType": "video",
+        "contained": true,
+        "mediaRatio": "1044 / 640"
+      },
+      {
+        "type": "gallery",
+        "columns": 3,
+        "caption": "",
+        "modalBackground": "rgba(222, 222, 222, 1)",
+        "items": [
+          {
+            "media": "/projects/cracked/virgils-1.png",
+            "mediaType": "image",
+            "mediaRatio": "2560 / 1600"
+          },
+          {
+            "media": "/projects/cracked/virgils-2.png",
+            "mediaType": "image",
+            "mediaRatio": "2560 / 1600"
+          },
+          {
+            "media": "/projects/cracked/virgils-3.png",
+            "mediaType": "image",
+            "mediaRatio": "2560 / 1600"
+          }
+        ]
+      },
+
+      {
+        "type": "gallery",
+        "columns": 3,
+        "caption": "",
+        "modalBackground": "rgba(222, 222, 222, 1)",
+        "items": [
+          {
+            "media": "/projects/cracked/stack-1.png",
+            "mediaType": "image",
+            "mediaRatio": "2560 / 1600"
+          },
+          {
+            "media": "/projects/cracked/stack-2.png",
+            "mediaType": "image",
+            "mediaRatio": "2560 / 1600"
+          },
+          {
+            "media": "/projects/cracked/stack-3.png",
+            "mediaType": "image",
+            "mediaRatio": "2560 / 1600"
+          }
+        ]
       }
     ]
   }
