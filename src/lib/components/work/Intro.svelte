@@ -222,4 +222,8 @@
   .link-item a:hover {
     opacity: 0.6;
   }
+
+  :global(.intro-section .description a) {
+    text-decoration: underline;
+  }
 </style>
