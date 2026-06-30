@@ -455,6 +455,9 @@
     "year": "2026",
     "tags": ["brand", "interactive"],
     "blocked": "Coming soon",
+    "description": [
+      "OpenAI partnered with Dept to create an interactive homepage takeover that introduced generative AI through a playful, Mad Libs-inspired experience. Designed mobile-first, the project combined UX, UI, front-end development, and OpenAI API integration, all delivered within an ambitious two to three week timeline before being implemented by OpenAI's engineering team."
+    ],
     "media": "/projects/openai-superbowl/card.mp4",
     "mediaType": "video",
     "mediaRatio": "500 / 282",
@@ -465,32 +468,79 @@
       },
       {
         "type": "wide-media",
-        "media": "/projects/cracked/hero.png",
-        "mediaType": "image",
+        "media": "/projects/openai-superbowl/hero.mp4",
+        "mediaType": "video",
         "contained": false,
         "caption": "",
-        "mediaRatio": "1800 / 793"
+        "mediaRatio": "1200 / 500"
+      },
+      {
+        "type": "heading",
+        "index": "01",
+        "title": "The takeover",
+        "text": "The experience was designed to help first-time users engage with ChatGPT, especially those who weren't sure what to ask. Visitors first selected from a range of categories, after which they were presented with curated prompts that could be personalized by changing key words or phrases. The completed prompt was then sent to the ChatGPT API, returning a generated response and providing an approachable introduction to prompting and conversational AI."
       },
       {
         "type": "wide-media",
-        "media": "/projects/cracked/alphabet.png",
-        "mediaType": "image",
+        "media": "/projects/openai-superbowl/takeover.mp4",
+        "mediaType": "video",
         "contained": true,
-        "mediaRatio": "1200 / 800"
+        "mediaRatio": "1280 / 832"
+      },
+      {
+        "type": "heading",
+        "index": "02",
+        "title": "My Contribution",
+        "text": "I developed the final stage of the experience, where users could continue exploring ChatGPT's response by transforming it into a painting, a theatre script, or a audible bedtime story. The goal was to encourage further creativity and demonstrate how a single prompt could evolve into multiple forms of expression."
       },
       {
         "type": "wide-media",
-        "media": "/projects/cracked/lines.png",
+        "media": "/projects/openai-superbowl/05_Results-01c.png",
         "mediaType": "image",
         "contained": true,
-        "mediaRatio": "1200 / 800"
+        "mediaRatio": "1280 / 832"
       },
       {
         "type": "wide-media",
-        "media": "/projects/cracked/corners.png",
+        "media": "/projects/openai-superbowl/05_Results-01d.png",
         "mediaType": "image",
         "contained": true,
-        "mediaRatio": "1200 / 800"
+        "mediaRatio": "1280 / 832"
+      },
+      {
+        "type": "wide-media",
+        "media": "/projects/openai-superbowl/05_Results-02a.png",
+        "mediaType": "image",
+        "contained": true,
+        "mediaRatio": "1280 / 832"
+      },
+      {
+        "type": "wide-media",
+        "media": "/projects/openai-superbowl/05_Results-02b.png",
+        "mediaType": "image",
+        "contained": true,
+        "mediaRatio": "1280 / 832"
+      },
+      {
+        "type": "wide-media",
+        "media": "/projects/openai-superbowl/05_Results-02c.png",
+        "mediaType": "image",
+        "contained": true,
+        "mediaRatio": "1280 / 832"
+      },
+      {
+        "type": "wide-media",
+        "media": "/projects/openai-superbowl/05_Results-02d.png",
+        "mediaType": "image",
+        "contained": true,
+        "mediaRatio": "1280 / 832"
+      },
+      {
+        "type": "wide-media",
+        "media": "/projects/openai-superbowl/mobiles.png",
+        "mediaType": "image",
+        "contained": true,
+        "mediaRatio": "1700 / 950"
       }
     ]
   },
