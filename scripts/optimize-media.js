@@ -15,6 +15,20 @@ const STATIC_DIR = path.join(process.cwd(), "static");
 // NEW: Check for overwrite flag
 const forceOverwrite = process.argv.includes("--overwrite");
 
+// Optional positional folder filter (first non-flag arg), e.g. "projects/cracked".
+// Limits the run to media under that folder (relative to /static); a leading
+// "static/" and surrounding slashes are tolerated.
+//   npm run optimize -- projects/cracked
+const folderArg = process.argv.slice(2).find((a) => !a.startsWith("-"));
+const targetFolder = folderArg
+  ? folderArg.replace(/^\/+|\/+$/g, "").replace(/^static\//, "")
+  : null;
+function inTarget(mediaPath) {
+  if (!targetFolder) return true;
+  const clean = mediaPath.split("?")[0].replace(/^\/+/, "");
+  return clean === targetFolder || clean.startsWith(`${targetFolder}/`);
+}
+
 // Keep track of processed files to avoid duplicating work
 // since 'media' and 'heroMedia' sometimes point to the same file
 const processedFiles = new Set();
@@ -76,6 +90,7 @@ async function processObject(obj) {
         await processObject(obj[key]);
       } else if (mediaKeys.includes(key) && typeof obj[key] === "string") {
         const fileUrl = obj[key];
+        if (!inTarget(fileUrl)) continue;
         const cleanPath = fileUrl.split("?")[0].replace(/^\/+/, "");
         const filePath = path.join(STATIC_DIR, cleanPath);
 
@@ -132,7 +147,11 @@ async function processObject(obj) {
 }
 
 async function run() {
-  console.log("Scanning projects.json for media optimization...\n");
+  console.log(
+    targetFolder
+      ? `Scanning projects.json for media under "${targetFolder}"...\n`
+      : "Scanning projects.json for media optimization...\n",
+  );
   const data = JSON.parse(fs.readFileSync(JSON_PATH, "utf8"));
 
   await processObject(data);

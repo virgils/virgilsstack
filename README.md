@@ -73,9 +73,16 @@ Walks every image/video referenced in `src/lib/projects.json` (keys: `media`,
    blurred backdrop while the real media lazy-loads and fades in.
 
 ```sh
-npm run media                 # ratios recomputed; placeholders cached (incremental)
-npm run media -- --overwrite  # also regenerate every placeholder from scratch
+npm run media                          # ratios recomputed; placeholders cached (incremental)
+npm run media -- --overwrite           # also regenerate every placeholder from scratch
+npm run media -- projects/cracked      # only media under that folder
+npm run media -- --overwrite projects/cracked  # combine: scope + force
 ```
+
+The optional folder argument (relative to `static/`; a leading `static/` is
+tolerated) limits the run to media whose path lives under it — handy when you
+add a single project. In folder mode the other folders' placeholders are kept;
+a full run prunes placeholders that are no longer referenced.
 
 Run it whenever you add or change media. Requires `ffmpeg` on your PATH for videos.
 
@@ -90,9 +97,14 @@ Compresses the actual files in `static/` for delivery (does **not** edit
 New files are written next to the originals; already-converted files are skipped.
 
 ```sh
-npm run optimize                 # skip files already converted
-npm run optimize -- --overwrite  # re-encode everything
+npm run optimize                          # skip files already converted
+npm run optimize -- --overwrite           # re-encode everything
+npm run optimize -- projects/cracked      # only media under that folder
+npm run optimize -- --overwrite projects/cracked  # combine: scope + force
 ```
+
+The optional folder argument works the same as for `npm run media` (relative to
+`static/`, leading `static/` tolerated) — it scopes the transcode to one folder.
 
 Requires `ffmpeg` on your PATH for video conversion.
 

@@ -17,8 +17,12 @@ import ffprobeStatic from "ffprobe-static";
 // (Replaces the old `ratios` + `thumbs` scripts.)
 //
 // Run with:  npm run media
-//   --overwrite   regenerate placeholders even if they already exist
-//                 (ratios are always recomputed; placeholders are cached)
+//   --overwrite        regenerate placeholders even if they already exist
+//                      (ratios are always recomputed; placeholders are cached)
+//   [folder]           limit the run to media under a folder (relative to
+//                      /static), e.g.  npm run media -- projects/cracked
+//                      In folder mode, placeholders for other folders are kept
+//                      (a full run prunes placeholders no longer referenced).
 
 const execPromise = util.promisify(exec);
 ffmpeg.setFfprobePath(ffprobeStatic.path);
@@ -40,6 +44,18 @@ const VIDEO_EXT = [".mp4", ".webm", ".mov"];
 
 const MAX = 100; // placeholder longest side (px); aspect ratio preserved
 const forceOverwrite = process.argv.includes("--overwrite");
+
+// Optional positional folder filter (first non-flag arg), e.g. "projects/cracked".
+// A leading "static/" and surrounding slashes are tolerated.
+const folderArg = process.argv.slice(2).find((a) => !a.startsWith("-"));
+const targetFolder = folderArg
+  ? folderArg.replace(/^\/+|\/+$/g, "").replace(/^static\//, "")
+  : null;
+function inTarget(mediaPath) {
+  if (!targetFolder) return true;
+  const clean = mediaPath.split("?")[0].replace(/^\/+/, "");
+  return clean === targetFolder || clean.startsWith(`${targetFolder}/`);
+}
 
 const existing = fs.existsSync(OUT_PATH)
   ? JSON.parse(fs.readFileSync(OUT_PATH, "utf8"))
@@ -98,6 +114,7 @@ async function processObject(obj) {
       continue;
     }
     if (!MEDIA_KEYS.includes(key) || typeof val !== "string") continue;
+    if (!inTarget(val)) continue;
 
     const ext = path.extname(val.split("?")[0]).toLowerCase();
     const isImage = IMAGE_EXT.includes(ext);
@@ -145,7 +162,11 @@ async function processObject(obj) {
 }
 
 async function run() {
-  console.log("Processing media in projects.json…\n");
+  console.log(
+    targetFolder
+      ? `Processing media under "${targetFolder}"…\n`
+      : "Processing media in projects.json…\n",
+  );
   const data = JSON.parse(fs.readFileSync(JSON_PATH, "utf8"));
 
   await processObject(data);
@@ -153,11 +174,14 @@ async function run() {
   // projects.json with fresh ratios
   fs.writeFileSync(JSON_PATH, JSON.stringify(data, null, 2) + "\n", "utf8");
 
-  // placeholders.json, keys sorted for stable diffs
+  // placeholders.json, keys sorted for stable diffs. A full run writes only
+  // what it processed (so unreferenced entries are pruned); a folder-scoped run
+  // merges over the existing file so other folders' placeholders are retained.
+  const merged = targetFolder ? { ...existing, ...placeholders } : placeholders;
   const sorted = Object.fromEntries(
-    Object.keys(placeholders)
+    Object.keys(merged)
       .sort()
-      .map((k) => [k, placeholders[k]]),
+      .map((k) => [k, merged[k]]),
   );
   fs.writeFileSync(OUT_PATH, JSON.stringify(sorted, null, 2) + "\n", "utf8");
 
