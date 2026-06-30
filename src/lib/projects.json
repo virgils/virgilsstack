@@ -462,6 +462,35 @@
       {
         "type": "intro",
         "techStack": "Lit, Typescript"
+      },
+      {
+        "type": "wide-media",
+        "media": "/projects/cracked/hero.png",
+        "mediaType": "image",
+        "contained": false,
+        "caption": "",
+        "mediaRatio": "1800 / 793"
+      },
+      {
+        "type": "wide-media",
+        "media": "/projects/cracked/alphabet.png",
+        "mediaType": "image",
+        "contained": true,
+        "mediaRatio": "1200 / 800"
+      },
+      {
+        "type": "wide-media",
+        "media": "/projects/cracked/lines.png",
+        "mediaType": "image",
+        "contained": true,
+        "mediaRatio": "1200 / 800"
+      },
+      {
+        "type": "wide-media",
+        "media": "/projects/cracked/corners.png",
+        "mediaType": "image",
+        "contained": true,
+        "mediaRatio": "1200 / 800"
       }
     ]
   },
@@ -781,7 +810,7 @@
     "project": "E-Commerce and Campaigns",
     "year": "2012-2018",
     "tags": ["brand"],
-    "description": "During my time at Cartelle, I helped build and maintain the e-commerce platform for Scotch & Soda, developing product listing pages, product detail pages, editorial content, and campaign experiences. The platform combined commerce with a strong visual identity, using vivid imagery and custom layouts to create a more engaging shopping experience. <br/>Following my time at Cartelle, I continued working with Scotch & Soda on the evolution of their digital platform.",
+    "description": "During my time at <a href=\"https://www.cartelle.com\">Cartelle</a>, I helped build and maintain the e-commerce platform for Scotch & Soda, developing product listing pages, product detail pages, editorial content, and campaign experiences. The platform combined commerce with a strong visual identity, using vivid imagery and custom layouts to create a more engaging shopping experience. <br/>Following my time at Cartelle, I continued working with Scotch & Soda on the evolution of their digital platform.",
     "media": "/projects/scotch-soda/card2.jpg",
     "mediaType": "image",
     "mediaRatio": "480 / 640",
@@ -825,7 +854,7 @@
         "type": "heading",
         "index": "Campaign",
         "title": "E-Commerce Platform",
-        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer efficitur bibendum erat, quis aliquet diam tincidunt a. Vivamus non iaculis."
+        "text": "I helped build and evolve the front end of the Scotch & Soda e-commerce platform, working across nearly every touchpoint of the shopping experience. From homepage campaigns and editorial content to product discovery, filtering, PDPs, checkout, and payment, I focused on creating reusable, scalable components that supported both marketing initiatives and the day-to-day needs of the commerce platform."
       },
       {
         "type": "wide-media",
@@ -1021,46 +1050,6 @@
     ]
   },
   {
-    "slug": "bartlett",
-    "client": "The Bartlett School of Architecture",
-    "project": "Virtual Exhibit Space",
-    "year": "2020 - 2026",
-    "tags": ["brand"],
-    "blocked": "Coming soon",
-    "media": "/projects/bartlett/card.jpg",
-    "mediaType": "image",
-    "mediaRatio": "672 / 450",
-    "sections": [
-      {
-        "type": "intro",
-        "techStack": "Javascript, PHP, ThreeJS, PHP",
-        "links": [
-          {
-            "title": "Bartlett Shows",
-            "url": "https://shows.bartlettarchucl.com/"
-          }
-        ],
-        "awards": [
-          {
-            "year": "2020",
-            "title": "Awwwards",
-            "category": "Site of the Day"
-          },
-          {
-            "year": "2020",
-            "title": "TheFWA",
-            "category": "Site of the Day"
-          },
-          {
-            "year": "2020",
-            "title": "TheFWA",
-            "category": "Site of the Month"
-          }
-        ]
-      }
-    ]
-  },
-  {
     "slug": "dsp-asl-pal",
     "client": "Dawn Sign Press",
     "project": "ASL Learning Hub",
@@ -1196,6 +1185,132 @@
         "mediaType": "image",
         "contained": true,
         "mediaRatio": "1440 / 810"
+      }
+    ]
+  },
+  {
+    "slug": "bartlett",
+    "client": "The Bartlett School of Architecture",
+    "project": "Virtual Exhibit Space",
+    "year": "2020 - 2026",
+    "tags": ["brand"],
+    "blocked": "Coming soon",
+    "media": "/projects/bartlett/card.jpg",
+    "mediaType": "image",
+    "mediaRatio": "672 / 450",
+    "sections": [
+      {
+        "type": "intro",
+        "techStack": "Javascript, PHP, ThreeJS, PHP",
+        "links": [
+          {
+            "title": "Bartlett Shows",
+            "url": "https://shows.bartlettarchucl.com/"
+          }
+        ],
+        "awards": [
+          {
+            "year": "2020",
+            "title": "Awwwards",
+            "category": "Site of the Day"
+          },
+          {
+            "year": "2020",
+            "title": "TheFWA",
+            "category": "Site of the Day"
+          },
+          {
+            "year": "2020",
+            "title": "TheFWA",
+            "category": "Site of the Month"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "cracked",
+    "client": "Collaboration With Nessim",
+    "project": "Cracked",
+    "year": "2019",
+    "tags": ["brand"],
+    "blocked": "Coming soon",
+    "media": "/projects/cracked/card.jpg",
+    "mediaType": "image",
+    "mediaRatio": "600 / 957",
+    "sections": [
+      {
+        "type": "intro",
+        "techStack": "Javascript, Canvas",
+        "links": [
+          {
+            "title": "Cracked",
+            "url": "https://www.crackkked.com/"
+          }
+        ],
+        "awards": [
+          {
+            "year": "2025",
+            "title": "Webby Awards - Honoree",
+            "category": "NetArt 2025"
+          },
+          {
+            "year": "2025",
+            "title": "Webby Awards - Nominee",
+            "category": "Weird 2025"
+          }
+        ]
+      },
+      {
+        "type": "wide-media",
+        "media": "/projects/cracked/hero.png",
+        "mediaType": "image",
+        "contained": false,
+        "caption": "",
+        "mediaRatio": "1800 / 793"
+      },
+      {
+        "type": "heading",
+        "index": "01",
+        "title": "Setup",
+        "text": "Lipsum dolor sit amet, consectetur adipiscing elit."
+      },
+      {
+        "type": "side-by-side",
+        "direction": "right",
+        "media": "/projects/cracked/pixels.jpg",
+        "mediaType": "image",
+        "text": "<h4>Gemini Demo Night</h4><br/>An exclusive brand activation in Japan gave developers hands-on access to the Gemini API's capabilities. Placed alongside other experimental AI tools, Trivia Twister served as a live, tactile case study in how advanced prompting can be instantly translated into engaging, real-time user experiences.",
+        "caption": "Trivia Twister and Draw your Comic",
+        "ratio": "50-50",
+        "mediaRatio": "537 / 604"
+      },
+      {
+        "type": "heading",
+        "index": "02",
+        "title": "Assets",
+        "text": "Lipsum dolor sit amet, consectetur adipiscing elit."
+      },
+      {
+        "type": "wide-media",
+        "media": "/projects/cracked/alphabet.png",
+        "mediaType": "image",
+        "contained": true,
+        "mediaRatio": "1200 / 800"
+      },
+      {
+        "type": "wide-media",
+        "media": "/projects/cracked/lines.png",
+        "mediaType": "image",
+        "contained": true,
+        "mediaRatio": "1200 / 800"
+      },
+      {
+        "type": "wide-media",
+        "media": "/projects/cracked/corners.png",
+        "mediaType": "image",
+        "contained": true,
+        "mediaRatio": "1200 / 800"
       }
     ]
   }
