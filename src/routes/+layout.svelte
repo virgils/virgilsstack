@@ -314,6 +314,10 @@
 
   main {
     padding-top: 80px;
+    /* Clip the parallax/evenOut column transforms so a drifted column can't
+       bleed past the page edges. Safe: main has no height, so it stays a
+       normal (non-scrolling) block and the window-scroll parallax is intact. */
+    overflow: hidden;
   }
 
   @keyframes initialFade {
