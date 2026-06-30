@@ -114,26 +114,39 @@
   // signs make neighbours move opposite ways; magnitude = how far each drifts.
   const COLUMN_SPEED = [-70, 65, -35, 81];
 
-  // evenOut: per-column travel so every column's bottom reaches the tallest
-  // column's bottom by the end (shorter columns drift down more). Measured from
-  // live column heights; recomputed on layout changes.
+  // evenOut: per-column travel so shorter columns drift DOWN until their bottoms
+  // line up with the tallest column's bottom. Uses real rendered column heights
+  // (estimate-based was too subtle — the masonry already balances by estimate).
+  //
+  // Safeguards against the earlier runaway/footer-overlap:
+  //   • content height = lastCard.bottom − column.top (ignores flex `stretch`,
+  //     transform-invariant); skips any column we can't measure → 0 drift.
+  //   • offset = maxHeight − thisHeight keeps each bottom AT the tallest column's
+  //     bottom (inside the columns box), so it can't reach the footer.
+  //   • hard ceiling EVEN_MAX_DRIFT as an absolute backstop.
+  //   • measured one frame later (see measureGeometry) so layout has settled —
+  //     a mid-resize measurement was what blew up before.
+  const EVEN_MAX_DRIFT = 1200; // px — absolute backstop against a bad measurement
   let evenSpeeds: number[] = [];
-  function computeEvenSpeeds(cols: number) {
+  function computeEvenSpeeds() {
+    const n = columns.length;
     const heights: number[] = [];
-    for (let i = 0; i < cols; i++) {
+    for (let i = 0; i < n; i++) {
       const col = colEls[i];
       const last = col?.lastElementChild;
-      // Content height = last card's bottom minus the column's top. This ignores
-      // the flex `stretch` (which makes every column's box the same height) and
-      // is transform-invariant (column + cards shift together under translateY).
-      heights.push(
-        col && last
-          ? last.getBoundingClientRect().bottom - col.getBoundingClientRect().top
-          : 0,
-      );
+      heights[i] =
+        col && col.isConnected && last
+          ? last.getBoundingClientRect().bottom -
+            col.getBoundingClientRect().top
+          : NaN; // unmeasurable
     }
-    const maxH = Math.max(0, ...heights);
-    evenSpeeds = heights.map((h) => maxH - h);
+    const valid = heights.filter((h) => h > 0);
+    const maxH = valid.length ? Math.max(...valid) : 0;
+    evenSpeeds = heights.map((h) => {
+      if (!(h > 0)) return 0; // couldn't measure → don't move it
+      const drift = maxH - h;
+      return drift <= 0 ? 0 : drift > EVEN_MAX_DRIFT ? EVEN_MAX_DRIFT : drift;
+    });
   }
   // Each media tilts on the X axis while scrolling: angle scales with scroll
   // speed, sign follows direction (down vs up), easing back to flat on stop.
@@ -185,7 +198,9 @@
       gridTop = rect.top + window.scrollY;
       gridHeight = rect.height;
       viewportH = window.innerHeight;
-      if (evenOut) computeEvenSpeeds(n);
+      if (evenOut) {
+        computeEvenSpeeds();
+      }
     }
     measureGeometry();
 
@@ -272,11 +287,26 @@
 
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", onResize);
+
+    // Re-measure whenever the grid's box actually changes size — media loading
+    // in, font swaps, and (crucially) client-side back-navigation, where the
+    // grid mounts inside the layout's fade while scroll restoration and cached
+    // media reflow asynchronously. A one-shot measure can catch a too-small
+    // height there (denom = gridHeight - viewportH ≤ 0 → evenOut pins to 0 and
+    // the columns never move). The observer fires once on observe() and again
+    // on every resize, so geometry/evenSpeeds self-correct regardless of nav
+    // timing. Column transforms don't affect the border-box, so no feedback.
+    const ro = new ResizeObserver(() => {
+      measureGeometry();
+      start();
+    });
+    ro.observe(gridEl);
     start(); // set initial positions
 
     return () => {
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onResize);
+      ro.disconnect();
       cancelAnimationFrame(frame);
       colEls.forEach((el) => el && (el.style.transform = ""));
       tiltEls.forEach((el) => el.style.removeProperty("--tilt-scroll"));
