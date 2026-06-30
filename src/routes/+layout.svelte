@@ -9,6 +9,16 @@
 
   let { children } = $props();
 
+  // Social share (Open Graph / Twitter) defaults, applied site-wide. Per-page
+  // <title> still controls the browser tab. og:image must be absolute for
+  // scrapers — derived from the request origin (pages are SSR'd, so this
+  // resolves to the live host).
+  const SITE_NAME = "Virgil's Stack";
+  const SHARE_DESC =
+    "Portfolio of Virgil — creative developer building interactive, design-led web experiences.";
+  let canonical = $derived(page.url.href);
+  let shareImage = $derived(`${page.url.origin}/images/share.png`);
+
   // The category currently filtering the homepage (from the ?category= query).
   let activeCategory = $derived(
     page.url.pathname === "/" ? page.url.searchParams.get("category") : null,
@@ -27,6 +37,24 @@
   <link rel="icon" href={favicon} media="(prefers-color-scheme: light)" />
   <link rel="icon" href={faviconWhite} media="(prefers-color-scheme: dark)" />
   <!-- Fonts are loaded once in src/app.html (DM Sans). -->
+
+  <!-- Social share defaults (per-page <title> still wins for the tab). -->
+  <meta name="description" content={SHARE_DESC} />
+  <link rel="canonical" href={canonical} />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content={SITE_NAME} />
+  <meta property="og:title" content={SITE_NAME} />
+  <meta property="og:description" content={SHARE_DESC} />
+  <meta property="og:url" content={canonical} />
+  <meta property="og:image" content={shareImage} />
+  <meta property="og:image:width" content="2560" />
+  <meta property="og:image:height" content="1600" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={SITE_NAME} />
+  <meta name="twitter:description" content={SHARE_DESC} />
+  <meta name="twitter:image" content={shareImage} />
 </svelte:head>
 
 <nav class="nav" class:has-menu={categories.length > 0}>
