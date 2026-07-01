@@ -4,10 +4,7 @@
     "client": "Google I/O",
     "project": "Machine learning",
     "year": "2023",
-    "tags": [
-      "product",
-      "interactive"
-    ],
+    "tags": ["product", "interactive"],
     "description": "I developed an all-in-one Machine Learning hub that brings together top-tier tools, tutorials, and courses. To keep the content organized, I built a smart tag-based filtering system powered by a flexible JSON backend, allowing users to instantly find exactly what they need. ",
     "media": "/projects/google-machine-learning/card.mp4",
     "mediaType": "video",
@@ -95,9 +92,7 @@
     "client": "OpenAI",
     "project": "Localization & RTL Support",
     "year": "2026",
-    "tags": [
-      "product"
-    ],
+    "tags": ["product"],
     "description": "Enhanced OpenAI’s global web experience by expanding localization support and implementing comprehensive right-to-left (RTL) capabilities. Built a new language selector with locale and language search, developed supporting Tailwind utilities, and updated core components and interaction patterns to ensure a consistent experience across Arabic, Urdu, Farsi, and other localized interfaces.",
     "media": "/projects/openai-localization/card.jpg",
     "mediaType": "image",
@@ -194,9 +189,7 @@
     "client": "Google I/O",
     "project": "Trivia Twister",
     "year": "2024",
-    "tags": [
-      "interactive"
-    ],
+    "tags": ["interactive"],
     "description": "For the 2024 Google I/O Gemini Developer API Competition, Hello Monday created three interactive AI games to surround the grand prize—a retrofitted electric DeLorean. Designed to inspire developers and showcase the API's capabilities beyond the standard chatbot, I was the developer behind one of these three flagship experiences: Trivia Twister.",
     "media": "/projects/google-trivia-twister/card.mp4",
     "mediaType": "video",
@@ -289,10 +282,7 @@
     "client": "Google",
     "project": "MD3 Components",
     "year": "2026",
-    "tags": [
-      "product",
-      "interactive"
-    ],
+    "tags": ["product", "interactive"],
     "blocked": "NDA",
     "media": "/projects/google-components/card.png",
     "mediaType": "image",
@@ -309,9 +299,7 @@
     "client": "Virgin Galactic",
     "project": "Brand Website",
     "year": "2022",
-    "tags": [
-      "brand"
-    ],
+    "tags": ["brand"],
     "description": "To truly capture the essence of commercial space travel, we partnered with Virgin Galactic to build a captivating digital experience that ultimately won a Webby Award. The site utilizes an unconventional grid utilizing both horizontal and vertical scrolling alongside full-bleed imagery to evoke the vastness and scale of space.",
     "media": "/projects/virgin-galactic/card.jpg",
     "mediaType": "image",
@@ -392,9 +380,7 @@
     "client": "OpenAI",
     "project": "A/B Testing",
     "year": "2026",
-    "tags": [
-      "product"
-    ],
+    "tags": ["product"],
     "description": "A data-driven annual report that translates complex financial performance into clear, compelling visual narratives. Custom infographics, editorial photography direction, and a print-ready layout system were developed in tandem with the digital web version.",
     "blocked": "NDA",
     "media": "/projects/openai-ab-testing/card.jpg",
@@ -412,9 +398,7 @@
     "client": "ROAM",
     "project": "Brand Website",
     "year": "2023",
-    "tags": [
-      "brand"
-    ],
+    "tags": ["brand"],
     "description": "Built around ROAM's stunning portfolio of interior and exterior spaces, the website uses a horizontal scrolling experience to create a sense of exploration and discovery. Large-scale imagery, subtle motion, and a minimal interface allow the work to take center stage while guiding users through the studio's story and projects.",
     "media": "/projects/roam/card.mp4",
     "mediaType": "video",
@@ -469,10 +453,7 @@
     "client": "OpenAI",
     "project": "Superbowl Takeover",
     "year": "2025",
-    "tags": [
-      "brand",
-      "interactive"
-    ],
+    "tags": ["brand", "interactive"],
     "description": [
       "OpenAI partnered with Dept to create an interactive homepage takeover that introduced generative AI through a playful, Mad Libs-inspired experience. Designed mobile-first, the project combined UX, UI, front-end development, and OpenAI API integration, all delivered within an ambitious two to three week timeline before being implemented by OpenAI's engineering team."
     ],
@@ -567,10 +548,7 @@
     "client": "Google Gemini",
     "project": "Jules",
     "year": "2025",
-    "tags": [
-      "brand",
-      "product"
-    ],
+    "tags": ["brand", "product"],
     "description": "Jules is Google's autonomous AI coding agent, designed to help developers tackle complex software tasks directly within their existing workflows. Powered by Gemini, it can understand entire codebases, write features, fix bugs, run tests, and create pull requests while developers focus on higher-level work. <br/><br/>I helped build the public-facing experience that introduces Jules and communicates how AI agents are transforming the way software is developed.",
     "media": "/projects/google-jules/card.jpg",
     "mediaType": "image",
@@ -632,10 +610,7 @@
     "client": "Google Jigsaw",
     "project": "Altitude",
     "year": "2023",
-    "tags": [
-      "brand",
-      "interactive"
-    ],
+    "tags": ["brand", "interactive"],
     "description": "Developed the website for Altitude, an open-source platform combating extremist content, showcasing the moderation tool by Google Jigsaw and Tech Against Terrorism. Built a responsive interface to demonstrate the tool’s features, integrate blog content, and highlight workflows for end users.",
     "media": "/projects/google-altitude/card.png",
     "mediaType": "image",
@@ -680,9 +655,7 @@
     "client": "Virgin Hyperloop",
     "project": "Brand Website",
     "year": "2020",
-    "tags": [
-      "brand"
-    ],
+    "tags": ["brand"],
     "description": "Virgin Hyperloop is developing a next-generation transportation system capable of moving passengers and cargo at airline speeds. I helped build an interactive platform that explains the technology, showcases global initiatives, and makes a complex concept easier to understand.",
     "media": "/projects/virgin-hyperloop/card.mp4",
     "mediaType": "video",
@@ -764,9 +737,7 @@
     "client": "Zipline",
     "project": "Brand Website",
     "year": "2023",
-    "tags": [
-      "brand"
-    ],
+    "tags": ["brand"],
     "externalUrl": "https://www.hellomonday.com/work/zipline",
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer efficitur bibendum erat, quis aliquet diam tincidunt a. Vivamus non iaculis.",
     "sections": [
@@ -783,9 +754,7 @@
     "client": "Google Pixel",
     "project": "Recorder",
     "year": "2020",
-    "tags": [
-      "product"
-    ],
+    "tags": ["product"],
     "description": "Google Recorder is a voice recording and transcription app that uses on-device AI to capture, transcribe, and organize conversations in real time. I helped build the marketing experience that communicates the product's capabilities through interactive demonstrations and clear product explanations.",
     "media": "/projects/google-recorder/card.jpg",
     "mediaType": "image",
@@ -825,10 +794,7 @@
     "client": "Google Jigsaw",
     "project": "Protect Your Democracy",
     "year": "2023",
-    "tags": [
-      "product",
-      "interactive"
-    ],
+    "tags": ["product", "interactive"],
     "description": "Built for Google's Protect Your Democracy initiative, the website serves as a hub for security-focused programs and resources. Visitors can explore four key initiatives and learn more about the tools and practices that help strengthen digital safety and resilience.",
     "media": "/projects/google-pyd/card.mp4",
     "mediaType": "video",
@@ -892,9 +858,7 @@
     "client": "Scotch & Soda",
     "project": "E-Commerce and Campaigns",
     "year": "2012-2018",
-    "tags": [
-      "brand"
-    ],
+    "tags": ["brand"],
     "description": "During my time at <a href=\"https://www.cartelle.nl\" target=\"_blank\">Cartelle</a>, I helped build and maintain the e-commerce platform for Scotch & Soda, developing product listing pages, product detail pages, editorial content, and campaign experiences. The platform combined commerce with a strong visual identity, using vivid imagery and custom layouts to create a more engaging shopping experience. <br/>Following my time at Cartelle, I continued working with Scotch & Soda on the evolution of their digital platform.",
     "media": "/projects/scotch-soda/card2.jpg",
     "mediaType": "image",
@@ -1062,10 +1026,7 @@
     "client": "Google Brand Studio",
     "project": "Most Searched",
     "year": "2020",
-    "tags": [
-      "interactive",
-      "brand"
-    ],
+    "tags": ["interactive", "brand"],
     "description": "Created for Google's Black History Month 2020 campaign, Most Searched explored influential Black figures, events, and achievements through the lens of Google Search trends. The experience combined historical context, media, and data-driven insights to celebrate individuals and moments that shaped American culture.",
     "media": "/projects/google-most-searched/card.mp4",
     "mediaType": "video",
@@ -1142,10 +1103,7 @@
     "client": "Dawn Sign Press",
     "project": "ASL Learning Hub",
     "year": "2025",
-    "tags": [
-      "product",
-      "interactive"
-    ],
+    "tags": ["product", "interactive"],
     "description": "DawnSign is a Deaf-owned ASL EdTech company that develops curriculum, digital tools, and learning resources used by colleges across the United States. As Lead Developer, I led the development of a learning platform built around DawnSign's proprietary ASL video-analysis API, creating an engaging educational experience that helps students practice, evaluate, and improve their American Sign Language skills.",
     "media": "/projects/dawnsignpress/card.png",
     "mediaType": "image",
@@ -1284,9 +1242,7 @@
     "client": "The Bartlett School of Architecture",
     "project": "Virtual Exhibit Space",
     "year": "2020 - 2026",
-    "tags": [
-      "brand"
-    ],
+    "tags": ["brand"],
     "blocked": "Coming soon",
     "media": "/projects/bartlett/card.jpg",
     "mediaType": "image",
@@ -1326,9 +1282,7 @@
     "client": "Collaboration With Ness",
     "project": "Cracked",
     "year": "2019",
-    "tags": [
-      "brand"
-    ],
+    "tags": ["brand"],
     "media": "/projects/cracked/card.jpg",
     "mediaType": "image",
     "mediaRatio": "600 / 957",
@@ -1478,6 +1432,42 @@
             "media": "/projects/cracked/stack-3.png",
             "mediaType": "image",
             "mediaRatio": "2560 / 1600"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "google-info-interventions",
+    "client": "Google Jigsaw",
+    "project": "Info Interventions",
+    "year": "2023",
+    "tags": ["brand"],
+    "blocked": "Coming soon",
+    "media": "/projects/google-info-interventions/card.png",
+    "mediaType": "image",
+    "mediaRatio": "1200 / 900",
+    "description": "",
+    "sections": [
+      {
+        "type": "intro",
+        "techStack": "Javascript, Kintaro",
+        "links": [
+          {
+            "title": "Webby Awards",
+            "url": "https://winners.webbyawards.com/2024/websites-and-mobile-sites/general-desktop-mobile-sites/corporate-social-responsibility/288889/google-jigsaw"
+          }
+        ],
+        "awards": [
+          {
+            "year": "2024",
+            "title": "Webby Awards",
+            "category": "Corporate Social Responsibility"
+          },
+          {
+            "year": "2024",
+            "title": "Anthem Awards",
+            "category": "3x Silver (Responsible Technology..)"
           }
         ]
       }
