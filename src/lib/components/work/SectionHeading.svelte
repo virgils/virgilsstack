@@ -27,8 +27,38 @@
 </section>
 
 <style>
+  /* Full-viewport-width gray band behind the heading, so it reads as a page
+     breaker. The text stays in its contained position — only the background
+     bleeds out. `isolation` keeps the negative-z band behind just this section,
+     and main's overflow:hidden absorbs the 100vw (no horizontal scroll). */
+  .section-heading {
+    position: relative;
+    isolation: isolate;
+    --band-pad: 28px; /* how far the band extends above/below the content */
+    margin-top: 100px;
+  }
+
+  @media (--bp-sm) {
+    .section-heading {
+      --band-pad: 48px;
+      margin-top: 200px;
+    }
+  }
+
+  .section-heading::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: calc(var(--band-pad) * -1);
+    bottom: calc(var(--band-pad) * -1);
+    left: 50%;
+    width: 100vw;
+    transform: translateX(-50%);
+    background: linear-gradient(var(--bg-color-secondary), #fff);
+    height: calc(100% + 15vw);
+  }
+
   .heading-inner {
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
     padding-top: 24px;
   }
 
@@ -54,5 +84,9 @@
 
   :global(.section-heading .content-text a) {
     text-decoration: underline;
+  }
+
+  :global(.intro-section + .wide-media-section + .section-heading) {
+    border: 2px solid green;
   }
 </style>

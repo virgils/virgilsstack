@@ -283,5 +283,15 @@
     :global(.layout-contained) .collapsible-media {
       border-radius: 8px;
     }
+
+    :global(.intro-section + .wide-media-section.full-width) {
+      margin-bottom: 100px;
+    }
+
+    :global(
+        .intro-section + .wide-media-section.full-width + .section-heading
+      ) {
+      margin-top: 150px;
+    }
   }
 </style>
