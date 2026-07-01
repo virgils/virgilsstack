@@ -650,4 +650,14 @@
       text-align: right;
     }
   }
+
+  [data-city="ams"],
+  [data-city="ams"].active {
+    color: var(--color-orange);
+  }
+
+  [data-city="nyc"],
+  [data-city="nyc"].active {
+    color: var(--color-blue);
+  }
 </style>
