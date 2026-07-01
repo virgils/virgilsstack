@@ -3,21 +3,42 @@
   import { Footer } from "$lib";
 
   // ── WebGL palette — adjust colors here ──────────────────────────────────
-  // NOTE: the shader inverts its final output (1.0 - col), so these are the
-  // PRE-inversion values: a lighter color here shows up DARKER on screen. The
-  // glyph gradient (near-white) is what becomes the near-black "404".
+  // These are actual on-screen colors (no inversion): white field, near-black
+  // number, with the brand blue/orange smeared out by the drag interaction.
   const COLORS = {
-    bgCenter: [0.051, 0.07, 0.105], // background toward the centre
-    bgEdge: [0.031, 0.043, 0.066], // background toward the edges (vignette)
-    glow: [0.45, 0.62, 1.0], // bloom tint where the field is disturbed (blue-ish)
-    glyphGradient: ["#ffffff", "#f2f2f2", "#e4e4e4"], // 404 fill, top → bottom
+    bgCenter: "#ffffff", // background toward the centre
+    bgEdge: "#eef1f6", // background toward the edges (subtle vignette)
+    glyph: "#0a0d14", // the "404" itself
+    orange: "#ff6b35", // leading drag edge + warm bloom
+    blue: "#0066ff", // trailing drag edge + cool bloom
   };
-  const toVec3 = (c: number[]) => `vec3(${c[0]}, ${c[1]}, ${c[2]})`;
+  const hexToRgb = (hex: string) => {
+    const n = parseInt(hex.replace("#", ""), 16);
+    return [(n >> 16) & 255, (n >> 8) & 255, n & 255].map((v) => v / 255);
+  };
+  const toVec3 = (c: string) => {
+    const [r, g, b] = hexToRgb(c);
+    return `vec3(${r}, ${g}, ${b})`;
+  };
+
+  // How orange (O) and blue (B) combine where the two drag fringes overlap.
+  // "multiply" = ink-like dark crossover · "screen" = bright · "average" ·
+  // "difference". Swap the value to preview a different blend.
+  const BLEND_MODE: "multiply" | "screen" | "average" | "difference" =
+    "multiply";
+  const BLEND_GLSL = {
+    multiply: "O * B",
+    screen: "1.0 - (1.0 - O) * (1.0 - B)",
+    average: "(O + B) * 0.5",
+    difference: "abs(O - B)",
+  }[BLEND_MODE];
 
   // SvelteKit renders this for unmatched routes (404) and thrown load errors.
   let status = $derived(page.status);
   let isNotFound = $derived(status === 404);
-  let heading = $derived(isNotFound ? "Page not found" : "Something went wrong");
+  let heading = $derived(
+    isNotFound ? "Page not found" : "Something went wrong",
+  );
   let message = $derived(
     isNotFound
       ? "The page you’re looking for doesn’t exist, moved, or never did."
@@ -27,8 +48,8 @@
   let canvas: HTMLCanvasElement;
 
   // Interactive WebGL backdrop: the status number as a texture, disturbed by
-  // chromatic ripples on drag. Colors are inverted from the source demo →
-  // black glyph on a white field. Fully torn down on unmount.
+  // drag — the two brand colors (blue / orange) smear out from opposite edges
+  // over a black-on-white field. Fully torn down on unmount.
   $effect(() => {
     if (typeof window === "undefined" || !canvas) return;
 
@@ -52,9 +73,8 @@
       void main() { gl_Position = vec4(a_pos, 0.0, 1.0); }
     `;
 
-    // Identical to the source shader, except the final line inverts the color
-    // (1.0 - col): the deep-ink field becomes white and the near-white glyph
-    // becomes black.
+    // Authored directly in on-screen space (no invert): white field, black
+    // glyph, brand blue/orange fringes driven by the drag displacement.
     const FRAG = `
       precision highp float;
       #define MAX ${MAX_POINTS}
@@ -97,36 +117,44 @@
           cos(uv.x * 11.0 + u_time * 0.6)
         );
 
-        float m = length(disp);
         energy = clamp(energy, 0.0, 1.4);
 
+        // Sample the glyph mask at the base position plus two opposed displaced
+        // positions; the spread grows with how hard the field is pushed. The two
+        // sides carry the two brand colors.
         float ca = 1.0 + energy * 2.2;
-        vec2 dR = disp * (1.15 * ca);
-        vec2 dG = disp * (0.55 * ca);
-        vec2 dB = disp * (-0.35 * ca);
+        float a0 = texture2D(u_tex, uv).a;                      // glyph body
+        float aO = texture2D(u_tex, uv + disp * (1.15 * ca)).a; // orange edge
+        float aB = texture2D(u_tex, uv - disp * (0.95 * ca)).a; // blue edge
 
-        vec4 tR = texture2D(u_tex, uv + dR);
-        vec4 tG = texture2D(u_tex, uv + dG);
-        vec4 tB = texture2D(u_tex, uv + dB);
-
+        // near-white field with a soft vignette toward the edges
         vec2 c = uv - 0.5; c.x *= aspect;
         float d0 = length(c);
-        vec3 bg = mix(${toVec3(COLORS.bgCenter)}, ${toVec3(COLORS.bgEdge)}, d0 * 1.15);
-        bg -= smoothstep(0.35, 0.95, d0) * 0.03;
+        vec3 col = mix(${toVec3(COLORS.bgCenter)}, ${toVec3(COLORS.bgEdge)}, smoothstep(0.0, 1.1, d0));
 
-        vec3 col = bg;
-        col.r = mix(col.r, tR.r, tR.a);
-        col.g = mix(col.g, tG.g, tG.a);
-        col.b = mix(col.b, tB.b, tB.a);
+        // brand fringes where a displaced sample spills past the glyph body
+        float fO = clamp(aO - a0, 0.0, 1.0);
+        float fB = clamp(aB - a0, 0.0, 1.0);
+        vec3 O = ${toVec3(COLORS.orange)};
+        vec3 B = ${toVec3(COLORS.blue)};
+        col = mix(col, O, fO);
+        col = mix(col, B, fB);
+        // where both overlap, blend the two colors (${BLEND_MODE})
+        col = mix(col, ${BLEND_GLSL}, min(fO, fB));
 
-        col += energy * 0.06 * ${toVec3(COLORS.glow)} * max(tG.a, 0.12);
+        // the number itself on top
+        col = mix(col, ${toVec3(COLORS.glyph)}, a0);
 
+        // energy bloom near the glyph — blue at rest, warming to orange on a hard push
+        col += energy * 0.05 * max(a0, 0.12) *
+               mix(${toVec3(COLORS.blue)}, ${toVec3(COLORS.orange)}, clamp(length(disp) * 6.0, 0.0, 1.0));
+
+        // grain + faint scanline for a little CRT texture
         float g = hash(gl_FragCoord.xy + fract(u_time) * 100.0);
-        col += (g - 0.5) * 0.028;
-        col *= 0.985 + 0.015 * sin(gl_FragCoord.y * 1.6);
+        col += (g - 0.5) * 0.02;
+        col *= 0.99 + 0.01 * sin(gl_FragCoord.y * 1.6);
 
-        col = clamp(col, 0.0, 1.0);
-        gl_FragColor = vec4(1.0 - col, 1.0); // invert → black glyph on white
+        gl_FragColor = vec4(clamp(col, 0.0, 1.0), 1.0);
       }
     `;
 
@@ -216,13 +244,9 @@
       let x = w / 2 - total / 2;
       const y = h / 2 + size * 0.02;
 
-      // Grayscale fill so, once inverted, the glyph reads as clean near-black
-      // (a colored fill would invert to a muddy hue).
-      const grad = tctx.createLinearGradient(0, y - size * 0.55, 0, y + size * 0.55);
-      grad.addColorStop(0.0, COLORS.glyphGradient[0]);
-      grad.addColorStop(0.5, COLORS.glyphGradient[1]);
-      grad.addColorStop(1.0, COLORS.glyphGradient[2]);
-      tctx.fillStyle = grad;
+      // Solid fill — only the alpha channel is used (as a glyph mask); the
+      // shader supplies the actual colors (COLORS.glyph / blue / orange).
+      tctx.fillStyle = "#fff";
 
       for (let i = 0; i < text.length; i++) {
         tctx.fillText(text[i], x + widths[i] / 2, y);
@@ -230,7 +254,14 @@
       }
 
       gl!.bindTexture(gl!.TEXTURE_2D, tex);
-      gl!.texImage2D(gl!.TEXTURE_2D, 0, gl!.RGBA, gl!.RGBA, gl!.UNSIGNED_BYTE, tc);
+      gl!.texImage2D(
+        gl!.TEXTURE_2D,
+        0,
+        gl!.RGBA,
+        gl!.RGBA,
+        gl!.UNSIGNED_BYTE,
+        tc,
+      );
     }
 
     function resize() {
@@ -259,7 +290,13 @@
     const T0 = performance.now();
     const perf = () => (performance.now() - T0) / 1000;
 
-    function spawn(uvx: number, uvy: number, vx: number, vy: number, strength: number) {
+    function spawn(
+      uvx: number,
+      uvy: number,
+      vx: number,
+      vy: number,
+      strength: number,
+    ) {
       const i = head;
       meta[i].born = perf();
       meta[i].base = strength;
@@ -272,7 +309,10 @@
 
     function onMove(clientX: number, clientY: number) {
       const t = perf();
-      const uv = { x: clientX / window.innerWidth, y: 1 - clientY / window.innerHeight };
+      const uv = {
+        x: clientX / window.innerWidth,
+        y: 1 - clientY / window.innerHeight,
+      };
       if (last) {
         const dt = Math.max(t - last.t, 1 / 240);
         let vx = (uv.x - last.x) / dt;
