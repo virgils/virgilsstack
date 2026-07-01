@@ -89,16 +89,39 @@
 
   // Cursor-following preview image for any `.hover-image` span (uses its data-img).
   let hoverImg = $state<string | null>(null);
+  // cursorX/Y is the raw mouse target; renderX/Y is the eased position the image
+  // actually draws at, so it trails the cursor with a bit of lag.
   let cursorX = $state(0);
   let cursorY = $state(0);
+  let renderX = $state(0);
+  let renderY = $state(0);
+
+  // Ease the rendered position toward the cursor while a preview is visible.
+  // Higher = snappier, lower = more trail (0..1 per frame).
+  const TRAIL_EASE = 0.16;
+  $effect(() => {
+    if (hoverImg === null) return; // only run the loop while an image is shown
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    let raf = 0;
+    const tick = () => {
+      const k = reduce ? 1 : TRAIL_EASE;
+      renderX += (cursorX - renderX) * k;
+      renderY += (cursorY - renderY) * k;
+      raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  });
 
   function hoverImage(node: HTMLElement) {
     const src = node.dataset.img;
     if (!src) return;
 
     const enter = (e: MouseEvent) => {
-      cursorX = e.clientX;
-      cursorY = e.clientY;
+      // Snap to the cursor on first show so it doesn't fly in from a stale spot;
+      // subsequent moves trail via the lerp loop above.
+      cursorX = renderX = e.clientX;
+      cursorY = renderY = e.clientY;
       hoverImg = src;
     };
     const move = (e: MouseEvent) => {
@@ -288,7 +311,7 @@
     src={hoverImg}
     alt=""
     aria-hidden="true"
-    style="transform: translate({cursorX}px, {cursorY}px) translate(20px, -50%);"
+    style="transform: translate({renderX}px, {renderY}px) translate(20px, -50%);"
     transition:fade={{ duration: 150 }}
   />
 {/if}
