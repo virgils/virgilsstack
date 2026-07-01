@@ -405,7 +405,6 @@
           <p class="t-body error-message">{message}</p>
           <a href="/" class="error-home">Back to work →</a>
         </div>
-        <p class="hint"><span class="arrow">↔</span> drag to disturb</p>
       </div>
     </div>
   </section>
@@ -482,19 +481,6 @@
 
   .error-home:hover {
     color: var(--color-blue);
-  }
-
-  .hint {
-    font-size: var(--fs-meta);
-    letter-spacing: 0.28em;
-    text-transform: uppercase;
-    color: var(--text-tertiary);
-    white-space: nowrap;
-  }
-
-  .arrow {
-    display: inline-block;
-    animation: hint-nudge 2.2s ease-in-out infinite;
   }
 
   @keyframes hint-nudge {
