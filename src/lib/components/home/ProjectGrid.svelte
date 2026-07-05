@@ -31,6 +31,7 @@
   const FADE_MS = 220;
   // $state.raw (not $state) so `displayed` stays reference-equal to the prop —
   // a deep-proxied $state would never === `projects`, causing an endless fade.
+  // svelte-ignore state_referenced_locally -- intentional: only the initial value is wanted here
   let displayed = $state.raw(projects);
   let shown = $state(true);
   let visible = $derived(measured && shown);

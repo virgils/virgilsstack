@@ -483,19 +483,4 @@
     color: var(--color-blue);
   }
 
-  @keyframes hint-nudge {
-    0%,
-    100% {
-      transform: translateX(0);
-    }
-    50% {
-      transform: translateX(5px);
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .arrow {
-      animation: none;
-    }
-  }
 </style>
