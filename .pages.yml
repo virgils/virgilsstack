@@ -1,0 +1,298 @@
+media:
+  input: static/projects
+  output: /projects
+  categories: [image, video]
+
+content:
+  - name: projects
+    label: Projects
+    type: file
+    path: src/lib/projects.json
+    format: json
+    list: true
+    fields:
+      - name: slug
+        label: Slug
+        type: string
+        required: true
+        pattern: "^[a-z0-9-]+$"
+        description: "Used in the URL as /work/<slug>. Lowercase letters, numbers, and hyphens only."
+
+      - name: client
+        label: Client
+        type: string
+        required: true
+
+      - name: project
+        label: Project name
+        type: string
+        required: true
+
+      - name: year
+        label: Year
+        type: string
+        description: "e.g. 2024, or 2020-2026 for a range."
+
+      - name: tags
+        label: Tags
+        type: string
+        list: true
+        description: "Freeform, e.g. product, interactive, brand."
+
+      - name: description
+        label: Description
+        type: rich-text
+        options:
+          format: html
+          media: false
+        description: "Shown as the case-study intro."
+
+      - name: blocked
+        label: Blocked label
+        type: string
+        description: "Leave empty to publish normally. Set to something like \"NDA\" or \"Coming soon\" to gray out the card and disable its link."
+
+      - name: externalUrl
+        label: External URL
+        type: string
+        description: "If set, the project card links out to this URL instead of the case-study page."
+
+      - name: media
+        label: Card thumbnail
+        type: file
+        required: true
+        options:
+          categories: [image, video]
+        description: "Used on the homepage grid."
+
+      - name: mediaType
+        label: Thumbnail type
+        type: select
+        default: image
+        options:
+          values: [image, video]
+
+      - name: mediaRatio
+        label: Thumbnail ratio (auto-generated)
+        type: string
+        readonly: true
+        description: "Written by `npm run media` from the actual file dimensions — don't edit by hand."
+
+      - name: sections
+        label: Sections
+        type: block
+        list: true
+        blockKey: type
+        blocks:
+          - name: intro
+            label: Intro
+            fields:
+              - name: techStack
+                label: Tech stack
+                type: string
+                description: "e.g. React, Tailwind CSS, TypeScript"
+              - name: links
+                label: Links
+                type: object
+                list: true
+                fields:
+                  - name: title
+                    type: string
+                  - name: url
+                    type: string
+              - name: awards
+                label: Awards
+                type: object
+                list: true
+                fields:
+                  - name: year
+                    type: string
+                  - name: title
+                    type: string
+                  - name: category
+                    type: string
+
+          - name: heading
+            label: Heading
+            fields:
+              - name: index
+                label: Index label
+                type: string
+                description: "e.g. 01, 02, or a short word like Campaign."
+              - name: title
+                type: string
+              - name: text
+                type: rich-text
+                options:
+                  format: html
+                  media: false
+
+          - name: text
+            label: Text block
+            fields:
+              - name: text
+                type: rich-text
+                options:
+                  format: html
+                  media: false
+
+          - name: wide-media
+            label: Wide media
+            fields:
+              - name: media
+                type: file
+                required: true
+                options:
+                  categories: [image, video]
+              - name: mediaType
+                type: select
+                default: image
+                options:
+                  values: [image, video, videoplayer]
+              - name: poster
+                label: Poster image
+                type: file
+                options:
+                  categories: [image]
+                description: "Only used when the media type is videoplayer."
+              - name: alt
+                type: string
+              - name: caption
+                type: rich-text
+                options:
+                  format: html
+                  media: false
+              - name: text
+                type: rich-text
+                options:
+                  format: html
+                  media: false
+              - name: contained
+                type: boolean
+                default: false
+                description: "Off = full-bleed, on = inset with padding."
+              - name: collapsed
+                type: boolean
+                default: false
+                description: "Show a shortened version with an expand button, for very tall media."
+              - name: playbackRate
+                label: Playback rate
+                type: number
+                description: "Video playback speed multiplier, e.g. 0.4. Leave empty for normal speed."
+              - name: browser
+                type: boolean
+                default: false
+                description: "Legacy flag, currently has no visual effect."
+              - name: mediaRatio
+                label: Media ratio (auto-generated)
+                type: string
+                readonly: true
+                description: "Written by `npm run media` — don't edit by hand."
+              - name: posterRatio
+                label: Poster ratio (auto-generated)
+                type: string
+                readonly: true
+                description: "Written by `npm run media` — don't edit by hand."
+
+          - name: side-by-side
+            label: Side by side
+            fields:
+              - name: direction
+                type: select
+                default: right
+                options:
+                  values: [left, right]
+                description: "Which side the text appears on."
+              - name: media
+                type: file
+                options:
+                  categories: [image, video]
+              - name: mediaType
+                type: select
+                default: image
+                options:
+                  values: [image, video]
+              - name: alt
+                type: string
+              - name: text
+                type: rich-text
+                options:
+                  format: html
+                  media: false
+              - name: caption
+                type: rich-text
+                options:
+                  format: html
+                  media: false
+              - name: ratio
+                type: select
+                default: "50-50"
+                options:
+                  values: ["50-50", "66-33", "33-66"]
+              - name: mediaRatio
+                label: Media ratio (auto-generated)
+                type: string
+                readonly: true
+                description: "Written by `npm run media` — don't edit by hand."
+
+          - name: gallery
+            label: Gallery
+            fields:
+              - name: columns
+                type: number
+                default: 3
+                options:
+                  min: 2
+                  max: 4
+              - name: caption
+                type: rich-text
+                options:
+                  format: html
+                  media: false
+              - name: modalBackground
+                label: Modal background
+                type: string
+                description: "CSS color, e.g. rgba(0, 0, 0, 0.88)."
+              - name: items
+                type: object
+                list: true
+                fields:
+                  - name: media
+                    type: file
+                    required: true
+                    options:
+                      categories: [image, video]
+                  - name: mediaType
+                    type: select
+                    default: image
+                    options:
+                      values: [image, video]
+                  - name: alt
+                    type: string
+                  - name: caption
+                    type: rich-text
+                    options:
+                      format: html
+                      media: false
+                  - name: mediaRatio
+                    label: Media ratio (auto-generated)
+                    type: string
+                    readonly: true
+                    description: "Written by `npm run media` — don't edit by hand."
+
+          - name: quote
+            label: Pull quote
+            fields:
+              - name: quote
+                type: rich-text
+                options:
+                  format: html
+                  media: false
+              - name: author
+                type: string
+              - name: role
+                type: string
+
+settings:
+  content:
+    merge: true

@@ -270,7 +270,6 @@
         "mediaType": "video",
         "contained": true,
         "caption": "Custom built and restored by DeLorean Midwest",
-        "c": "1280 / 720",
         "playbackRate": 0.4,
         "mediaRatio": "1280 / 720"
       }
@@ -454,9 +453,7 @@
     "project": "Superbowl Takeover",
     "year": "2025",
     "tags": ["brand", "interactive"],
-    "description": [
-      "OpenAI partnered with Dept to create an interactive homepage takeover that introduced generative AI through a playful, Mad Libs-inspired experience. Designed mobile-first, the project combined UX, UI, front-end development, and OpenAI API integration, all delivered within an ambitious two to three week timeline before being implemented by OpenAI's engineering team."
-    ],
+    "description": "OpenAI partnered with Dept to create an interactive homepage takeover that introduced generative AI through a playful, Mad Libs-inspired experience. Designed mobile-first, the project combined UX, UI, front-end development, and OpenAI API integration, all delivered within an ambitious two to three week timeline before being implemented by OpenAI's engineering team.",
     "media": "/projects/openai-superbowl/card.mp4",
     "mediaType": "video",
     "mediaRatio": "500 / 282",
