@@ -43,13 +43,13 @@ You can preview the production build with `npm run preview`.
 
 ## Scripts
 
-| Script | Command | What it does |
-| --- | --- | --- |
-| `dev` | `vite dev` | Start the dev server. |
-| `build` | `vite build` | Production build. |
-| `preview` | `vite preview` | Preview the production build locally. |
-| `media` | `node scripts/process-media.js` | Update media metadata in `projects.json` + `placeholders.json` (see below). |
-| `optimize` | `node scripts/optimize-media.js` | Transcode source files in `static/` to web formats (see below). |
+| Script     | Command                          | What it does                                                                |
+| ---------- | -------------------------------- | --------------------------------------------------------------------------- |
+| `dev`      | `vite dev`                       | Start the dev server.                                                       |
+| `build`    | `vite build`                     | Production build.                                                           |
+| `preview`  | `vite preview`                   | Preview the production build locally.                                       |
+| `media`    | `node scripts/process-media.js`  | Update media metadata in `projects.json` + `placeholders.json` (see below). |
+| `optimize` | `node scripts/optimize-media.js` | Transcode source files in `static/` to web formats (see below).             |
 
 ### Dev server flags
 
@@ -106,6 +106,6 @@ npm run optimize -- --overwrite projects/cracked  # combine: scope + force
 The optional folder argument works the same as for `npm run media` (relative to
 `static/`, leading `static/` tolerated) — it scopes the transcode to one folder.
 
-Requires `ffmpeg` on your PATH for video conversion.
+Requires `ffmpeg` on your PATH for video conversion
 
 > To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
