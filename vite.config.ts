@@ -1,4 +1,4 @@
-import adapter from '@sveltejs/adapter-cloudflare';
+import adapter from '@sveltejs/adapter-node';
 import { sveltekit } from '@sveltejs/kit/vite';
 import { defineConfig } from 'vite';
 
@@ -11,7 +11,7 @@ export default defineConfig({
 					filename.split(/[/\\]/).includes('node_modules') ? undefined : true
 			},
 
-			// Deployed to Cloudflare Workers. See https://svelte.dev/docs/kit/adapter-cloudflare
+			// Deployed to Porter as a container. See https://svelte.dev/docs/kit/adapter-node
 			adapter: adapter()
 		})
 	]
