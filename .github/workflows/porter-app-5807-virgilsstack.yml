@@ -1,7 +1,7 @@
 "on":
     push:
         branches:
-            - main
+            - porter-test
 name: Deploy to virgilsstack
 jobs:
     porter-deploy:
