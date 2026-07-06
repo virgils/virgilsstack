@@ -9,10 +9,7 @@ content:
     type: file
     path: src/lib/projects.json
     format: json
-    list:
-      collapsible:
-        collapsed: true
-        summary: "{fields.slug}"
+    list: true
     fields:
       - name: slug
         label: Slug
