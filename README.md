@@ -39,7 +39,12 @@ npm run build
 
 You can preview the production build with `npm run preview`.
 
-> **Adapter:** set `SVELTEKIT_ADAPTER` at build time — `cloudflare` (default) for Cloudflare Workers, `node` for Porter.run (`npm start` serves the `build/` output).
+> **Adapter:** set `SVELTEKIT_ADAPTER` at build time — `cloudflare` (default) for Cloudflare Workers, `node` for Porter.run.
+>
+> **Porter.run checklist:**
+> - Build command: `npm run build`
+> - Start command: `npm start` (runs `node build/index.js`)
+> - Build env var: `SVELTEKIT_ADAPTER=node`
 
 ## Scripts
 
