@@ -39,7 +39,7 @@ npm run build
 
 You can preview the production build with `npm run preview`.
 
-> Deployed to Cloudflare Workers via `@sveltejs/adapter-cloudflare` (see `wrangler.jsonc`).
+> **Adapter:** set `SVELTEKIT_ADAPTER` at build time — `cloudflare` (default) for Cloudflare Workers, `node` for Porter.run (`npm start` serves the `build/` output).
 
 ## Scripts
 
