@@ -692,7 +692,7 @@
         "media": "/projects/virgin-hyperloop/virgin-hyperloop--commarts02a.jpg",
         "mediaType": "image",
         "contained": true,
-        "text": "A series of interactive Three.js experiences guide users through the core components of the Hyperloop system, helping explain how the technology works through exploration rather than lengthy technical content.",
+        "text": "Developed the UI layer connecting users with a series of interactive Three.js experiences, enabling exploration of the Hyperloop system without relying on lengthy technical content.",
         "mediaRatio": "1586 / 900"
       },
       {
