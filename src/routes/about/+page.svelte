@@ -101,7 +101,9 @@
   const TRAIL_EASE = 0.16;
   $effect(() => {
     if (hoverImg === null) return; // only run the loop while an image is shown
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const reduce = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
     let raf = 0;
     const tick = () => {
       const k = reduce ? 1 : TRAIL_EASE;
@@ -202,9 +204,9 @@
     <div class="list-block">
       <h2 class="list-heading">Awards</h2>
       <ul class="about-list">
-        <li><span>8x Awwwards</span></li>
-        <li><span>9x TheFWA</span></li>
-        <li><span>5x Webby Awards</span></li>
+        <li><span>9x Awwwards</span></li>
+        <li><span>8x TheFWA</span></li>
+        <li><span>2x Webby Awards</span></li>
         <li><span>1x Lovie Awards</span></li>
         <li><span>3x Anthem Awards</span></li>
       </ul>
