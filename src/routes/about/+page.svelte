@@ -24,6 +24,12 @@
 
   const experience: Job[] = [
     {
+      role: "Senior Design Engineer",
+      company: "Rockstar Games",
+      period: "2026–Present",
+      url: "https://rockstargames.com",
+    },
+    {
       role: "Senior Developer",
       company: "Hello Monday",
       period: "2018–2026",
@@ -38,7 +44,7 @@
     {
       role: "Jury Member",
       company: "TheFWA",
-      period: "2017–Present",
+      period: "2017–2025",
       url: "https://thefwa.com",
     },
     {
