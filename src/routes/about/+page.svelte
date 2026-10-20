@@ -199,8 +199,6 @@
       engaging and effective.
     </p>
     <br /><br />
-    <p class="about-bio">Open to new collaborations.</p>
-    <br /><br />
     <a href="mailto:hello@virgilsstack.com" class="about-contact"
       >hello@virgilsstack.com</a
     >
